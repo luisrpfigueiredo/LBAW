@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.6-dist/css/bootstrap.min.css">
-</head>
-<div class="container">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,7 +19,7 @@
   
   <ul class="nav navbar-nav navbar-right">
   <?php
-    include "./loggedInHeader.php";
+    importHeaderRightComponent();
     ?>
     <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
@@ -40,9 +33,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-</div> <!-- /.header container -->
-
-<script type="text/javascript" src="../JQuery 1.11.3/jquery-1.11.3.js"></script>
-<script type="text/javascript" src="../bootstrap-3.3.6-dist/js/bootstrap.min.js"> </script>
 
  
