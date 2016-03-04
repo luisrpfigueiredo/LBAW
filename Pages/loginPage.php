@@ -3,9 +3,7 @@
 </head>
 
 <body>
-<div class="intro-block">
-		//Introducao ao nosso site
-</div>
+
 <div class="login-block">
 	<form id="validationForm" method="POST">
 
@@ -34,10 +32,6 @@
 
 			<div id="message"></div>
 	</form>
-</div>
-
-<div class="news-block">
-	//Noticias, de forma a preencher o site (podem ser estatisticas do site se quisermos, o que for)
 </div>
 
 </body>
