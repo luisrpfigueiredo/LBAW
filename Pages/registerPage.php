@@ -26,4 +26,7 @@
     </div>
 
     <button class = "btn btn-lg btn-primary btn-block" type = "submit">Sign up</button>
+    <div class="form-group">
+        <a href="#"> Forgot Password?</a>
+    </div>
 </form>

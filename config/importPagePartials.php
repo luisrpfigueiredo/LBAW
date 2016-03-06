@@ -24,6 +24,9 @@ function importContent()
         case 'register':
             render('registerPage');
             break;
+        case 'landing':
+            render('landingPage');
+            break;
         case 'login':
             break;
         default:
