@@ -25,6 +25,7 @@ function importContent()
             render('registerPage');
             break;
         case 'login':
+            break;
         default:
             render('loginPage');
     }
