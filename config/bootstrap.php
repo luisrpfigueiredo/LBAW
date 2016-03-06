@@ -13,7 +13,7 @@ function render($fileName)
 
 function isLoggedIn()
 {
-    return isset($_GET['logged']) ? true : false;
+    return isset($_GET['logged']);
 }
 
 require_once './config/importPagePartials.php';
