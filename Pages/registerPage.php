@@ -119,5 +119,6 @@
             $('#email').focus()
         });
     });
+    
 </script>
 <!-- END FORGOT PASSWORD MODAL -->
