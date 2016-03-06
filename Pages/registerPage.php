@@ -11,8 +11,10 @@
 
     <br/>
 
+    <!-- TAB CONTENT -->
     <div class = "tab-content">
 
+        <!-- LOGIN TAB PANEL -->
         <div id = "login" role = "tabpanel" class = "tab-pane active">
             <form class = "form-horizontal">
                 <div class = "form-group">
@@ -34,12 +36,14 @@
                         <button class = "btn btn-primary" type = "submit">Log In</button>
                     </div>
                     <div class = "col-sm-5 text-right">
-                        <a href = "#" class = "small"> Forgot Password?</a>
+                        <a href = "#" class = "small" data-toggle = "modal" data-target = "#forgotPassword"> Forgot Password?</a>
                     </div>
                 </div>
             </form>
         </div>
+        <!-- END LOGIN TAB PANEL -->
 
+        <!-- REGISTER TAB PANEL -->
         <div role = "tabpanel" class = "tab-pane" id = "register">
             <form class = "form-horizontal">
                 <div class = "form-group">
@@ -77,5 +81,43 @@
                 </div>
             </form>
         </div>
+        <!-- END REGSTER TAB PANEL -->
+    </div>
+    <!-- END TAB CONTENT -->
+</div>
+
+<!-- FORGOT PASSWORD MODAL -->
+<div class = "modal fade" id = "forgotPassword" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel">
+    <div class = "modal-dialog" role = "document">
+        <form>
+            <div class = "modal-content">
+                <div class = "modal-header">
+                    <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
+                        <span aria-hidden = "true">&times;</span></button>
+                    <h4 class = "modal-title" id = "exampleModalLabel">Forgot Password?</h4>
+                </div>
+                <div class = "modal-body">
+                    <form>
+                        <div class = "form-group">
+                            <label for = "email" class = "control-label">Email:</label>
+                            <input type = "text" class = "form-control" id = "email" placeholder="Type email address">
+                        </div>
+                    </form>
+                </div>
+                <div class = "modal-footer">
+                    <button type = "button" class = "btn btn-primary">Request</button>
+                    <button type = "button" class = "btn btn-default" data-dismiss = "modal">Close</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
+
+<script type = "text/javascript">
+    $(document).ready(function () {
+        $('#forgotPassword').on('shown.bs.modal', function () {
+            $('#email').focus()
+        });
+    });
+</script>
+<!-- END FORGOT PASSWORD MODAL -->
