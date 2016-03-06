@@ -24,7 +24,11 @@ function importContent()
         case 'register':
             render('registerPage');
             break;
-        case 'login':
+        case 'profile':
+            render('profile');
+            break;
+        case 'question':
+            render('question');
             break;
         default:
             render('loginPage');
