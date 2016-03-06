@@ -21,8 +21,12 @@ function importContent()
     $currentPage = isset($_GET['page']) ? $_GET['page'] : '';
 
     switch ($currentPage) {
-        case 'login':
         case 'register':
+            render('registerPage');
+            break;
+        case 'landing':
+            render('landingPage');
+            break;
         default:
             render('registerPage');
     }
