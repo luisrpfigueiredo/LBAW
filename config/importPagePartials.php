@@ -2,7 +2,7 @@
 
 function importHeader()
 {
-    render('header');
+    renderPartial('header');
 }
 
 function importHeaderRightComponent()
@@ -13,7 +13,7 @@ function importHeaderRightComponent()
         $headerRightContent = 'loggedInHeader';
     }
 
-    render($headerRightContent);
+    renderPartial($headerRightContent);
 }
 
 function importContent()
@@ -21,13 +21,14 @@ function importContent()
     $currentPage = isset($_GET['page']) ? $_GET['page'] : '';
 
     switch ($currentPage) {
-        case 'register':
-            render('registerPage');
+        case 'forgot':
+            render('forgotPassword');
             break;
         case 'landing':
             render('landingPage');
             break;
+        case 'auth':
         default:
-            render('registerPage');
+            render('authenticationPage');
     }
 }

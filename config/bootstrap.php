@@ -13,6 +13,11 @@ function render($fileName)
     include(BASE_PATH . "/Pages/{$fileName}.php");
 }
 
+function renderPartial($fileName)
+{
+    include(BASE_PATH . "/Pages/{$fileName}.partial.php");
+}
+
 function isLoggedIn()
 {
     return isset($_GET['logged']);
