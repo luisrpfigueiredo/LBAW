@@ -27,6 +27,9 @@ function importContent()
         case 'landing':
             render('landingPage');
             break;
+        case 'search':
+            render('searchResults');
+            break;
         default:
             render('registerPage');
     }
