@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("./path.php");
+require_once("./path.php");
 
 function startApp()
 {
@@ -18,4 +18,6 @@ function isLoggedIn()
     return isset($_GET['logged']);
 }
 
+require_once BASE_PATH . "/config/HTML.php";
 require_once BASE_PATH . "/config/importPagePartials.php";
+
