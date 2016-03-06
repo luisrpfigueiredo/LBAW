@@ -1,9 +1,3 @@
-<html>
-<head>
-</head>
-
-<body>
-
 <div class="login-block">
 	<form id="validationForm" method="POST">
 
@@ -33,6 +27,3 @@
 			<div id="message"></div>
 	</form>
 </div>
-
-</body>
-</html>
