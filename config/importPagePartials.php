@@ -24,11 +24,17 @@ function importContent()
         case 'forgot':
             render('forgotPassword');
             break;
+        case 'search':
+            render('searchResults');
+            break;
+        case 'auth':
+            render('authenticationPage');
+            break;
         case 'landing':
             render('landingPage');
             break;
-        case 'auth':
         default:
-            render('authenticationPage');
+            render('landingPage');
+            break;
     }
 }
