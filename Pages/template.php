@@ -8,15 +8,13 @@
     <?= HTML::script('bootstrap.min.js') ?>
 </head>
 <body>
-<div class = "container">
 
     <?php
-
-    importHeader();
-
-    importContent();
+        importHeader();
     ?>
-
-</div>
+    
+    <?php
+        importContent();
+    ?>
 </body>
 </html>
