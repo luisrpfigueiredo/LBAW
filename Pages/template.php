@@ -5,16 +5,14 @@
     <?= HTML::style('css/bootstrap.min.css'); ?>
 </head>
 <body>
-<div class = "container">
 
     <?php
-
-    importHeader();
-
-    importContent();
+        importHeader();
     ?>
 
-</div>
+    <?php
+        importContent();
+    ?>
 
 <?= HTML::script('jquery-2.2.1.min.js') ?>
 <?= HTML::script('bootstrap.min.js') ?>
