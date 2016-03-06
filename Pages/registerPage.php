@@ -1,7 +1,7 @@
 <form class = "col-sm-offset-3 col-sm-6">
-    <ul id="FormType">
-        <li id="LoginButton" value="Log In" class="btn btn-default">
-        <li id="RegisterButton" value="Register" class="btn btn-default">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#">Log In</a></li>
+        <li><a href="#">Register</a></li>
     </ul>
     <h2 class="text-center">Please Sign up</h2>
 
