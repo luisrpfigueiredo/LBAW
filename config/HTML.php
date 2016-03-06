@@ -11,7 +11,7 @@ class HTML
     {
         $format = '<link rel = "stylesheet" type = "text/css" href = "%s" >';
 
-        return sprintf($format, self::asset('styles/' . $relativePath));
+        return sprintf($format, self::urlFile('styles/' . $relativePath));
     }
 
     /**
@@ -22,14 +22,14 @@ class HTML
     {
         $format = '<script type = "text/javascript" src = "%s" ></script>';
 
-        return sprintf($format, self::asset('scripts/' . $relativePath));
+        return sprintf($format, self::urlFile('scripts/' . $relativePath));
     }
 
     /**
      * @param $relativePath Relative path from styles directory
      * @return string
      */
-    public static function asset($relativePath)
+    public static function urlFile($relativePath)
     {
         return trim(BASE_URL, '/') . '/' . trim($relativePath, '/');
     }
@@ -41,7 +41,7 @@ class HTML
  * @param $file
  * @return string
  */
-function asset($file)
+function resource($file)
 {
-    return HTML::asset('images/' . $file);
+    return HTML::urlFile('resources/' . $file);
 }
