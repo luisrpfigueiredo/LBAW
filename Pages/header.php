@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#" style="padding: 0">
-        <img src="../Resources/logo.png" height="100%">
+        <img src="<?= loadResource("Resources/logo.png") ?>" height="100%">
       </a>
     </div>
 

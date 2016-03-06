@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include("./path.php");
+
 function startApp()
 {
     render('template');
@@ -8,7 +10,7 @@ function startApp()
 
 function render($fileName)
 {
-    include("./Pages/{$fileName}.php");
+    include(BASE_PATH . "/Pages/{$fileName}.php");
 }
 
 function isLoggedIn()
@@ -16,4 +18,4 @@ function isLoggedIn()
     return isset($_GET['logged']);
 }
 
-require_once './config/importPagePartials.php';
+require_once BASE_PATH . "/config/importPagePartials.php";
