@@ -16,7 +16,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="text-center col-sm-3"><a href="#">Tidder <span class="sr-only">(current)</span></a></li>
+        <li class="text-center"><a href="#">Tidder <span class="sr-only">(current)</span></a></li>
       </ul>
   
   <ul class="nav navbar-nav navbar-right">
@@ -25,9 +25,9 @@
     ?>
     <form class="navbar-form navbar-left" role="search">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control navbar-search" placeholder="Search">
         </div>
-        <button type="submit" class="btn btn-default">
+        <button type="submit" class="btn btn-primary">
           <span class="glyphicon glyphicon-search"></span>
         </button>
       </form>
