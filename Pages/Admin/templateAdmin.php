@@ -10,11 +10,12 @@
 
 </head>
 <body>
+    <div class = "container">
+        <?php render('header'); ?>
 
-    <?php importHeader(); ?>
+        <?php importContent(); ?>
 
-    <?php importContent(); ?>
-
-    <?php importNotifications(); ?>
+        <?php importNotifications(); ?>
+    </div>
 </body>
 </html>

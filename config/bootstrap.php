@@ -12,12 +12,11 @@ function render($fileName, $vars = [])
 {
     extract($vars);
 
-    include(BASE_PATH . "/Pages/{$fileName}.php");
-}
-
-function renderPartial($fileName)
-{
-    include(BASE_PATH . "/Pages/{$fileName}.partial.php");
+    if (file_exists(BASE_PATH . "/Pages/{$fileName}.php")) {
+        include(BASE_PATH . "/Pages/{$fileName}.php");
+    } else {
+        include(BASE_PATH . "/Pages/{$fileName}.partial.php");
+    }
 }
 
 function isLoggedIn()

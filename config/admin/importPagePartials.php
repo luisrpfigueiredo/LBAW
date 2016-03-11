@@ -5,36 +5,14 @@ function importHeader()
     render('header');
 }
 
-function importHeaderRightComponent()
-{
-    $headerRightContent = 'loggedOutHeader';
-
-    if (isLoggedIn()) {
-        $headerRightContent = 'loggedInHeader';
-    }
-
-    render($headerRightContent);
-}
-
 function importContent()
 {
     $currentPage = isset($_GET['page']) ? $_GET['page'] : '';
 
     switch ($currentPage) {
-        case 'forgot':
-            render('forgotPassword');
-            break;
-        case 'search':
-            render('searchResults');
-            break;
-        case 'auth':
-            render('authenticationPage');
-            break;
-        case 'landing':
-            render('landingPage');
+        case 'overview':
             break;
         default:
-            render('landingPage');
             break;
     }
 }
