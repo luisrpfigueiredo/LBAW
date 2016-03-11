@@ -38,3 +38,14 @@ function importContent()
             break;
     }
 }
+
+function importNotifications()
+{
+    $notification = isset($_GET['notification']) ? $_GET['notification'] : null;
+    $availableNotifications = ['success', 'danger', 'info', 'warning'];
+
+    if($notification) {
+        if(in_array($notification, $availableNotifications))
+            render('notification', ['type' => $notification]);
+    }
+}

@@ -1,6 +1,6 @@
 <div class = "col-sm-8 col-sm-offset-2">
     <!-- PANEL START -->
-    <div class = "panel panel-default">
+    <div class = "panel panel-primary">
         <div class = "panel-body">
 
             <!-- TABS START -->

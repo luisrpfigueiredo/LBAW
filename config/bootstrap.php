@@ -8,8 +8,10 @@ function startApp()
     render('template');
 }
 
-function render($fileName)
+function render($fileName, $vars = [])
 {
+    extract($vars);
+
     include(BASE_PATH . "/Pages/{$fileName}.php");
 }
 
