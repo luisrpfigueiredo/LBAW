@@ -1,85 +1,76 @@
-<?= HTML::style("css/landing-page.css") ?>
+<div class="col-sm-8 col-sm-offset-2">
+    <!-- PANEL START -->
+    <div class="panel panel-primary">
+        <div class="panel-body">
 
-<div class = "intro-header">
-    <div class = "row">
-        <div class = "col-lg-12">
-            <div class = "intro-message">
-                <h1>Tidder</h1>
-                <hr class = "intro-divider">
-                <ul class = "list-inline intro-social-buttons">
-                    <li>
-                        <a href = "https://fe.up.pt/" class = "btn btn-default btn-lg"><i class = "fa fa-twitter fa-fw"></i>
-                            <span class = "network-name">FEUP</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+            <!-- TABS START -->
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#hottest" aria-controls="hottest" role="tab" data-toggle="tab">Hottest Questions</a>
+                </li>
+                <li>
+                    <a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Recent Questions</a>
+                </li>
+            </ul>
 
-<div class = "container">
-    <div class = "panel">
-        <div class = "panel-heading">Hottest Questions</div>
-        <div class = "panel-body">
-            <div class = "row">
-                <div class = "col-sm-12">
-                    <ul>
-                        <div class = "thumbnail">
-                            <div class = "caption">
-                                <h3>Link to Question 1</h3>
-                                <p>Description</p>
-                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
-                            </div>
+            <br>
+
+            <div class="tab-content">
+
+                <!-- Hottest tab -->
+                <div id="hottest" role="tabpanel" class="tab-pane active">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Link to Question 1</h3>
+                            <p>Description</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
                         </div>
-                        <div class = "thumbnail">
-                            <div class = "caption">
-                                <h3>Link to Question 1</h3>
-                                <p>Description</p>
-                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
-                            </div>
+                    </div>
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Link to Question 2</h3>
+                            <p>Description</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
                         </div>
-                        <div class = "thumbnail">
-                            <div class = "caption">
-                                <h3>Link to Question 1</h3>
-                                <p>Description</p>
-                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
-                            </div>
+                    </div>
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Link to Question 3</h3>
+                            <p>Description</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
                         </div>
-                    </ul>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class = "panel">
-        <div class = "panel-heading">Recent Questions</div>
-        <div class = "panel-body">
-            <div class = "row">
-                <div class = "col-sm-12">
-                    <ul>
-                        <div class = "thumbnail">
-                            <div class = "caption">
-                                <h3>Link to Question 1</h3>
-                                <p>Description</p>
-                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
-                            </div>
+                <!-- End hottest tab -->
+
+                <!-- Recent tab -->
+                <div id="recent" role="tabpanel" class="tab-pane">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Link to Question 1 Recent</h3>
+                            <p>Description</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
                         </div>
-                        <div class = "thumbnail">
-                            <div class = "caption">
-                                <h3>Link to Question 1</h3>
-                                <p>Description</p>
-                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
-                            </div>
+                    </div>
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Link to Question 2</h3>
+                            <p>Description</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
                         </div>
-                        <div class = "thumbnail">
-                            <div class = "caption">
-                                <h3>Link to Question 1</h3>
-                                <p>Description</p>
-                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
-                            </div>
+                    </div>
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>Link to Question 3</h3>
+                            <p>Description</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
                         </div>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- End recent tab -->
