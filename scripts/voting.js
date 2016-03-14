@@ -1,3 +1,7 @@
+
+
+
+
 function voting(){
   $(".increment").click(function(){
     var count = parseInt($("~ .count", this).text());

@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <link rel = "stylesheet" type = "text/css" href = "<?= loadResource('bootstrap-3.3.6-dist/css/bootstrap.min.css')?> " >
+    <title>LBAW</title>
+    <?= HTML::style('css/bootstrap.min.css') ?>
+    <?= HTML::style('css/bootstrap-changes.css') ?>
+
+    <?= HTML::script('jquery-2.2.1.min.js') ?>
+    <?= HTML::script('bootstrap.min.js') ?>
+
 </head>
 <body>
-<div class = "container">
 
-    <?php
+    <?php importHeader(); ?>
+    
+    <?php importContent(); ?>
 
-    importHeader();
-
-    importContent();
-    ?>
-
-</div>
-
-<script type = "text/javascript" src = "<?= loadResource("JQuery 1.11.3/jquery-1.11.3.js") ?>" ></script>
-<script type = "text/javascript" src = "<?= loadResource("bootstrap-3.3.6-dist/js/bootstrap.min.js") ?>" ></script>
+    <?php importNotifications(); ?>
 </body>
 </html>
