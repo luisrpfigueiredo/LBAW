@@ -38,10 +38,12 @@
 
                         <div class = "form-group">
                             <div class = "col-sm-3 col-sm-offset-3">
-                                <button class = "btn btn-primary" type = "submit">Log In</button>
+                                <a href = "?logged&notification=success">
+                                    <button class = "btn btn-primary" type = "button">Log In</button>
+                                </a>
                             </div>
                             <div class = "col-sm-5 text-right">
-                                <a href = "#" class = "small" data-toggle = "modal" data-target = "#forgotPassword"> Forgot Password?</a>
+                                <a href = "" class = "small" data-toggle = "modal" data-target = "#forgotPassword"> Forgot Password?</a>
                             </div>
                         </div>
                     </form>
@@ -81,7 +83,9 @@
 
                         <div class = "form-group">
                             <div class = "col-sm-3 col-sm-offset-3">
-                                <button class = "btn btn-primary" type = "submit">Register</button>
+                                <a href = "?page=auth&notification=success">
+                                    <button class = "btn btn-primary" type = "button">Register</button>
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -112,7 +116,7 @@
                     </form>
                 </div>
                 <div class = "modal-footer">
-                    <button type = "button" class = "btn btn-primary">Request</button>
+                    <a href="?page=forgot" ><button type = "button" class = "btn btn-primary">Request</button></a>
                     <button type = "button" class = "btn btn-default" data-dismiss = "modal">Close</button>
                 </div>
             </div>

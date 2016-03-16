@@ -28,21 +28,21 @@
                             <div class = "caption">
                                 <h3>Link to Question 1</h3>
                                 <p>Description</p>
-                                <p><a href = "?page=question" class = "btn btn-primary" role = "button">Go</a></p>
+                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
                             </div>
                         </div>
                         <div class = "thumbnail">
                             <div class = "caption">
                                 <h3>Link to Question 1</h3>
                                 <p>Description</p>
-                                <p><a href = "?page=question" class = "btn btn-primary" role = "button">Go</a></p>
+                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
                             </div>
                         </div>
                         <div class = "thumbnail">
                             <div class = "caption">
                                 <h3>Link to Question 1</h3>
                                 <p>Description</p>
-                                <p><a href = "?page=question" class = "btn btn-primary" role = "button">Go</a></p>
+                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
                             </div>
                         </div>
                     </ul>
@@ -60,21 +60,21 @@
                             <div class = "caption">
                                 <h3>Link to Question 1</h3>
                                 <p>Description</p>
-                                <p><a href = "?page=question" class = "btn btn-primary" role = "button">Go</a></p>
+                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
                             </div>
                         </div>
                         <div class = "thumbnail">
                             <div class = "caption">
                                 <h3>Link to Question 1</h3>
                                 <p>Description</p>
-                                <p><a href = "?page=question" class = "btn btn-primary" role = "button">Go</a></p>
+                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
                             </div>
                         </div>
                         <div class = "thumbnail">
                             <div class = "caption">
                                 <h3>Link to Question 1</h3>
                                 <p>Description</p>
-                                <p><a href = "?page=question" class = "btn btn-primary" role = "button">Go</a></p>
+                                <p><a href = "#" class = "btn btn-primary" role = "button">Go</a></p>
                             </div>
                         </div>
                     </ul>

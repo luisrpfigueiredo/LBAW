@@ -7,10 +7,10 @@ function importHeader()
 
 function importHeaderRightComponent()
 {
-    $headerRightContent = 'loggedOutHeader';
+    $headerRightContent = 'guestHeader';
 
     if (isLoggedIn()) {
-        $headerRightContent = 'loggedInHeader';
+        $headerRightContent = 'authHeader';
     }
 
     render($headerRightContent);
