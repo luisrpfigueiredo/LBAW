@@ -1,4 +1,5 @@
 <nav class = "navbar navbar-default">
+    <div class="container">
     <div class = "container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class = "navbar-header">
@@ -29,7 +30,7 @@
                         <input type = "text" class = "form-control navbar-search" placeholder = "Search">
                     </div>
                     <a href = "?page=search">
-                        <button type = "button" class = "btn btn-default">
+                        <button type = "button" class = "search-submit">
                             <span class = "glyphicon glyphicon-search"></span>
                         </button>
                     </a>
@@ -37,6 +38,7 @@
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
+    </div>
 </nav>
 
  

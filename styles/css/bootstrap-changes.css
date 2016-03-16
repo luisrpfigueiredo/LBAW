@@ -40,6 +40,15 @@
     outline-color: transparent;
     outline-style: none;
 }
+
+.navbar .search-submit {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    line-height: 0.5em;
+
+}
 .navbar .navbar-search:active, .navbar .navbar-search:focus {
     border-bottom:1px solid #3498db;
 }
@@ -54,12 +63,22 @@
 .navbar-default .navbar-text {
     color: #ffffff;
 }
+
+.navbar-default .navbar-nav > li {
+    margin: 0;
+    height: 100%;
+ }
 .navbar-default .navbar-nav > li > a {
     color: #ffffff;
+    padding: 0 9px;
+    line-height: 35px;
+    margin: 7.5px 3.5px;
+    border-radius: 2px;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
     color: #ffffff;
+    background-color: #3498db;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
