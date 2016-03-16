@@ -173,8 +173,7 @@ body {
     -webkit-box-shadow: 0 0 5px #dedede;
     -moz-box-shadow: 0 0 5px #dedede;
     box-shadow: 0 0 5px #dedede;
-
-    padding: 10px;
+    padding: .5em 2em;
 }
 
 p.question-description {
