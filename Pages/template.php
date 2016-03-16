@@ -16,5 +16,7 @@
     <?php importContent(); ?>
 
     <?php importNotifications(); ?>
+
+    <br class="clearfix">
 </body>
 </html>
