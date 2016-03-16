@@ -40,8 +40,10 @@
             <div class = "row">
                 <div class = "col-sm-6">
                     <div class = "col-sm-12 question">
-                        <h3>Question 1</h3>
-                        <p class = "question-description">Alcatra ham spare ribs doner porchetta t-bone biltong bacon. Leberkas ball tip turkey swine. Landjaeger chuck doner alcatra, pancetta bresaola strip steak frankfurter shank kevin turducken. Hamburger tongue shankle cow andouille, kielbasa shoulder meatloaf venison doner.</p>
+                        <h3>Check JS variable for both not null and true</h3>
+                        <p class = "question-description">
+                            What is the best way to check if a javascript variable is both not null and true?<br>
+                        </p>
 
                         <div class = "statistics">
                         <span class="text-danger">
@@ -66,8 +68,8 @@
 
                 <div class = "col-sm-6">
                     <div class = "col-sm-12 question">
-                        <h3>Question 1</h3>
-                        <p class = "question-description">Alcatra ham spare ribs doner porchetta t-bone biltong bacon. Leberkas ball tip turkey swine. Landjaeger chuck doner alcatra, pancetta bresaola strip steak frankfurter shank kevin turducken. Hamburger tongue shankle cow andouille, kielbasa shoulder meatloaf venison doner.</p>
+                        <h3>twitter bootstrap grid system. Spacing between columns</h3>
+                        <p class = "question-description">Im sure there is a simple solution to this problem. Basically if I have two columns how can i add a space between them.</p>
 
                         <div class = "statistics">
                         <span class="text-success">

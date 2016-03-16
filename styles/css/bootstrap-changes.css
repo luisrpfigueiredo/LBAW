@@ -187,6 +187,9 @@ div.statistics {
 div.statistics span {
     margin-left: 1em;
 }
+div.statistics span:first-child {
+    margin-left: 0;
+}
 .text-star {
     color: #dfaa63;
 }
