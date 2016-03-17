@@ -19,7 +19,7 @@
 
 <div class = "container">
 
-    <ul class = "nav nav-tabs">
+    <ul class = "nav nav-tabs" id="questions">
         <li class = "active">
             <a href = "#latest" aria-controls = "latest" role = "tab" data-toggle = "tab">Latest Questions</a>
         </li>
