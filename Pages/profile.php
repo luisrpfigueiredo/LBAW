@@ -26,6 +26,43 @@
 </div>
 
 
+<div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">My Questions</h3>
+        </div>
+        
+
+
+<div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul>
+                        <div class="thumbnail">
+                            <div class="caption">
+                            <p align="right"><a href="#"><span class="badge">42</span></a></p>
+                               <a href="#"> <h3>Question 1</h3> </a>
+                                <p>Description</p>
+                            </div>
+                        </div>
+                        <div class="thumbnail">
+                            <div class="caption">
+                            <p align="right"><a href="#"><span class="badge">42</span></a></p>
+                                <a href="#"> <h3>Question 2</h3> </a>
+                                <p>Description</p>
+                            </div>
+                        </div>
+                        <div class="thumbnail">
+                            <div class="caption">
+                            <p align="right"><a href="#"><span class="badge">42</span></a></p>
+                                <a href="#"> <h3>Question 3</h3> </a>
+                                <p>Description</p>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
