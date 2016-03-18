@@ -11,6 +11,7 @@ function importContent()
 
     switch ($currentPage) {
         case 'overview':
+            render('overview');
             break;
         default:
             break;

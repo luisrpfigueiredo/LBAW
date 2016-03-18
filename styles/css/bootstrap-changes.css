@@ -1,3 +1,4 @@
+/** ALERT OVERWRITE */
 .alert {
     position: absolute;
     top: 2em;
@@ -5,3 +6,260 @@
     z-index: 100;
     width: 30em;
 }
+
+/** END ALERT OVERWRITE */
+
+.break-word {
+    word-wrap: break-word;
+}
+
+/** NAVBAR OVERWRITE */
+.navbar-default {
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    background-color: #2f3239;
+    border-color: #3498db;
+    border-bottom: 5px solid #3498db;
+}
+
+.navbar-default .navbar-header {
+    margin-left: 1em;
+}
+
+.navbar .navbar-search {
+    color: white;
+    background: transparent;
+    text-align: right;
+    border: none;
+    border-radius: 0;
+    max-width: 10em;
+
+    box-shadow: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    outline-width: 0;
+    outline: none;
+    outline-color: transparent;
+    outline-style: none;
+}
+
+.navbar .search-submit {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    line-height: 0.5em;
+
+}
+
+.navbar .navbar-search:active, .navbar .navbar-search:focus {
+    border-bottom: 1px solid #3498db;
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-text {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li {
+    margin: 0;
+    height: 100%;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #dddddd;
+    padding: 0 9px;
+    line-height: 35px;
+    margin: 7.5px 3.5px;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+}
+
+/* Effect 21: borders slight translate */
+.cl-effect-21 a {
+    padding: 10px;
+    color: #237546;
+    font-weight: 700;
+    text-shadow: none;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    transition: color 0.3s;
+}
+
+.cl-effect-21 a::before,
+.cl-effect-21 a::after {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+
+.cl-effect-21 a::before {
+    top: 0;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+
+.cl-effect-21 a::after {
+    bottom: 0;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+}
+
+.cl-effect-21 a:hover,
+.cl-effect-21 a:focus,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover {
+    color: #fff;
+}
+
+.cl-effect-21 a:hover::before,
+.cl-effect-21 a:focus::before,
+.cl-effect-21 a:hover::after,
+.cl-effect-21 a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+.navbar-default .navbar-nav > .active > a {
+    -webkit-box-shadow: inset 0px 2.25px 0px 0px #fff, inset 0px -1.8px 0px 0px #fff;
+    -moz-box-shadow: inset 0px 2.25px 0px 0px #fff, inset 0px -1.8px 0px 0px #fff;
+    box-shadow: inset 0px 2.25px 0px 0px #fff, inset 0px -1.8px 0px 0px #fff;
+
+}
+
+.cl-effect-21.active a,
+.cl-effect-21.active a::before,
+.cl-effect-21.active a::after{
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    /*CSS transforms*/
+    -o-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    /*CSS animations*/
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+}
+
+.navbar-default .navbar-nav > .active > a {
+    /*color: #ffffff;
+    border-bottom: 2px solid white;
+    border-top: 2px solid white;*/
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    background-color: #3498db;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #3498db;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #3498db;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #ffffff;
+}
+
+.navbar-default .navbar-link {
+    color: #ffffff;
+}
+
+.navbar-default .navbar-link:hover {
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: #ffffff;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #ffffff;
+    }
+
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #ffffff;
+        background-color: #3498db;
+    }
+}
+
+/** END NAVBAR OVERWRITE */
+
+/** NAV-TABS */
+.nav-tabs {
+    border-bottom-width: 2px;
+    border-bottom-color: #3498db;
+}
+
+.nav-tabs > li > a, .nav-tabs > li > a:hover {
+    color: #2f3239;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 2px;
+    border-bottom-color: #3498db;
+    border-radius: 0;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    border: 0;
+    border-bottom: 2px;
+    color: white;
+    background-color: #3498db;
+    border-radius: 0;
+}
+
+/** END NAV-TABS */

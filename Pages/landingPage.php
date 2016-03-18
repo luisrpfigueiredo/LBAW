@@ -1,76 +1,34 @@
-<div class="col-sm-8 col-sm-offset-2">
-    <!-- PANEL START -->
-    <div class="panel panel-primary">
-        <div class="panel-body">
+<?= HTML::style("css/landing-page.css") ?>
 
-            <!-- TABS START -->
-            <ul class="nav nav-tabs">
-                <li class="active">
-                    <a href="#hottest" aria-controls="hottest" role="tab" data-toggle="tab">Hottest Questions</a>
-                </li>
-                <li>
-                    <a href="#recent" aria-controls="recent" role="tab" data-toggle="tab">Recent Questions</a>
-                </li>
-            </ul>
-
-            <br>
-
-            <div class="tab-content">
-
-                <!-- Hottest tab -->
-                <div id="hottest" role="tabpanel" class="tab-pane active">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Link to Question 1</h3>
-                            <p>Description</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
-                        </div>
-                    </div>
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Link to Question 2</h3>
-                            <p>Description</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
-                        </div>
-                    </div>
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Link to Question 3</h3>
-                            <p>Description</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End hottest tab -->
-
-                <!-- Recent tab -->
-                <div id="recent" role="tabpanel" class="tab-pane">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Link to Question 1 Recent</h3>
-                            <p>Description</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
-                        </div>
-                    </div>
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Link to Question 2</h3>
-                            <p>Description</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
-                        </div>
-                    </div>
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Link to Question 3</h3>
-                            <p>Description</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Go</a></p>
-                        </div>
-                    </div>
-                </div>
+<div class = "intro-header">
+    <div class = "row" style="margin: 0 auto">
+        <div class = "col-lg-12">
+            <div class = "overlay"></div>
+            <div class = "intro-message">
+                <h1>Tidder</h1>
+                <p>You ask, we answer!</p>
+                <hr class = "intro-divider">
+                <ul class = "list-inline intro-social-buttons">
+                    <li>
+                        <a href = "?page=about" class = "btn btn-warning btn-lg">
+                            <span class = "network-name">About Us</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href = "?page=auth" class = "btn btn-success btn-lg">
+                            <span class = "network-name">Join Us</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href = "https://fe.up.pt/" class = "btn btn-danger btn-lg" target = "_blank"><i class = "fa fa-twitter fa-fw"></i>
+                            <span class = "network-name">@FEUP</span></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
-
-<!-- End recent tab -->
+<div class="container">
+<?php render('questions') ?>
+</div>

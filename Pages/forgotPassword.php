@@ -23,7 +23,9 @@
 
                 <div class = "form-group">
                     <div class = "col-sm-4 col-sm-offset-4">
-                        <button class = "btn btn-primary" type = "submit">Change Password</button>
+                        <a href="?page=auth&notification=success">
+                        <button class = "btn btn-primary" type = "button">Change Password</button>
+                        </a>
                     </div>
                 </div>
             </form>
