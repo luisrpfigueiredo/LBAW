@@ -19,7 +19,7 @@
         <div class = "tab-content">
 
             <!-- LOGIN TAB PANEL -->
-            <div id = "login" role = "tabpanel" class = "tab-pane active white">
+            <div id = "login" role = "tabpanel" class = "tab-pane active container-white">
                 <form class = "form-horizontal">
                     <div class = "form-group">
                         <label for = "email" class = "col-sm-3 control-label">Email</label>
@@ -50,7 +50,7 @@
             <!-- END LOGIN TAB PANEL -->
 
             <!-- REGISTER TAB PANEL -->
-            <div role = "tabpanel" class = "tab-pane white" id = "register">
+            <div role = "tabpanel" class = "tab-pane container-white" id = "register">
                 <form class = "form-horizontal">
                     <div class = "form-group">
                         <label for = "email" class = "col-sm-3 control-label">Email</label>

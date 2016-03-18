@@ -132,3 +132,11 @@
   box-sizing: border-box;
 }
 
+blockquote.vote-up-down {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+blockquote.vote-up-down>div {
+  display: inline-block;
+}
