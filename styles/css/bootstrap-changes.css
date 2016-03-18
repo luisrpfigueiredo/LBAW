@@ -263,3 +263,7 @@
 }
 
 /** END NAV-TABS */
+
+.breadcrumb {
+    background-color: transparent;
+}
