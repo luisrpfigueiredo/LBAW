@@ -267,3 +267,33 @@
 .breadcrumb {
     background-color: transparent;
 }
+
+.panel-default {
+    background-color: transparent;
+    border: 0;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.panel-default .panel-body {
+    background-color: white;
+    -webkit-box-shadow: 0 0 5px #dedede;
+    -moz-box-shadow: 0 0 5px #dedede;
+    box-shadow: 0 0 5px #dedede;
+}
+.panel-default>.panel-heading {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 3px solid #3498DB;
+    padding: 0;
+}
+.panel-default>.panel-heading>h1,
+.panel-default>.panel-heading>h2,
+.panel-default>.panel-heading>h3 {
+    display: inline-block;
+    padding: 10px 15px;
+    color: white;
+    background-color: #3498db;
+    border-radius: 0;
+}
