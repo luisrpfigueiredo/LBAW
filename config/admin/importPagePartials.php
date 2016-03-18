@@ -13,18 +13,14 @@ function importContent()
         case 'overview':
             render('overview');
             break;
-        case 'users':
-            render('manageUsers');
-            break;
-        case 'questions':
-            render('manageQuestions');
-            break;
-        case 'answers':
-            render('manageAnswers');
+        case 'manage':
+            render('manageSelection');
             break;
         default:
+            render('overview');
             break;
     }
+
 }
 
 function importNotifications()
@@ -37,5 +33,13 @@ function importNotifications()
             render('notification', ['type' => $notification]);
     }
 }
-
-
+function importTableHead(){
+    $manage = isset($_GET['manage']) ? $_GET['manage'] : '';
+        render("{$manage}Head");
+}
+function importManagement(){
+    $manage = isset($_GET['manage']) ? $_GET['manage'] : '';
+    for($i = 0; $i < 100; $i++){
+        render("{$manage}Management");
+    }
+}
