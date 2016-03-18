@@ -13,6 +13,15 @@ function importContent()
         case 'overview':
             render('overview');
             break;
+        case 'users':
+            render('manageUsers');
+            break;
+        case 'questions':
+            render('manageQuestions');
+            break;
+        case 'answers':
+            render('manageAnswers');
+            break;
         default:
             break;
     }
@@ -28,3 +37,5 @@ function importNotifications()
             render('notification', ['type' => $notification]);
     }
 }
+
+

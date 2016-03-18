@@ -1,20 +1,20 @@
 <div class="container">
-    <div class="col-md-2"></div>
-    <div class="col-md-3" text-center>
-        <a id="manageUsers" name="manageUsersButton" class="btn btn-primary" href="#">Manage Users</a>
+    <div class="col-md-5"></div>
+    <div class="col-md-1" text-center>
+        <a id="overview" name="overviewButton" class="btn btn-primary" href="#">Back to Overview</a>
     </div>
-    <div class="col-md-3" text-center>
-        <a id="manageQuestions" name="manageQuestionsButton" class="btn btn-primary" href="#">Manage Questions</a>
-    </div>
-    <div class="col-md-3" text-center>
-        <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="#">Manage Answers</a>
-    </div>
-    <br><br><br>
-    <h2>Site Statistics</h2>
+    <br><br>
+    <h2>Users</h2>
     <table class="table table-bordered table-responsive table-compact">
         <tbody>
         <tr>
-            <td>Total Users</td>
+            <td>User 1</td>
+            <td>42</td>
+            <td>42</td>
+            <td>42</td>
+            <td>42</td>
+            <td>42</td>
+            <td>42</td>
             <td>42</td>
         </tr>
         <tr>
