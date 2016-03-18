@@ -100,3 +100,16 @@ h1.results {
     box-shadow: none !important;
     border-left: 3px solid #3498DB;
 }
+.question-details-panel {
+    background: transparent !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+
+}
+.question-details-panel .container-white {
+    margin-bottom: 2em;
+}
+.question-details-panel .answer {
+    margin-left: 2em;
+}
