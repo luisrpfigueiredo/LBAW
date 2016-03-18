@@ -10,7 +10,7 @@
                 <a href = "#login" aria-controls = "login" role = "tab" data-toggle = "tab">Log In</a>
             </li>
             <li>
-                <a href = "#register" aria-controls = "register" role = "tab" data-toggle = "tab">Register</a>
+                <a href = "#register" aria-controls = "register" role = "tab" data-toggle = "tab">Sign Up</a>
             </li>
         </ul>
         <!-- END TABS -->
@@ -83,7 +83,7 @@
                     <div class = "form-group">
                         <div class = "col-sm-3 col-sm-offset-3">
                             <a href = "?page=auth&notification=success">
-                                <button class = "btn btn-primary" type = "button">Register</button>
+                                <button class = "btn btn-primary" type = "button">Sign Up</button>
                             </a>
                         </div>
                     </div>
