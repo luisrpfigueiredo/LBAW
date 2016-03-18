@@ -36,6 +36,12 @@ function importContent()
         case 'auth':
             render('authenticationPage');
             break;
+        case 'about':
+            render('about');
+            break;
+        case 'questions':
+            render('questionsPage');
+            break;
         default:
             render('landingPage');
             break;
