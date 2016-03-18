@@ -3,7 +3,7 @@
 <div class = "container">
     <?php render('breadcrumb') ?>
 
-    <h1 class="search-results">Search results for: "JS"</h1>
+    <h1 class="search-results">Search results for: "<span class="search-string">JS</span>"</h1>
 
     <div class = "question-search">
 
