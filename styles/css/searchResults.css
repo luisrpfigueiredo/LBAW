@@ -13,3 +13,17 @@
     height: 1.2em;
     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 }
+
+.question-search > div {
+    margin-bottom: 1em;
+}
+
+h1.search-results {
+    margin-top: 0.2em;
+    margin-bottom: 0.8em;
+    font-size: 2em;
+}
+
+h1.search-results > span.search-string {
+    color: #848991;
+}

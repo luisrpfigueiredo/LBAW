@@ -1,3 +1,4 @@
-        <li class="active"><a href="?page=auth">Log In</a></li>
-        <li><a href="?page=auth">Register</a></li>
+        <li class="active cl-effect-21"><a href="?page=questions">Questions</a></li>
+        <li class="cl-effect-21"><a href="?page=about">About Us</a></li>
+        <li class="cl-effect-21"><a href="?page=auth">Join us</a></li>
  
