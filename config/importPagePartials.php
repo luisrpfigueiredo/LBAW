@@ -56,8 +56,20 @@ function importNotifications()
     $notification = isset($_GET['notification']) ? $_GET['notification'] : null;
     $availableNotifications = ['success', 'danger', 'info', 'warning'];
 
-    if($notification) {
-        if(in_array($notification, $availableNotifications))
+    if ($notification) {
+        if (in_array($notification, $availableNotifications)) {
             render('notification', ['type' => $notification]);
+        }
+    }
+}
+
+function importQuestionAction()
+{
+    $moderator = isset($_GET['moderator']) ? true : false;
+
+    if ($moderator) {
+        render('question-action-moderator');
+    } else {
+        render('question-action');
     }
 }
