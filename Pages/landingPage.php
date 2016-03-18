@@ -1,10 +1,12 @@
 <?= HTML::style("css/landing-page.css") ?>
 
+<div class="overlay"></div>
 <div class = "intro-header">
     <div class = "row">
         <div class = "col-lg-12">
             <div class = "intro-message">
                 <h1>Tidder</h1>
+                <p>You ask, we answer!</p>
                 <hr class = "intro-divider">
                 <ul class = "list-inline intro-social-buttons">
                     <li>
@@ -19,7 +21,7 @@
 
 <div class = "container">
 
-    <ul class = "nav nav-tabs">
+    <ul class = "nav nav-tabs" id="questions">
         <li class = "active">
             <a href = "#latest" aria-controls = "latest" role = "tab" data-toggle = "tab">Latest Questions</a>
         </li>
