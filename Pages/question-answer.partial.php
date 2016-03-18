@@ -17,11 +17,7 @@
                 </span>
         </div>
 
-        <div class="actions pull-right">
-            <i class="glyphicon glyphicon-share-alt"></i>
-            Reply
-        </div>
-
+        <?php importQuestionAction() ?>
 
     </div>
 </div>

@@ -113,3 +113,7 @@ h1.results {
 .question-details-panel .answer {
     margin-left: 2em;
 }
+
+div.question-actions span {
+    margin-left: 1em;
+}
