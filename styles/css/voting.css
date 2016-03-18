@@ -42,8 +42,8 @@
           flex-direction: column;
   font-family: "Noto Sans";
   position: relative;
-  width: 8rem;
-  height: 8rem;
+  width: 5rem;
+  height: 5rem;
   margin: 1rem;
 }
 
@@ -77,10 +77,10 @@
   border-radius: 0.1rem;
   margin: 1.5rem;
   background: #F6F3E4;
-  width: 5rem;
-  font-size: 2.5rem;
+  width: 2rem;
+  font-size: 2rem;
   font-weight: bold;
-  line-height: 5rem;
+  line-height: 2rem;
   text-align: center;
   box-shadow: 0 0 0 0.5rem #F6F3E4;
   pointer-events: none;

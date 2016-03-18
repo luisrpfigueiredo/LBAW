@@ -44,3 +44,13 @@ div.statistics span:first-child {
 .space-top {
     margin-top: 2em;
 }
+
+.question-space > div {
+    margin-bottom: 1em;
+}
+
+h1.results {
+    margin-top: 0.2em;
+    margin-bottom: 0.8em;
+    font-size: 2em;
+}

@@ -1,6 +1,6 @@
 <div class = "col-sm-8 col-sm-offset-2">
     <!-- PANEL FOR FORM -->
-    <div class = "panel panel-primary">
+    <div class = "panel panel-default">
         <div class = "panel-heading">
             <h3 class = "panel-title">Recover Password</h3>
         </div>

@@ -42,6 +42,9 @@ function importContent()
         case 'questions':
             render('questionsPage');
             break;
+        case 'new-question':
+            render('newQuestion');
+            break;
         default:
             render('landingPage');
             break;
