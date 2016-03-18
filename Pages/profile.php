@@ -51,6 +51,10 @@
                                     João Correia Lopes is an Assistant Professor in Informatics Engineering at the Universidade do Porto and a researcher at INESC TEC.
                                 </p>
                             </div>
+
+                            <div class = "user-details-line col-sm-12 text-center">
+                                <button type = "button" class = "btn btn-primary" data-toggle = "modal" data-target = "#exampleModal" data-whatever = "@mdo">Edit profile</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -73,7 +77,6 @@
                     </div>
 
 
-
                     <div class = "load-more col-sm-12 space-top text-center">
                         <button type = "button" class = "btn btn-lg btn-primary col-sm-6 col-sm-offset-3 col-xs-12">Load More...</button>
                     </div>
@@ -82,6 +85,42 @@
 
         </div>
 
+    </div>
+
+    <div class = "modal fade" id = "exampleModal" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel">
+        <div class = "modal-dialog" role = "document">
+            <div class = "modal-content">
+                <div class = "modal-header">
+                    <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
+                        <span aria-hidden = "true">&times;</span></button>
+                    <h4 class = "modal-title" id = "exampleModalLabel">Settings</h4>
+                </div>
+                <div class = "modal-body">
+                    <form>
+                        <div class = "form-group">
+                            <label for = "recipient-name" class = "control-label">New Username:</label>
+                            <input type = "text" class = "form-control" id = "recipient-name">
+                        </div>
+                        <div class = "form-group">
+                            <label for = "message-text" class = "control-label">New email:</label>
+                            <input type = "text" class = "form-control" id = "recipient-name">
+                        </div>
+                        <div class = "form-group">
+                            <label for = "message-text" class = "control-label">New password:</label>
+                            <input type = "text" class = "form-control" id = "recipient-name">
+                        </div>
+                        <div class = "form-group">
+                            <label for = "message-text" class = "control-label">Confirm password:</label>
+                            <input type = "text" class = "form-control" id = "recipient-name">
+                        </div>
+                    </form>
+                </div>
+                <div class = "modal-footer">
+                    <button type = "button" class = "btn btn-default" data-dismiss = "modal">Close</button>
+                    <button type = "button" class = "btn btn-primary">Edit</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
