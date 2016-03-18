@@ -41,3 +41,6 @@ div.statistics span:first-child {
 .text-star {
     color: #dfaa63;
 }
+.space-top {
+    margin-top: 2em;
+}
