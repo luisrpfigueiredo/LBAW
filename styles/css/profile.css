@@ -14,6 +14,21 @@
     background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
 }
 
-h1.search-results > span.search-string {
-    color: #848991;
+.table{
+    overflow:scroll;
+}
+
+.panel-height {
+  height: 400px;
+}
+
+tr {
+    max-width: 80%;
+}
+
+td {
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

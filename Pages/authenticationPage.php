@@ -10,7 +10,7 @@
                 <a href = "#login" aria-controls = "login" role = "tab" data-toggle = "tab">Log In</a>
             </li>
             <li>
-                <a href = "#register" aria-controls = "register" role = "tab" data-toggle = "tab">Register</a>
+                <a href = "#register" aria-controls = "register" role = "tab" data-toggle = "tab">Sign Up</a>
             </li>
         </ul>
         <!-- END TABS -->
@@ -19,7 +19,7 @@
         <div class = "tab-content">
 
             <!-- LOGIN TAB PANEL -->
-            <div id = "login" role = "tabpanel" class = "tab-pane active white">
+            <div id = "login" role = "tabpanel" class = "tab-pane active container-white">
                 <form class = "form-horizontal">
                     <div class = "form-group">
                         <label for = "email" class = "col-sm-3 control-label">Email</label>
@@ -50,7 +50,7 @@
             <!-- END LOGIN TAB PANEL -->
 
             <!-- REGISTER TAB PANEL -->
-            <div role = "tabpanel" class = "tab-pane white" id = "register">
+            <div role = "tabpanel" class = "tab-pane container-white" id = "register">
                 <form class = "form-horizontal">
                     <div class = "form-group">
                         <label for = "email" class = "col-sm-3 control-label">Email</label>
@@ -83,7 +83,7 @@
                     <div class = "form-group">
                         <div class = "col-sm-3 col-sm-offset-3">
                             <a href = "?page=auth&notification=success">
-                                <button class = "btn btn-primary" type = "button">Register</button>
+                                <button class = "btn btn-primary" type = "button">Sign Up</button>
                             </a>
                         </div>
                     </div>

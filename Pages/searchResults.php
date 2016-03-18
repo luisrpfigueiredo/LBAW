@@ -1,21 +1,20 @@
 <?= HTML::style("css/searchResults.css") ?>
 
-<div class="container">
-    <div class="list-group">
-        <a href="?page=question" class="list-group-item">
-            <span class="badge">42</span>
-            <h4 class="list-group-item-heading"> Question 1</h4>
-            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas erat mi, et eleifend erat rutrum vitae. Suspendisse potenti.                In hac habitasse platea dictumst. Etiam velit est, aliquam eu risus ut, hendrerit volutpat ante. Donec in consequat orci. In maximus lobortis risus in porta. Vivamus blandit, felis vitae pretium faucibus, diam risus suscipit purus, ut tempor nulla libero sit amet tortor. Phasellus fermentum turpis eu lectus mattis, vel aliquam ante elementum. Suspendisse ac elit leo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas erat mi, et eleifend erat rutrum vitae. Suspendisse potenti.                In hac habitasse platea dictumst. Etiam velit est, aliquam eu risus ut, hendrerit volutpat ante. Donec in consequat orci. In maximus lobortis risus in porta. Vivamus blandit, felis vitae pretium faucibus, diam risus suscipit purus, ut tempor nulla libero sit amet tortor. Phasellus fermentum turpis eu lectus mattis, vel aliquam ante elementum. Suspendisse ac elit leo.</p>
-        </a>
-        <a href="?page=question" class="list-group-item">
-            <span class="badge">42</span>
-            <h4 class="list-group-item-heading"> Question 1</h4>
-            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas erat mi, et eleifend erat rutrum vitae. Suspendisse potenti.                In hac habitasse platea dictumst. Etiam velit est, aliquam eu risus ut, hendrerit volutpat ante. Donec in consequat orci. In maximus lobortis risus in porta. Vivamus blandit, felis vitae pretium faucibus, diam risus suscipit purus, ut tempor nulla libero sit amet tortor. Phasellus fermentum turpis eu lectus mattis, vel aliquam ante elementum. Suspendisse ac elit leo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas erat mi, et eleifend erat rutrum vitae. Suspendisse potenti.                In hac habitasse platea dictumst. Etiam velit est, aliquam eu risus ut, hendrerit volutpat ante. Donec in consequat orci. In maximus lobortis risus in porta. Vivamus blandit, felis vitae pretium faucibus, diam risus suscipit purus, ut tempor nulla libero sit amet tortor. Phasellus fermentum turpis eu lectus mattis, vel aliquam ante elementum. Suspendisse ac elit leo.</p>
-        </a>
-        <a href="?page=question" class="list-group-item">
-            <span class="badge">42</span>
-            <h4 class="list-group-item-heading">Question 1</h4>
-            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas erat mi, et eleifend erat rutrum vitae. Suspendisse potenti.                In hac habitasse platea dictumst. Etiam velit est, aliquam eu risus ut, hendrerit volutpat ante. Donec in consequat orci. In maximus lobortis risus in porta. Vivamus blandit, felis vitae pretium faucibus, diam risus suscipit purus, ut tempor nulla libero sit amet tortor. Phasellus fermentum turpis eu lectus mattis, vel aliquam ante elementum. Suspendisse ac elit leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque egestas erat mi, et eleifend erat rutrum vitae. Suspendisse potenti.                In hac habitasse platea dictumst. Etiam velit est, aliquam eu risus ut, hendrerit volutpat ante. Donec in consequat orci. In maximus lobortis risus in porta. Vivamus blandit, felis vitae pretium faucibus, diam risus suscipit purus, ut tempor nulla libero sit amet tortor. Phasellus fermentum turpis eu lectus mattis, vel aliquam ante elementum. Suspendisse ac elit leo.</p>
-        </a>
+<div class = "container">
+    <?php render('breadcrumb') ?>
+
+    <h1 class="results">Search results for: "<span class="search-string">JS</span>"</h1>
+
+    <div class = "question-space">
+
+        <?php
+        for ($i = 0; $i < 10; $i++)
+             render('question-info')
+        ?>
     </div>
+
+    <div class = "load-more col-sm-12 space-top text-center">
+        <button type = "button" class = "btn btn-lg btn-primary col-sm-6 col-sm-offset-3 col-xs-12">Load More...</button>
+    </div>
+
 </div>
