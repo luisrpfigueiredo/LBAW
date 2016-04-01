@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic);
+
 /* try 50% */
 .roundrect .up {
   border-radius: 2rem 2rem 0 0;
@@ -40,7 +40,6 @@
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: "Noto Sans";
   position: relative;
   width: 5rem;
   height: 5rem;

@@ -1,3 +1,7 @@
+* {
+    font-family: 'Open Sans';
+}
+
 body {
     background-color: #f3f3f3;
 }
@@ -64,6 +68,7 @@ h1.results {
     font-weight: bold;
     display: block;
 }
+
 .user-statistics {
     border-bottom: 2px solid #3498DB;
 }
@@ -89,10 +94,12 @@ h1.results {
 .user-details {
     margin-top: 2em;
 }
+
 .user-details .user-details-line {
     margin-bottom: 1em;
     clear: both;
 }
+
 .profile-questions-panel {
     background: transparent !important;
     -webkit-box-shadow: none !important;
@@ -100,6 +107,7 @@ h1.results {
     box-shadow: none !important;
     border-left: 3px solid #3498DB;
 }
+
 .question-details-panel {
     background: transparent !important;
     -webkit-box-shadow: none !important;
@@ -107,9 +115,11 @@ h1.results {
     box-shadow: none !important;
 
 }
+
 .question-details-panel .container-white {
     margin-bottom: 2em;
 }
+
 .question-details-panel .answer {
     margin-left: 2em;
 }
