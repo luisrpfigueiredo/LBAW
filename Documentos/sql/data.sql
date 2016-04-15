@@ -1,15 +1,3 @@
---
--- PostgreSQL database dump
---
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SET check_function_bodies = false;
-SET client_min_messages = warning;
-
-SET search_path = public, pg_catalog;
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: lbaw1513
@@ -435,16 +423,4 @@ INSERT INTO votes VALUES (10, 30, 'a', false);
 
 INSERT INTO warnings VALUES (1, 9, 5, 'Optio ut inventore eius optio ex qui sit.', '1980-04-04 07:39:58');
 INSERT INTO warnings VALUES (2, 8, 6, 'Quisquam fuga molestias earum architecto nostrum sequi velit laudantium.', '1979-10-12 16:13:01');
-
-
---
--- Name: warnings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: lbaw1513
---
-
-SELECT pg_catalog.setval('warnings_id_seq', 2, true);
-
-
---
--- PostgreSQL database dump complete
---
 
