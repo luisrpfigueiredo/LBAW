@@ -1,7 +1,7 @@
 
 CREATE TABLE answers (
     id SERIAL,
-    user_id integer NOT NULL,
+    user_id integer,
     question_id integer NOT NULL,
     body text NOT NULL,
     created_at timestamp(0) without time zone DEFAULT now() NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE answers (
 CREATE TABLE bans (
     id SERIAL,
     user_id integer NOT NULL,
-    creator_id integer NOT NULL,
+    creator_id integer,
     notes text,
     created_at timestamp(0) without time zone DEFAULT now() NOT NULL,
     expired_at timestamp(0) without time zone,
@@ -32,7 +32,7 @@ CREATE TABLE password_resets (
 
 CREATE TABLE questions (
     id SERIAL,
-    user_id integer NOT NULL,
+    user_id integer,
     title character varying(100) NOT NULL,
     body text NOT NULL,
     solved boolean DEFAULT false NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE votes (
 CREATE TABLE warnings (
     id SERIAL,
     user_id integer NOT NULL,
-    creator_id integer NOT NULL,
+    creator_id integer,
     notes text,
     created_at timestamp(0) without time zone DEFAULT now() NOT NULL,
     CONSTRAINT warnings_user_id_notself CHECK ((creator_id <> user_id))
@@ -138,10 +138,6 @@ CREATE INDEX ixfk_questions_tags_tags ON questions_tags USING btree (tag_id);
 
 CREATE INDEX ixfk_questions_users ON questions USING btree (user_id);
 
-CREATE INDEX ixfk_votes_answers ON votes USING btree (votable_id);
-
-CREATE INDEX ixfk_votes_questions ON votes USING btree (votable_id);
-
 CREATE INDEX ixfk_votes_users ON votes USING btree (user_id);
 
 CREATE INDEX ixfk_warnings_users ON warnings USING btree (user_id);
@@ -149,40 +145,40 @@ CREATE INDEX ixfk_warnings_users ON warnings USING btree (user_id);
 CREATE INDEX ixfk_warnings_users_02 ON warnings USING btree (creator_id);
 
 ALTER TABLE ONLY answers
-    ADD CONSTRAINT fk_answers_questions FOREIGN KEY (question_id) REFERENCES questions(id);
+    ADD CONSTRAINT fk_answers_questions FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE RESTRICT;
 
 ALTER TABLE ONLY answers
-    ADD CONSTRAINT fk_answers_users FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE RESTRICT;
+    ADD CONSTRAINT fk_answers_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL;
 
 ALTER TABLE ONLY bans
-    ADD CONSTRAINT fk_bans_users FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_bans_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY bans
-    ADD CONSTRAINT fk_bans_users_02 FOREIGN KEY (creator_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_bans_users_02 FOREIGN KEY (creator_id) REFERENCES users(id) ON DELETE SET NULL;
 
 ALTER TABLE ONLY follows
-    ADD CONSTRAINT fk_follows_users FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT fk_follows_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY follows
-    ADD CONSTRAINT fk_follows_users_02 FOREIGN KEY (followed_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_follows_users_02 FOREIGN KEY (followed_id) REFERENCES users(id) ON DELETE CASCADE;
 	
 ALTER TABLE ONLY password_resets
-    ADD CONSTRAINT fk_password_resets_users FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT fk_password_resets_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY questions_tags
-    ADD CONSTRAINT fk_questions_tags_questions FOREIGN KEY (question_id) REFERENCES questions(id);
+    ADD CONSTRAINT fk_questions_tags_questions FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY questions_tags
-    ADD CONSTRAINT fk_questions_tags_tags FOREIGN KEY (tag_id) REFERENCES tags(id);
+    ADD CONSTRAINT fk_questions_tags_tags FOREIGN KEY (tag_id) REFERENCES tags(id) ON DELETE RESTRICT;
 
 ALTER TABLE ONLY questions
-    ADD CONSTRAINT fk_questions_users FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE CASCADE ON DELETE RESTRICT;
+    ADD CONSTRAINT fk_questions_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL;
 
 ALTER TABLE ONLY votes
-    ADD CONSTRAINT fk_votes_users FOREIGN KEY (user_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_votes_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY warnings
-	ADD CONSTRAINT fk_warnings_users FOREIGN KEY (user_id) REFERENCES users(id);
+	ADD CONSTRAINT fk_warnings_users FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE;
 
 ALTER TABLE ONLY warnings
-    ADD CONSTRAINT fk_warnings_users_02 FOREIGN KEY (creator_id) REFERENCES users(id);
+    ADD CONSTRAINT fk_warnings_users_02 FOREIGN KEY (creator_id) REFERENCES users(id) ON DELETE SET NULL;
