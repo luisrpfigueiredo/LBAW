@@ -47,10 +47,20 @@ UPDATE answers SET vote_rating = votable_rating(answers.id, 'a');
 CREATE FUNCTION trigger_update_answer_rating()
   RETURNS "trigger" AS $func$
 BEGIN
-	IF OLD.votable_type = 'a' THEN
-		UPDATE answers SET vote_rating = votable_rating(OLD.votable_id, 'a') WHERE id=OLD.votable_id;
+	IF TG_OP = 'DELETE' THEN
+		IF OLD.votable_type = 'a' THEN
+			UPDATE answers SET vote_rating = votable_rating(OLD.votable_id, 'a'), updated_at = now() WHERE id=OLD.votable_id;
+		ELSE
+			UPDATE answers SET updated_at = now() WHERE id = OLD.votable_id;
+		END IF;
+		RETURN NULL;
 	END IF;
 	
+	IF NEW.votable_type = 'a' THEN
+		UPDATE answers SET vote_rating = votable_rating(NEW.votable_id, 'a'), updated_at = now() WHERE id=NEW.votable_id;
+	ELSE
+		UPDATE answers SET updated_at = now() WHERE id = OLD.votable_id;
+	END IF;
 	RETURN NULL;
 END;
 $func$  LANGUAGE plpgsql;
