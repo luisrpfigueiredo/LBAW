@@ -38,3 +38,21 @@ CREATE TRIGGER answer_update_question_timestamp AFTER INSERT ON answers
    
 CREATE TRIGGER votes_update_question_timestamp AFTER INSERT OR UPDATE ON votes 
 	FOR EACH ROW EXECUTE PROCEDURE trigger_update_question_timestamp_from_vote();
+	
+	
+	
+ALTER TABLE answers ADD COLUMN vote_rating INTEGER;
+UPDATE answers SET vote_rating = votable_rating(answers.id, 'a');
+
+CREATE FUNCTION trigger_update_answer_rating()
+  RETURNS "trigger" AS $func$
+BEGIN
+	IF OLD.votable_type = 'a' THEN
+		UPDATE answers SET vote_rating = votable_rating(OLD.votable_id, 'a') WHERE id=OLD.votable_id;
+	END IF;
+	
+	RETURN NULL;
+END;
+$func$  LANGUAGE plpgsql;
+
+CREATE TRIGGER votes_update_answer_rating AFTER INSERT OR DELETE OR UPDATE ON votes FOR EACH ROW EXECUTE PROCEDURE trigger_update_answer_rating();
