@@ -49,20 +49,24 @@ CREATE FUNCTION trigger_update_answer_rating()
 BEGIN
 	IF TG_OP = 'DELETE' THEN
 		IF OLD.votable_type = 'a' THEN
-			UPDATE answers SET vote_rating = votable_rating(OLD.votable_id, 'a'), updated_at = now() WHERE id=OLD.votable_id;
-		ELSE
-			UPDATE answers SET updated_at = now() WHERE id = OLD.votable_id;
+			UPDATE answers SET vote_rating = votable_rating(OLD.votable_id, 'a') WHERE id=OLD.votable_id;
 		END IF;
 		RETURN NULL;
 	END IF;
 	
 	IF NEW.votable_type = 'a' THEN
-		UPDATE answers SET vote_rating = votable_rating(NEW.votable_id, 'a'), updated_at = now() WHERE id=NEW.votable_id;
-	ELSE
-		UPDATE answers SET updated_at = now() WHERE id = OLD.votable_id;
+		UPDATE answers SET vote_rating = votable_rating(NEW.votable_id, 'a') WHERE id=NEW.votable_id;
 	END IF;
 	RETURN NULL;
 END;
 $func$  LANGUAGE plpgsql;
 
+CREATE FUNCTION trigger_update_answer_timestamp()
+  RETURNS "trigger" AS $func$
+BEGIN
+	UPDATE answers SET updated_at = now() WHERE id = NEW.id;
+END;
+$func$  LANGUAGE plpgsql;
+
 CREATE TRIGGER votes_update_answer_rating AFTER INSERT OR DELETE OR UPDATE ON votes FOR EACH ROW EXECUTE PROCEDURE trigger_update_answer_rating();
+CREATE TRIGGER update_answer_timestamp AFTER UPDATE ON answers FOR EACH ROW EXECUTE PROCEDURE trigger_update_answer_timestamp();
