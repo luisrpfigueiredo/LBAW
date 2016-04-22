@@ -56,27 +56,6 @@ BEGIN
 END
 $func$  LANGUAGE plpgsql;
 
-
-CREATE OR REPLACE FUNCTION user_profile(puser_id int)
-RETURNS TABLE (
-    id INTEGER, 
-	title character varying(100),
-	body TEXT,
-	solved boolean,
-	created_at timestamp,
-	updated_at timestamp,
-	votes_rating INT,
-	count_answers BIGINT
-	
-    ) AS $func$
-BEGIN
-	RETURN QUERY
-      SELECT questions.id, questions.title, questions.body, questions.solved, questions.created_at, questions.updated_at, votable_rating(questions.id, 'q'), (SELECT COUNT(*) FROM answers WHERE question_id = questions.id)
-      FROM questions
-      WHERE questions.user_id = puser_id;
-END
-$func$  LANGUAGE plpgsql;
-
 CREATE OR REPLACE FUNCTION number_users_following(puser_id int)
 RETURNS INTEGER AS $func$
 DECLARE vcount INTEGER;

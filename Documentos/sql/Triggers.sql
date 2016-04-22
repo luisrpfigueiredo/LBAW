@@ -15,25 +15,29 @@ CREATE FUNCTION trigger_update_question_timestamp()
   RETURNS "trigger" AS $func$
 BEGIN
 	UPDATE questions SET updated_at = now() WHERE id = NEW.question_id;
+	RETURN NULL;
 END;
 $func$  LANGUAGE plpgsql;
 
 CREATE FUNCTION trigger_update_question_timestamp_from_vote()
   RETURNS "trigger" AS $func$
-DECLARE vquestion_id INT;
 BEGIN
-	IF NEW.votable_type = 'q' THEN
-		vquestion_id := NEW.votable_id;
-	ELSE
-		SELECT question_id INTO vquestion_id FROM answers WHERE id = NEW.votable_id;
+
+	IF TG_OP = 'DELETE' THEN
+		IF OLD.votable_type = 'q' THEN
+			UPDATE questions SET updated_at = now() WHERE id=OLD.votable_id;
+		END IF;
+		RETURN NULL;
 	END IF;
 	
-	UPDATE questions SET updated_at = now() WHERE id = new.votable_id;
+	IF NEW.votable_type = 'q' THEN
+		UPDATE questions SET updated_at = now() WHERE id=NEW.votable_id;
+	END IF;
 	RETURN NULL;
 END;
 $func$  LANGUAGE plpgsql;
 
-CREATE TRIGGER answer_update_question_timestamp AFTER INSERT ON answers 
+CREATE TRIGGER answer_update_question_timestamp AFTER INSERT OR UPDATE ON answers 
    FOR EACH ROW EXECUTE PROCEDURE trigger_update_question_timestamp();
    
 CREATE TRIGGER votes_update_question_timestamp AFTER INSERT OR UPDATE ON votes 
@@ -64,7 +68,10 @@ $func$  LANGUAGE plpgsql;
 CREATE FUNCTION trigger_update_answer_timestamp()
   RETURNS "trigger" AS $func$
 BEGIN
-	UPDATE answers SET updated_at = now() WHERE id = NEW.id;
+	IF TG_OP = 'INSERT' OR OLD.updated_at != NEW.updated_at THEN
+		UPDATE answers SET updated_at = now() WHERE id = NEW.id;
+	END IF;
+	RETURN NULL;
 END;
 $func$  LANGUAGE plpgsql;
 
