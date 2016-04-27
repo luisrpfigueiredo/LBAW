@@ -1,5 +1,14 @@
 <?php
   
+  function getAllUsers() {
+    global $conn;
+    $stmt = $conn->prepare("SELECT * 
+                            FROM users
+                            ORDER BY id DESC");
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+  
   function createUser($realname, $username, $password) {
     global $conn;
     $stmt = $conn->prepare("INSERT INTO users VALUES (?, ?, ?)");
