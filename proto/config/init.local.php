@@ -4,7 +4,7 @@
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
 
-  $BASE_DIR = '/home/vagrant/personal/LBAW/lbaw13/frmk/';
+  $BASE_DIR = '/home/vagrant/personal/LBAW/proto/';
   $BASE_URL = '/';
 
   $conn = new PDO('pgsql:host=localhost;dbname=lbaw', 'homestead', 'secret');
