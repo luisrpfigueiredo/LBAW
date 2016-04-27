@@ -1,13 +1,13 @@
 <?php
-  session_set_cookie_params(3600, '/~lbaw1513');
+  // session_set_cookie_params(3600, '/');
   session_start();
 
   error_reporting(E_ERROR | E_WARNING); // E_NOTICE by default
 
-  $BASE_DIR = '/home/vagrant/personal/LBAW/lbaw13/frmk/'; 
-  $BASE_URL = '/~lbaw1513/frmk/';
+  $BASE_DIR = '/home/vagrant/personal/LBAW/lbaw13/frmk/';
+  $BASE_URL = '/';
 
-  $conn = new PDO('pgsql:host=dbm.fe.up.pt;dbname=lbaw1513', 'lbaw1513', 'RF77P7Q9');
+  $conn = new PDO('pgsql:host=localhost;dbname=lbaw', 'homestead', 'secret');
   $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
