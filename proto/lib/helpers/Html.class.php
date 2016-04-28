@@ -36,7 +36,8 @@ class HTML
     {
         global $BASE_URL;
 
-        return trim($BASE_URL, '/') . '/' . trim($relativePath, '/');
+        // return trim($BASE_URL, '/') . '/' . trim($relativePath, '/');
+        return $BASE_URL . trim($relativePath, '/');
     }
 
 

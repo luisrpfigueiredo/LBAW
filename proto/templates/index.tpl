@@ -5,7 +5,7 @@
         {if $LOGGED_IN eq true }
             You are looged in.
         {else}
-            Hello kind guest. Please login
+            Hello kind guest. Please <a href="{$BASE_URL}pages/users/authentication.php">login</a>
         {/if}
     </section>
 </div>
