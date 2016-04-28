@@ -3,8 +3,9 @@
   <head>
     <title>Fritter</title>
     <meta charset='utf-8'>
-    <link rel="stylesheet" href="{$BASE_URL}css/style.css">
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="{$BASE_URL}css/bootstrap.min.css">
+    <script src="{$BASE_URL}javascript/jquery-2.2.1.min.js"></script>
+    <script src="{$BASE_URL}javascript/bootstrap.min.js"></script>
     <script src="{$BASE_URL}javascript/main.js"></script>
   </head>
   <body>
@@ -16,14 +17,6 @@
         {include file='common/menu_logged_out.tpl'}
       {/if}
     </header>
-    {if $USERNAME}
-    <div id="tweet_form">
-      <form action="{$BASE_URL}actions/tweets/tweet.php" method="post">
-        <textarea name="tweet" placeholder="Say something"></textarea>
-        <input type="submit">
-      </form>
-    </div>
-    {/if}
     <div id="error_messages">
     {foreach $ERROR_MESSAGES as $error}
       <div class="error">{$error}<a class="close" href="#">X</a></div>
