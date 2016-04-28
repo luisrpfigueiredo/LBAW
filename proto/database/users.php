@@ -2,6 +2,7 @@
     foreach (glob($BASE_DIR . "lib/passwordHashingLib/*.php") as $filename){
       include_once($filename);
     }
+
   function getAllUsers() {
     global $conn;
     $stmt = $conn->prepare("SELECT * 
@@ -32,4 +33,4 @@
       return true;
     else return false;
   }
-?>
+

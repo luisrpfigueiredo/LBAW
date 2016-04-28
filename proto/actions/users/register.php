@@ -11,7 +11,7 @@
   if (!$_POST['username'] || !$_POST['email'] || !$_POST['password'] || !$_POST['verify_password']) {
     $_SESSION['error_messages'][] = 'All fields are mandatory';
     $_SESSION['form_values'] = $_POST;
-    header("Location: $BASE_URL" . 'pages/users/authenticationPage.php');
+    header("Location: $BASE_URL" . 'pages/users/authentication.php');
     exit;
   }
 
@@ -23,7 +23,7 @@
 
   if(strcmp($password, $verify_password) != 0) {
     $_SESSION['error_messages'][] = 'Passwords mismatch';
-    header("Location: $BASE_URL" . 'pages/users/authenticationPage.php');
+    header("Location: $BASE_URL" . 'pages/users/authentication.php');
     exit;
   }
 
@@ -39,10 +39,10 @@
     else $_SESSION['error_messages'][] = 'Error creating user';
 
     $_SESSION['form_values'] = $_POST;
-    header("Location: $BASE_URL" . 'pages/users/authenticationPage.php');
+    header("Location: $BASE_URL" . 'pages/users/authentication.php');
     exit;
   }
 
   $_SESSION['success_messages'][] = 'User registered successfully';  
   header("Location: $BASE_URL");
-?>
+

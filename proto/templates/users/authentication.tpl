@@ -20,7 +20,7 @@
 
             <!-- LOGIN TAB PANEL -->
             <div id = "login" role = "tabpanel" class = "tab-pane active container-white">
-                <form class = "form-horizontal" action="{$BASE_URL}actions/users/login.php" method="post" enctype="multipart/form-data">
+                <form class = "form-horizontal" action="{$BASE_URL}actions/users/login.php" method="post">
                     <div class = "form-group">
                         <label for = "username" class = "col-sm-3 control-label">Username</label>
                         <div class = "col-sm-8">

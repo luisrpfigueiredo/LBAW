@@ -1,3 +1,2 @@
 <?php
-  header('Location: pages/users/list_all.php');
- ?>
+  header('Location: pages/index.php');
