@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-04-29 02:57:38
+<?php /* Smarty version Smarty-3.1.15, created on 2016-04-29 03:17:20
          compiled from "/home/vagrant/personal/LBAW/proto/templates/questions/search_results.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9456618335722c836d2db99-41737283%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd244a013fe676d9d3bda70f028186857f525019a' => 
     array (
       0 => '/home/vagrant/personal/LBAW/proto/templates/questions/search_results.tpl',
-      1 => 1461898656,
+      1 => 1461899836,
       2 => 'file',
     ),
   ),
@@ -34,6 +34,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </span>"</h1>
 
     <div class = "question-space">
+        <?php if (count($_smarty_tpl->tpl_vars['questions']->value)==0) {?>
+            No questions for your search query.
+        <?php }?>
         <?php  $_smarty_tpl->tpl_vars['question'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['question']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['questions']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['question']->key => $_smarty_tpl->tpl_vars['question']->value) {

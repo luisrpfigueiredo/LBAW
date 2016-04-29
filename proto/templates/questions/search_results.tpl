@@ -5,6 +5,9 @@
     <h1 class = "results">Search results for: "<span class = "search-string">{$query}</span>"</h1>
 
     <div class = "question-space">
+        {if count($questions) eq 0}
+            No questions for your search query.
+        {/if}
         {foreach $questions as $question}
             {include file='questions/partials/question_info.tpl'}
         {/foreach}

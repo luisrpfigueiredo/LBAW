@@ -2,13 +2,13 @@
 function questionSearch($query)
 {
     global $conn;
-    $stmt = $conn->prepare("SELECT * FROM search_questions(?);");
+    $stmt = $conn->prepare("SELECT search_questions(?);");
     $stmt->execute(array($query));
     $rows = $stmt->fetchAll();
 
     $question_ids = [];
     foreach ($rows as $row) {
-        $question_ids[] = $row['question_id'];
+        $question_ids[] = $row['search_questions'];
     }
 
     return questionsFromIds($question_ids);
@@ -18,6 +18,9 @@ function questionsFromIds($ids = [])
 {
     global $conn;
 
+    if(empty($ids))
+        return [];
+    
     // fix later
     $points = [];
     foreach ($ids as $id) {
