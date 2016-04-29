@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-04-28 22:05:11
+<?php /* Smarty version Smarty-3.1.15, created on 2016-04-29 00:25:12
          compiled from "/home/vagrant/personal/LBAW/proto/templates/users/authentication.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:218873230572282ea354fc6-53743806%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'be6dcfc46a410216f8eee38ddc2710f5324d2bab' => 
     array (
       0 => '/home/vagrant/personal/LBAW/proto/templates/users/authentication.tpl',
-      1 => 1461880886,
+      1 => 1461889510,
       2 => 'file',
     ),
   ),
@@ -19,6 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_572282ea387163_47611409',
   'variables' => 
   array (
+    'tab' => 0,
     'BASE_URL' => 0,
   ),
   'has_nocache_code' => false,
@@ -32,10 +33,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
         <!-- TABS START -->
         <ul class = "nav nav-tabs">
-            <li class = "active">
+            <li class = "<?php if ($_smarty_tpl->tpl_vars['tab']->value=='login') {?>active<?php }?>">
                 <a href = "#login" aria-controls = "login" role = "tab" data-toggle = "tab">Log In</a>
             </li>
-            <li>
+            <li class = "<?php if ($_smarty_tpl->tpl_vars['tab']->value=='register') {?>active<?php }?>">
                 <a href = "#register" aria-controls = "register" role = "tab" data-toggle = "tab">Sign Up</a>
             </li>
         </ul>
@@ -45,9 +46,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
         <div class = "tab-content">
 
             <!-- LOGIN TAB PANEL -->
-            <div id = "login" role = "tabpanel" class = "tab-pane active container-white">
-                <form class = "form-horizontal" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/users/login.php" method="post">
+            <div id = "login" role = "tabpanel" class = "tab-pane container-white <?php if ($_smarty_tpl->tpl_vars['tab']->value=='login') {?>active<?php }?>">
+                <form class = "form-horizontal" action = "<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/login.php" method = "post">
                     <div class = "form-group">
                         <label for = "username" class = "col-sm-3 control-label">Username</label>
                         <div class = "col-sm-8">
@@ -64,7 +65,7 @@ actions/users/login.php" method="post">
 
                     <div class = "form-group">
                         <div class = "col-sm-3 col-sm-offset-3">
-                            <input type="submit" class = "btn btn-primary" value = "Log In"></button>
+                            <input type = "submit" class = "btn btn-primary" value = "Log In"></button>
                         </div>
                         <div class = "col-sm-5 text-right">
                             <a href = "" class = "small" data-toggle = "modal" data-target = "#forgotPassword"> Forgot Password?</a>
@@ -75,41 +76,41 @@ actions/users/login.php" method="post">
             <!-- END LOGIN TAB PANEL -->
 
             <!-- REGISTER TAB PANEL -->
-            <div role = "tabpanel" class = "tab-pane container-white" id = "register">
-                <form class = "form-horizontal" action="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-actions/users/register.php" method="post" enctype="multipart/form-data">
+            <div role = "tabpanel" class = "tab-pane container-white <?php if ($_smarty_tpl->tpl_vars['tab']->value=='register') {?>active<?php }?>" id = "register">
+                <form class = "form-horizontal" action = "<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+actions/users/register.php" method = "post" enctype = "multipart/form-data">
 
                     <div class = "form-group">
                         <label for = "username" class = "col-sm-3 control-label">Username</label>
                         <div class = "col-sm-8">
-                            <input type = "text" name = "username" class = "form-control" placeholder = "Username" required = "" autofocus = "" autocomplete = "off"value="">
-                    	</div>
+                            <input type = "text" name = "username" class = "form-control" placeholder = "Username" required = "" autofocus = "" autocomplete = "off" value = "">
+                        </div>
                     </div>
 
                     <div class = "form-group">
                         <label for = "email" class = "col-sm-3 control-label">Email</label>
                         <div class = "col-sm-8">
-                            <input type = "email" name = "email" class = "form-control" placeholder = "Email address" required = "" autofocus = "" autocomplete = "off" value="">
+                            <input type = "email" name = "email" class = "form-control" placeholder = "Email address" required = "" autofocus = "" autocomplete = "off" value = "">
                         </div>
                     </div>
 
                     <div class = "form-group">
                         <label for = "password" class = "col-sm-3 control-label">Password</label>
                         <div class = "col-sm-8">
-                            <input type = "password" name = "password" class = "form-control" placeholder = "Password" required = "" autocomplete = "off" value="">
+                            <input type = "password" name = "password" class = "form-control" placeholder = "Password" required = "" autocomplete = "off" value = "">
                         </div>
                     </div>
 
                     <div class = "form-group">
                         <label for = "verify_password" class = "col-sm-3 control-label">Confirm Password</label>
                         <div class = "col-sm-8">
-                            <input type = "password" name = "verify_password" class = "form-control" placeholder = "Confirm Password" required = "" autocomplete = "off" value="">
+                            <input type = "password" name = "verify_password" class = "form-control" placeholder = "Confirm Password" required = "" autocomplete = "off" value = "">
                         </div>
                     </div>
 
                     <div class = "form-group">
                         <div class = "col-sm-3 col-sm-offset-3">
-                            <input type="submit" class = "btn btn-primary" value = "Register"></button>
+                            <input type = "submit" class = "btn btn-primary" value = "Register"></button>
                         </div>
                     </div>
                 </form>

@@ -18,6 +18,9 @@
     if(isLoginCorrect($username, $password)) {
       $_SESSION['username'] = $username;
       $_SESSION['success_messages'][] = 'Login successful.';
+      $_SESSION['logged_in'] = true;
+      $_SESSION['user'] = getUserFromUsername($username);
+
       header("Location: $BASE_URL");
     }
     else {

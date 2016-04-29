@@ -36,9 +36,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
                 <ul class = "nav navbar-nav navbar-right">
-                    <?php
-                importHeaderRightComponent();
-                ?>
+
+                    {if $LOGGED_IN}
+                        {include file='common/menu_logged_in.tpl'}
+                    {else}
+                        {include file='common/menu_logged_out.tpl'}
+                    {/if}
                     <form class = "navbar-form navbar-left" role = "search">
                         <div class = "form-group">
                             <input type = "text" class = "form-control navbar-search" placeholder = "Search">

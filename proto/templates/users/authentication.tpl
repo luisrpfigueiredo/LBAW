@@ -6,10 +6,10 @@
 
         <!-- TABS START -->
         <ul class = "nav nav-tabs">
-            <li class = "active">
+            <li class = "{if $tab eq 'login'}active{/if}">
                 <a href = "#login" aria-controls = "login" role = "tab" data-toggle = "tab">Log In</a>
             </li>
-            <li>
+            <li class = "{if $tab eq 'register'}active{/if}">
                 <a href = "#register" aria-controls = "register" role = "tab" data-toggle = "tab">Sign Up</a>
             </li>
         </ul>
@@ -19,8 +19,8 @@
         <div class = "tab-content">
 
             <!-- LOGIN TAB PANEL -->
-            <div id = "login" role = "tabpanel" class = "tab-pane active container-white">
-                <form class = "form-horizontal" action="{$BASE_URL}actions/users/login.php" method="post">
+            <div id = "login" role = "tabpanel" class = "tab-pane container-white {if $tab eq 'login'}active{/if}">
+                <form class = "form-horizontal" action = "{$BASE_URL}actions/users/login.php" method = "post">
                     <div class = "form-group">
                         <label for = "username" class = "col-sm-3 control-label">Username</label>
                         <div class = "col-sm-8">
@@ -37,7 +37,7 @@
 
                     <div class = "form-group">
                         <div class = "col-sm-3 col-sm-offset-3">
-                            <input type="submit" class = "btn btn-primary" value = "Log In"></button>
+                            <input type = "submit" class = "btn btn-primary" value = "Log In"></button>
                         </div>
                         <div class = "col-sm-5 text-right">
                             <a href = "" class = "small" data-toggle = "modal" data-target = "#forgotPassword"> Forgot Password?</a>
@@ -48,40 +48,40 @@
             <!-- END LOGIN TAB PANEL -->
 
             <!-- REGISTER TAB PANEL -->
-            <div role = "tabpanel" class = "tab-pane container-white" id = "register">
-                <form class = "form-horizontal" action="{$BASE_URL}actions/users/register.php" method="post" enctype="multipart/form-data">
+            <div role = "tabpanel" class = "tab-pane container-white {if $tab eq 'register'}active{/if}" id = "register">
+                <form class = "form-horizontal" action = "{$BASE_URL}actions/users/register.php" method = "post" enctype = "multipart/form-data">
 
                     <div class = "form-group">
                         <label for = "username" class = "col-sm-3 control-label">Username</label>
                         <div class = "col-sm-8">
-                            <input type = "text" name = "username" class = "form-control" placeholder = "Username" required = "" autofocus = "" autocomplete = "off"value="">
-                    	</div>
+                            <input type = "text" name = "username" class = "form-control" placeholder = "Username" required = "" autofocus = "" autocomplete = "off" value = "">
+                        </div>
                     </div>
 
                     <div class = "form-group">
                         <label for = "email" class = "col-sm-3 control-label">Email</label>
                         <div class = "col-sm-8">
-                            <input type = "email" name = "email" class = "form-control" placeholder = "Email address" required = "" autofocus = "" autocomplete = "off" value="">
+                            <input type = "email" name = "email" class = "form-control" placeholder = "Email address" required = "" autofocus = "" autocomplete = "off" value = "">
                         </div>
                     </div>
 
                     <div class = "form-group">
                         <label for = "password" class = "col-sm-3 control-label">Password</label>
                         <div class = "col-sm-8">
-                            <input type = "password" name = "password" class = "form-control" placeholder = "Password" required = "" autocomplete = "off" value="">
+                            <input type = "password" name = "password" class = "form-control" placeholder = "Password" required = "" autocomplete = "off" value = "">
                         </div>
                     </div>
 
                     <div class = "form-group">
                         <label for = "verify_password" class = "col-sm-3 control-label">Confirm Password</label>
                         <div class = "col-sm-8">
-                            <input type = "password" name = "verify_password" class = "form-control" placeholder = "Confirm Password" required = "" autocomplete = "off" value="">
+                            <input type = "password" name = "verify_password" class = "form-control" placeholder = "Confirm Password" required = "" autocomplete = "off" value = "">
                         </div>
                     </div>
 
                     <div class = "form-group">
                         <div class = "col-sm-3 col-sm-offset-3">
-                            <input type="submit" class = "btn btn-primary" value = "Register"></button>
+                            <input type = "submit" class = "btn btn-primary" value = "Register"></button>
                         </div>
                     </div>
                 </form>

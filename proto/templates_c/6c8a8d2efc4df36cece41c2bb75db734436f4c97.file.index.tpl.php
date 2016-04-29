@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-04-28 22:15:07
+<?php /* Smarty version Smarty-3.1.15, created on 2016-04-29 00:37:38
          compiled from "/home/vagrant/personal/LBAW/proto/templates/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:20173297357228b4c3db958-63167297%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c8a8d2efc4df36cece41c2bb75db734436f4c97' => 
     array (
       0 => '/home/vagrant/personal/LBAW/proto/templates/index.tpl',
-      1 => 1461881706,
+      1 => 1461890255,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'LOGGED_IN' => 0,
+    'BASE_URL' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -29,9 +30,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <div class = "container">
     <section id = "body">
         <?php if ($_smarty_tpl->tpl_vars['LOGGED_IN']->value==true) {?>
-            You are looged in.
+            You are looged in. The other User Story is search. Try it.
         <?php } else { ?>
-            Hello kind guest. Please login
+            Hello kind guest. Please <a href="<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/users/authentication.php">login</a>
         <?php }?>
     </section>
 </div>
