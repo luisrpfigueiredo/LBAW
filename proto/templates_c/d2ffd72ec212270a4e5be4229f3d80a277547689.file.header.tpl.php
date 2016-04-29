@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-04-29 00:31:17
+<?php /* Smarty version Smarty-3.1.15, created on 2016-04-29 02:40:41
          compiled from "/home/vagrant/personal/LBAW/proto/templates/common/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:61249695357228229be8de5-08783105%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd2ffd72ec212270a4e5be4229f3d80a277547689' => 
     array (
       0 => '/home/vagrant/personal/LBAW/proto/templates/common/header.tpl',
-      1 => 1461889875,
+      1 => 1461897638,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'LOGGED_IN' => 0,
+    'BASE_URL' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -39,10 +40,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <?php echo HTML::style('styles/global-styles.css');?>
 
+    <?php echo HTML::style("styles/searchResults.css");?>
+
+    <?php echo HTML::style("styles/voting.css");?>
+
 
     <?php echo HTML::script('jquery-2.2.1.min.js');?>
 
     <?php echo HTML::script('bootstrap.min.js');?>
+
+    <?php echo HTML::script("voting.js");?>
 
 
 </head>
@@ -75,12 +82,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                         <?php echo $_smarty_tpl->getSubTemplate ('common/menu_logged_out.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
                     <?php }?>
-                    <form class = "navbar-form navbar-left" role = "search">
+
+                    <form class = "navbar-form navbar-left" role = "search" method = "post" action = "<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+pages/questions/search.php">
                         <div class = "form-group">
-                            <input type = "text" class = "form-control navbar-search" placeholder = "Search">
+                            <input type = "text" class = "form-control navbar-search" placeholder = "Search" name = "search_query">
                         </div>
-                        <a href = "?page=search">
-                            <button type = "button" class = "search-submit">
+
+                        <a>
+                            <button type = "submit" class = "search-submit">
                                 <span class = "glyphicon glyphicon-search"></span>
                             </button>
                         </a>

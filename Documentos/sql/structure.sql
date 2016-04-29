@@ -269,7 +269,7 @@ BEGIN
 	return QUERY
 		SELECT DISTINCT(questions.id)
 		FROM questions INNER JOIN answers ON questions.id = answers.question_id
-		WHERE to_tsvector(coalesce(title,'') || ' ' || coalesce(body,'')) @@ to_tsquery(psearch)
+		WHERE to_tsvector(coalesce(questions.title,'') || ' ' || coalesce(questions.body,'')) @@ to_tsquery(psearch)
 			OR to_tsvector(answers.body) @@ to_tsquery(psearch);
 END
 $func$  LANGUAGE plpgsql;

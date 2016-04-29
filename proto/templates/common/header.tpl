@@ -11,9 +11,12 @@
     {HTML::style('styles/bootstrap.min.css')}
     {HTML::style('styles/bootstrap-changes.css')}
     {HTML::style('styles/global-styles.css')}
+    {HTML::style("styles/searchResults.css")}
+    {HTML::style("styles/voting.css")}
 
     {HTML::script('jquery-2.2.1.min.js')}
     {HTML::script('bootstrap.min.js')}
+    {HTML::script("voting.js")}
 
 </head>
 <body>
@@ -42,12 +45,14 @@
                     {else}
                         {include file='common/menu_logged_out.tpl'}
                     {/if}
-                    <form class = "navbar-form navbar-left" role = "search">
+
+                    <form class = "navbar-form navbar-left" role = "search" method = "post" action = "{$BASE_URL}pages/questions/search.php">
                         <div class = "form-group">
-                            <input type = "text" class = "form-control navbar-search" placeholder = "Search">
+                            <input type = "text" class = "form-control navbar-search" placeholder = "Search" name = "search_query">
                         </div>
-                        <a href = "?page=search">
-                            <button type = "button" class = "search-submit">
+
+                        <a>
+                            <button type = "submit" class = "search-submit">
                                 <span class = "glyphicon glyphicon-search"></span>
                             </button>
                         </a>
