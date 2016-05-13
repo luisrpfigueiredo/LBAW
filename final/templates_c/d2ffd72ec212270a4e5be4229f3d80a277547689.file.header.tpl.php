@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-13 14:36:56
-         compiled from "/home/vagrant/feup/LBAW/proto/templates/common/header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:167300552557352f2ac8ffd5-79516472%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2016-04-29 02:40:41
+         compiled from "/home/vagrant/personal/LBAW/proto/templates/common/header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:61249695357228229be8de5-08783105%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '729e065d6df3909ba4af27218a5d2db2b9811dac' => 
+    'd2ffd72ec212270a4e5be4229f3d80a277547689' => 
     array (
-      0 => '/home/vagrant/feup/LBAW/proto/templates/common/header.tpl',
-      1 => 1463112638,
+      0 => '/home/vagrant/personal/LBAW/proto/templates/common/header.tpl',
+      1 => 1461897638,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '167300552557352f2ac8ffd5-79516472',
+  'nocache_hash' => '61249695357228229be8de5-08783105',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57352f2acb3409_64965137',
+  'unifunc' => 'content_57228229c1b084_93798107',
   'variables' => 
   array (
     'LOGGED_IN' => 0,
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57352f2acb3409_64965137')) {function content_57352f2acb3409_64965137($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_57228229c1b084_93798107')) {function content_57228229c1b084_93798107($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
     <title>LBAW - Tidder</title>
@@ -48,6 +48,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <?php echo HTML::script('jquery-2.2.1.min.js');?>
 
     <?php echo HTML::script('bootstrap.min.js');?>
+
+    <?php echo HTML::script("voting.js");?>
 
 
 </head>
