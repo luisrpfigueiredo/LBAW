@@ -1,9 +1,10 @@
 <?php
-function questionSearch($query)
+function questionSearch($query, $page = 0)
 {
+    $items_per_page = 2;
     global $conn;
-    $stmt = $conn->prepare("SELECT search_questions(?);");
-    $stmt->execute(array($query));
+    $stmt = $conn->prepare("SELECT search_questions(?) LIMIT ? OFFSET ?;");
+    $stmt->execute(array($query, $items_per_page, $items_per_page * $page));
     $rows = $stmt->fetchAll();
 
     $question_ids = [];
@@ -18,9 +19,10 @@ function questionsFromIds($ids = [])
 {
     global $conn;
 
-    if(empty($ids))
+    if (empty($ids)) {
         return [];
-    
+    }
+
     // fix later
     $points = [];
     foreach ($ids as $id) {

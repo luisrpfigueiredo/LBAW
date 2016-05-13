@@ -2,7 +2,7 @@
   include_once('../../config/init.php');
   include_once($BASE_DIR .'database/tweets.php');
 
-  $tweets = getTweetsAfter($_GET['id']);  
+  $questions = getTweetsAfter($_GET['id']);
   
   foreach ($tweets as $key => $tweet) {
     unset($photo);

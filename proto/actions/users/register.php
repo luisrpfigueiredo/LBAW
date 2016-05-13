@@ -7,6 +7,7 @@ foreach (glob($BASE_DIR . "lib/passwordHashingLib/*.php") as $filename) {
     include_once($filename);
 }
 
+PagePermissions::create('guest')->check();
 
 if (!$_POST['username'] || !$_POST['email'] || !$_POST['password'] || !$_POST['verify_password']) {
     $_SESSION['error_messages'][] = 'All fields are mandatory';

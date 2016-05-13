@@ -7,3 +7,8 @@ function dd()
     }
     exit();
 }
+
+function back() {
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit();
+}

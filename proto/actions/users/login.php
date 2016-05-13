@@ -2,6 +2,7 @@
 include_once('../../config/init.php');
 include_once($BASE_DIR . 'database/users.php');
 
+PagePermissions::create('guest')->check();
 
 if (!$_POST['username'] || !$_POST['password']) {
     $_SESSION['error_messages'][] = 'Invalid login';

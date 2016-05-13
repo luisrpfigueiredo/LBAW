@@ -3,7 +3,7 @@
         <div class="increment up"></div>
         <div class="increment down"></div>
 
-        <div class="count">{$question['votes']}</div>
+        <div class="count vote-count">{$question['votes']}</div>
 
     </div>
 </blockquote>
