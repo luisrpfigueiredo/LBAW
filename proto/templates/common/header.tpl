@@ -16,7 +16,6 @@
 
     {HTML::script('jquery-2.2.1.min.js')}
     {HTML::script('bootstrap.min.js')}
-    {HTML::script("voting.js")}
 
 </head>
 <body>

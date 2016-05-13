@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-13 04:02:41
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-13 04:09:28
          compiled from "/home/vagrant/feup/LBAW/proto/templates/questions/search_results.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:819135418573545ea3e4543-12374761%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0580a1890f8d2c14e0f1d301db5491dde0823f9e' => 
     array (
       0 => '/home/vagrant/feup/LBAW/proto/templates/questions/search_results.tpl',
-      1 => 1463112156,
+      1 => 1463112190,
       2 => 'file',
     ),
   ),
@@ -70,7 +70,7 @@ api/questions/search_load_more.php" type = "button" class = "btn btn-lg btn-prim
     function addNewQuestions(objects) {
         $.each(objects, function (i, object) {
             var newObject = $('.question-info-container:last-child').clone(true);
-            console.log(object);
+
             newObject.find('.vote-count').html(object.votes);
             newObject.find('.question-title').html(object.title);
             newObject.find('.question-body').html(object.body);
