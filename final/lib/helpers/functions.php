@@ -8,7 +8,28 @@ function dd()
     exit();
 }
 
-function back() {
+function back()
+{
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit();
+}
+
+function old($name, $default = '')
+{
+    global $FORM_VALUES;
+
+    if (isset($FORM_VALUES[$name])) {
+        return $FORM_VALUES[$name];
+    }
+
+    return $default;
+}
+
+function auth_user($property = null)
+{
+    if ($property && isset($_SESSION['user'][$property])) {
+        return $_SESSION['user'][$property];
+    }
+
+    return $_SESSION['user'];
 }

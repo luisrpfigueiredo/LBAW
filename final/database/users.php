@@ -44,7 +44,7 @@ function isLoginCorrect($username, $password)
 function getUserFromUsername($username)
 {
     global $conn;
-    $stmt = $conn->prepare("SELECT * 
+    $stmt = $conn->prepare("SELECT id, username, email, type, created_at 
                             FROM users 
                             WHERE username = ?");
     $stmt->execute(array($username));

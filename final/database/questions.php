@@ -40,3 +40,13 @@ function questionsFromIds($ids = [])
 
     return $rows;
 }
+
+function createQuestion($data)
+{
+    global $conn;
+
+    $stmt = $conn->prepare("INSERT INTO questions (user_id, title, body) VALUES(:user_id, :title, :body)");
+    $stmt->execute($data);
+
+    return $conn->lastInsertId('questions_id_seq');
+}

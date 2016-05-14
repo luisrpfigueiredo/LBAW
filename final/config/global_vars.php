@@ -24,8 +24,9 @@ $smarty->assign('USERNAME', $_SESSION['username']);
 $_SESSION['logged_in'] = isset($_SESSION['logged_in'])?$_SESSION['logged_in']:false;
 $smarty->assign('LOGGED_IN', $_SESSION['logged_in']);
 
+$FORM_VALUES = $_SESSION['form_values'];
 
 unset($_SESSION['success_messages']);
 unset($_SESSION['error_messages']);
 unset($_SESSION['field_errors']);
-unset($_SESSION['form_values']);
+// unset($_SESSION['form_values']);

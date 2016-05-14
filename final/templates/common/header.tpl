@@ -13,9 +13,11 @@
     {HTML::style('styles/global-styles.css')}
     {HTML::style("styles/searchResults.css")}
     {HTML::style("styles/voting.css")}
+    {HTML::style('styles/select2.min.css')}
 
     {HTML::script('jquery-2.2.1.min.js')}
     {HTML::script('bootstrap.min.js')}
+    {HTML::script('select2.full.js')}
 
 </head>
 <body>
@@ -30,7 +32,7 @@
                     <span class = "icon-bar"></span>
                     <span class = "icon-bar"></span>
                 </button>
-                <a class = "navbar-brand" href = "/" style = "padding: 2px 0">
+                <a class = "navbar-brand" href = "{$BASE_URL}" style = "padding: 2px 0">
                     <img src = "{resource("logo.png")}" height = "100%">
                 </a>
             </div>
