@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-14 00:06:43
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-16 19:59:51
          compiled from "/home/vagrant/feup/LBAW/final/templates/common/header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1602264556573666792fc8f7-94024636%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a1e8d2d47fd0fdd8cfa3a82f984f93dbc05ff4c6' => 
     array (
       0 => '/home/vagrant/feup/LBAW/final/templates/common/header.tpl',
-      1 => 1463184397,
+      1 => 1463428786,
       2 => 'file',
     ),
   ),
@@ -45,6 +45,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <?php echo HTML::style("styles/voting.css");?>
 
     <?php echo HTML::style('styles/select2.min.css');?>
+
+    <?php echo HTML::style('styles/landing-page.css');?>
 
 
     <?php echo HTML::script('jquery-2.2.1.min.js');?>

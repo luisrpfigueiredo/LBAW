@@ -14,6 +14,7 @@
     {HTML::style("styles/searchResults.css")}
     {HTML::style("styles/voting.css")}
     {HTML::style('styles/select2.min.css')}
+    {HTML::style('styles/landing-page.css')}
 
     {HTML::script('jquery-2.2.1.min.js')}
     {HTML::script('bootstrap.min.js')}

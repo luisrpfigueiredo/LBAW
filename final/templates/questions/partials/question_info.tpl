@@ -5,12 +5,12 @@
     </div>
     <div class = "col-sm-10">
         <h3>
-            <a href = "{$BASE_URL}pages/dev.php" class="question-title">
+            <a href = "{$BASE_URL}pages/dev.php" class = "question-title">
                 {$question['title']}
             </a>
         </h3>
         <p class = "question-description">
-            <a href = "{$BASE_URL}pages/dev.php" class="question-body">
+            <a href = "{$BASE_URL}pages/dev.php" class = "question-body">
                 {$question['body']}
             </a>
         </p>
@@ -30,11 +30,16 @@
         {/if}
         <span>
             <i class = "glyphicon glyphicon-time"></i>
-            <span class="question-updated-at">{$question['updated_at']}</span>
+            <span class = "question-updated-at">
+                {if $question['updated_at']}
+                    {$question['updated_at']}
+                {else}
+                    {$question['created_at']}
+                {/if}</span>
         </span>
         <span>
             <i class = "glyphicon glyphicon-comment"></i>
-            <span class="question-answers">{$question['number_answers']} answer{if $question['number_answers'] != 1 }s{/if}</span>
+            <span class = "question-answers">{$question['number_answers']} answer{if $question['number_answers'] != 1 }s{/if}</span>
         </span>
     </div>
 </div>

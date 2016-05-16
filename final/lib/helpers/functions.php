@@ -21,6 +21,17 @@ function redirect($path = '')
     exit();
 }
 
+function url($uri = '')
+{
+    global $BASE_URL;
+
+    if ($uri !== '' and (!endsWith($uri, '/') or !endsWith($uri, '.php'))) {
+        $uri .= '.php';
+    }
+
+    return $BASE_URL . $uri;
+}
+
 function old($name, $default = '')
 {
     global $FORM_VALUES;
@@ -53,4 +64,17 @@ function query_build_for_num_args($array)
     }
 
     return $tags_query;
+}
+
+function startsWith($haystack, $needle)
+{
+    // search backwards starting from haystack length characters from the end
+    return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
+}
+
+function endsWith($haystack, $needle)
+{
+    // search forward starting from end minus needle length characters
+    return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle,
+            $temp) !== false);
 }
