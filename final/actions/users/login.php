@@ -22,7 +22,7 @@ try {
         $_SESSION['logged_in'] = true;
         $_SESSION['user'] = getUserFromUsername($username);
 
-        header("Location: $BASE_URL");
+        redirect();
     } else {
         echo "else";
         $_SESSION['error_messages'][] = 'Error validating credentials.';
@@ -34,7 +34,7 @@ try {
     $_SESSION['error_messages'][] = 'Login failed.';
 
     $_SESSION['form_values'] = $_POST;
-    header("Location: $BASE_URL" . 'pages/users/authentication.php');
-    exit;
+
+    redirect('pages/users/authentication.php');
 }
 

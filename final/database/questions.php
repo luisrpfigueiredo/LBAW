@@ -19,16 +19,15 @@ function questionsFromIds($ids = [])
 {
     global $conn;
 
+    if (!is_array($ids)) {
+        $ids = [$ids];
+    }
+
     if (empty($ids)) {
         return [];
     }
 
-    // fix later
-    $points = [];
-    foreach ($ids as $id) {
-        $points[] = '?';
-    }
-    $points = implode(', ', $points);
+    $points = query_build_for_num_args($ids);
 
     $stmt = $conn->prepare("SELECT id, title, body, solved, updated_at, 
         (SELECT COUNT(*) FROM question_answers(id)) as number_answers,
@@ -48,5 +47,15 @@ function createQuestion($data)
     $stmt = $conn->prepare("INSERT INTO questions (user_id, title, body) VALUES(:user_id, :title, :body)");
     $stmt->execute($data);
 
-    return $conn->lastInsertId('questions_id_seq');
+    return (int)$conn->lastInsertId('questions_id_seq');
+}
+
+function editQuestion($data)
+{
+    global $conn;
+
+    $stmt = $conn->prepare("UPDATE questions SET title = :title, body = :body WHERE id=:question_id");
+    $stmt->execute($data);
+
+    return true;
 }

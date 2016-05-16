@@ -3,14 +3,15 @@ include_once('../../config/init.php');
 include_once($BASE_DIR . 'database/questions.php');
 include_once($BASE_DIR . 'database/tags.php');
 
+// TODO OWNED PERMISSION
 PagePermissions::create('auth')->check();
 
 validateInput();
-
+$question_id = $_POST['question_id'];
 $data = [
-    ':user_id' => auth_user('id'),
-    ':title'   => $_POST['title'],
-    ':body'    => $_POST['body']
+    ':question_id' => $question_id,
+    ':title'       => $_POST['title'],
+    ':body'        => $_POST['body']
 ];
 
 $tags = $_POST['tags'];
@@ -18,8 +19,8 @@ $tags = $_POST['tags'];
 try {
     $conn->beginTransaction();
 
-    $question_id = createQuestion($data);
-    createTags($question_id, $tags);
+    editQuestion($data);
+    syncTags($question_id, $tags);
 
     $conn->commit();
 
@@ -37,6 +38,12 @@ back();
 
 function validateInput()
 {
+    if (!$_POST['question_id']) {
+        $_SESSION['error_messages'][] = 'Wrong Question Identifier';
+        $_SESSION['form_values'] = $_POST;
+        back();
+    }
+
     if (!$_POST['title'] || !$_POST['body']) {
         $_SESSION['error_messages'][] = 'Title and description are required';
         $_SESSION['form_values'] = $_POST;
@@ -48,6 +55,7 @@ function validateInput()
         $_SESSION['form_values'] = $_POST;
         back();
     }
+
     $tags = $_POST['tags'];
     foreach ($tags as $tag) {
         if (strlen($tag) > 10) {

@@ -14,6 +14,13 @@ function back()
     exit();
 }
 
+function redirect($path = '')
+{
+    global $BASE_URL;
+    header('Location: ' . $BASE_URL . $path);
+    exit();
+}
+
 function old($name, $default = '')
 {
     global $FORM_VALUES;
@@ -32,4 +39,18 @@ function auth_user($property = null)
     }
 
     return $_SESSION['user'];
+}
+
+function query_build_for_num_args($array)
+{
+    $tags_query = '';
+    for ($i = 0; $i < count($array); $i++) {
+        $tags_query .= '?, ';
+    }
+
+    if (strlen($tags_query) > 1) {
+        $tags_query = substr($tags_query, 0, -2);
+    }
+
+    return $tags_query;
 }

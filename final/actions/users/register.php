@@ -12,8 +12,7 @@ PagePermissions::create('guest')->check();
 if (!$_POST['username'] || !$_POST['email'] || !$_POST['password'] || !$_POST['verify_password']) {
     $_SESSION['error_messages'][] = 'All fields are mandatory';
     $_SESSION['form_values'] = $_POST;
-    header("Location: $BASE_URL" . 'pages/users/authentication.php');
-    exit;
+    redirect('pages/users/authentication.php');
 }
 
 
@@ -24,8 +23,7 @@ $verify_password = $_POST['verify_password'];
 
 if (strcmp($password, $verify_password) != 0) {
     $_SESSION['error_messages'][] = 'Passwords mismatch';
-    header("Location: $BASE_URL" . 'pages/users/authentication.php?tab=register');
-    exit;
+    redirect('pages/users/authentication.php?tab=register');
 }
 
 try {
@@ -40,10 +38,9 @@ try {
     }
 
     $_SESSION['form_values'] = $_POST;
-    header("Location: $BASE_URL" . 'pages/users/authentication.php?tab=register');
-    exit;
+    redirect('pages/users/authentication.php?tab=register');
 }
 
 $_SESSION['success_messages'][] = 'User registered successfully';
-header("Location: $BASE_URL");
+redirect();
 
