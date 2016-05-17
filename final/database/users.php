@@ -52,3 +52,13 @@ function getUserFromUsername($username)
     return $stmt->fetch();
 }
 
+function getProfile($user_id)
+{
+    global $conn;
+    $stmt = $conn->prepare("SELECT *
+                            FROM user_profile(:user)");
+    $stmt->execute(['user' => $user_id]);
+
+    return $stmt->fetch();
+}
+

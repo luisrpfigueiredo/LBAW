@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-16 20:07:17
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-17 20:32:57
          compiled from "/home/vagrant/feup/LBAW/final/templates/common/menu_logged_in.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1934947271573668f3b2f8e3-37810810%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '234b481ea76171d95525e3e12ab09e81d48d2e56' => 
     array (
       0 => '/home/vagrant/feup/LBAW/final/templates/common/menu_logged_in.tpl',
-      1 => 1463429066,
+      1 => 1463517175,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ">Questions</a></li>
 <li class = "cl-effect-21"><a href = "<?php echo url('pages/about');?>
 ">About Us</a></li>
-<li class = " cl-effect-21"><a href = "<?php echo url('pages/dev');?>
+<li class = " cl-effect-21"><a href = "<?php echo url('pages/users/profile');?>
 ">Profile</a></li>
 <li class = "cl-effect-21"><a href = "<?php echo url('actions/users/logout');?>
 ">Log Out</a></li><?php }} ?>

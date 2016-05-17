@@ -1,19 +1,51 @@
-{include file='common/header.tpl'}
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-17 20:40:09
+         compiled from "/home/vagrant/feup/LBAW/final/templates/users/profile.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:1172627972573b7ffb782449-28488122%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '4eba179b2802120c57209b9283a1f44b0833ded5' => 
+    array (
+      0 => '/home/vagrant/feup/LBAW/final/templates/users/profile.tpl',
+      1 => 1463517608,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1172627972573b7ffb782449-28488122',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.15',
+  'unifunc' => 'content_573b7ffb7bec41_05240522',
+  'variables' => 
+  array (
+    'user' => 0,
+    'questions' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_573b7ffb7bec41_05240522')) {function content_573b7ffb7bec41_05240522($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('common/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
 <div class = "container">
-    {include file='common/breadcrumb.tpl'}
+    <?php echo $_smarty_tpl->getSubTemplate ('common/breadcrumb.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
     <div class = "row">
         <div class = "col-sm-4">
             <div class = "panel panel-default">
                 <div class = "panel-heading">
-                    <h3 class = "panel-title">{$user['username']}</h3>
+                    <h3 class = "panel-title"><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+</h3>
                 </div>
                 <div class = "panel-body small-padding-horizontal">
                     <div class = "row">
                         <div class = "col-sm-12 text-center">
                             <div class = "col-sm-12 user-statistics no-padding-horizontal">
-                                <div class = "col-sm-4"><span>{$user['count_questions']}</span>Questions</div>
-                                <div class = "col-sm-4"><span>{$user['count_answers']}</span>Answers</div>
-                                <div class = "col-sm-4"><span>{$user['count_votes_rating_received']}</span>Rate</div>
+                                <div class = "col-sm-4"><span><?php echo $_smarty_tpl->tpl_vars['user']->value['count_questions'];?>
+</span>Questions</div>
+                                <div class = "col-sm-4"><span><?php echo $_smarty_tpl->tpl_vars['user']->value['count_answers'];?>
+</span>Answers</div>
+                                <div class = "col-sm-4"><span><?php echo $_smarty_tpl->tpl_vars['user']->value['count_votes_rating_received'];?>
+</span>Rate</div>
                             </div>
                         </div>
                         <div class = "clearfix"></div>
@@ -24,7 +56,8 @@
                                     Email:
                                 </div>
                                 <div class = "col-sm-8">
-                                    <strong>{$user['email']}</strong>
+                                    <strong><?php echo $_smarty_tpl->tpl_vars['user']->value['email'];?>
+</strong>
                                 </div>
                             </div>
 
@@ -33,7 +66,8 @@
                                     Username:
                                 </div>
                                 <div class = "col-sm-8">
-                                    <strong>{$user['username']}</strong>
+                                    <strong><?php echo $_smarty_tpl->tpl_vars['user']->value['username'];?>
+</strong>
                                 </div>
                             </div>
 
@@ -42,7 +76,8 @@
                                     Joined at:
                                 </div>
                                 <div class = "col-sm-8">
-                                    <strong>{$user['created_at']}</strong>
+                                    <strong><?php echo $_smarty_tpl->tpl_vars['user']->value['created_at'];?>
+</strong>
                                 </div>
                             </div>
 
@@ -63,9 +98,14 @@
                 <div class = "panel-body profile-questions-panel">
 
                     <div class = "question-space">
-                        {foreach $questions as $question}
-                            {include file='questions/partials/question-info'}
-                        {/foreach}
+                        <?php  $_smarty_tpl->tpl_vars['question'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['question']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['questions']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['question']->key => $_smarty_tpl->tpl_vars['question']->value) {
+$_smarty_tpl->tpl_vars['question']->_loop = true;
+?>
+                            <?php echo $_smarty_tpl->getSubTemplate ('questions/partials/question-info', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+                        <?php } ?>
                     </div>
 
 
@@ -116,4 +156,6 @@
     </div>
 </div>
 
-{include file='common/footer.tpl'}
+<?php echo $_smarty_tpl->getSubTemplate ('common/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+
+<?php }} ?>
