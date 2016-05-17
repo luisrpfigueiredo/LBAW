@@ -21,7 +21,7 @@ function redirect($path = '')
     exit();
 }
 
-function url($uri = '')
+function url($uri = '', $params = [])
 {
     global $BASE_URL;
 
@@ -29,7 +29,17 @@ function url($uri = '')
         $uri .= '.php';
     }
 
+    if (!empty($params)) {
+        $get = http_build_query($params);
+        $uri .= '?' . $get;
+    }
+
     return $BASE_URL . $uri;
+}
+
+function questionUrl($question_id)
+{
+    return url('pages/questions/details', ['question' => $question_id]);
 }
 
 function old($name, $default = '')

@@ -29,7 +29,7 @@ function questionsFromIds($ids = [])
 
     $points = query_build_for_num_args($ids);
 
-    $stmt = $conn->prepare("SELECT id, title, body, solved, updated_at, created_at
+    $stmt = $conn->prepare("SELECT id, title, body, solved, updated_at, created_at,
         (SELECT COUNT(*) FROM question_answers(id)) as number_answers,
         votable_rating(id, 'q') as votes
         FROM questions 

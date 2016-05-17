@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-16 20:35:35
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-17 19:19:33
          compiled from "/home/vagrant/feup/LBAW/final/templates/questions/partials/question_info.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1322637753573a2977587913-75148489%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '930b34b666dbd80d474faa78c5c4b798659c4131' => 
     array (
       0 => '/home/vagrant/feup/LBAW/final/templates/questions/partials/question_info.tpl',
-      1 => 1463430932,
+      1 => 1463512772,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_573a29775ad259_93584907',
   'variables' => 
   array (
-    'BASE_URL' => 0,
     'question' => 0,
   ),
   'has_nocache_code' => false,
@@ -32,15 +31,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     </div>
     <div class = "col-sm-10">
         <h3>
-            <a href = "<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/dev.php" class = "question-title">
+            <a href = "<?php echo questionUrl($_smarty_tpl->tpl_vars['question']->value['id']);?>
+" class = "question-title" data-base-question-url="<?php echo questionUrl('');?>
+">
                 <?php echo $_smarty_tpl->tpl_vars['question']->value['title'];?>
 
             </a>
         </h3>
         <p class = "question-description">
-            <a href = "<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
-pages/dev.php" class = "question-body">
+            <a href = "<?php echo questionUrl($_smarty_tpl->tpl_vars['question']->value['id']);?>
+" class = "question-body" class = "question-title" data-base-question-url="<?php echo questionUrl('');?>
+">
                 <?php echo $_smarty_tpl->tpl_vars['question']->value['body'];?>
 
             </a>

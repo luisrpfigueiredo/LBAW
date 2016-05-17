@@ -5,12 +5,12 @@
     </div>
     <div class = "col-sm-10">
         <h3>
-            <a href = "{$BASE_URL}pages/dev.php" class = "question-title">
+            <a href = "{questionUrl($question['id'])}" class = "question-title" data-base-question-url="{questionUrl('')}">
                 {$question['title']}
             </a>
         </h3>
         <p class = "question-description">
-            <a href = "{$BASE_URL}pages/dev.php" class = "question-body">
+            <a href = "{questionUrl($question['id'])}" class = "question-body" class = "question-title" data-base-question-url="{questionUrl('')}">
                 {$question['body']}
             </a>
         </p>

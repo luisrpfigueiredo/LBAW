@@ -14,7 +14,7 @@
     </div>
 
     <div class = "load-more col-sm-12 space-top text-center">
-        <button id = "load_more_questions" data-url = "{$BASE_URL}api/questions/search_load_more.php" type = "button" class = "btn btn-lg btn-primary col-sm-6 col-sm-offset-3 col-xs-12">Load More...</button>
+        <button id = "load_more_questions" data-url = "{url('api/questions/search_load_more')}" type = "button" class = "btn btn-lg btn-primary col-sm-6 col-sm-offset-3 col-xs-12">Load More...</button>
     </div>
 
 </div>
@@ -35,14 +35,24 @@
             var newObject = $('.question-info-container:last-child').clone(true);
 
             newObject.find('.vote-count').html(object.votes);
-            newObject.find('.question-title').html(object.title);
-            newObject.find('.question-body').html(object.body);
+            updateTitleAndLink(newObject.find('.question-title'), object);
+            updateTitleAndLink(newObject.find('.question-body'), object);
             updateSolvedStatus(newObject.find('.question-solved-status'), object.solved);
-            newObject.find('.question-updated-at').html(object.updated_at);
+            updateDate(newObject.find('.question-updated-at'), object);
             updateNumberAnswers(newObject.find('.question-answers'), object.number_answers);
 
             $('.question-space').append(newObject);
         });
+    }
+    
+    function updateTitleAndLink(questionTitle, object) {
+        questionTitle.attr('href', questionTitle.data('base-question-url') + object.id);
+        questionTitle.html(object.title);
+    }
+
+    function updateBodyAndLink(questionTitle, object) {
+        questionTitle.attr('href', questionTitle.data('base-question-url') + object.id);
+        questionTitle.html(object.body);
     }
 
     function updateSolvedStatus(solvedObject, solved) {
@@ -54,6 +64,13 @@
         var answer = number + ' answer';
         if (number != 1) answer += 's';
         questionAnswers.html(answer);
+    }
+
+    function updateDate(questionDate, object) {
+        if (object.updated_at === null || object.updated_at == '')
+            questionDate.html(object.created_at);
+        else
+            questionDate.html(object.updated_at);
     }
 </script>
 

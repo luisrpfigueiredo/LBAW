@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-16 20:36:40
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-17 19:20:27
          compiled from "/home/vagrant/feup/LBAW/final/templates/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10636534195736667903b5f8-33221430%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '63433c8897a020f40b061a2c4f060c05c865451e' => 
     array (
       0 => '/home/vagrant/feup/LBAW/final/templates/index.tpl',
-      1 => 1463430993,
+      1 => 1463512824,
       2 => 'file',
     ),
   ),
@@ -19,8 +19,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5736667928cf56_18562669',
   'variables' => 
   array (
+    'questionsArray' => 0,
+    'key' => 0,
+    'tabs' => 0,
     'questions' => 0,
-    'chunk_questions' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -59,56 +61,120 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div>
 
 <div class = "container">
-    <ul class = "nav nav-tabs" id = "questions">
-        <li class = "active">
-            <a href = "#latest" aria-controls = "latest" role = "tab" data-toggle = "tab">Latest Questions</a>
-        </li>
-        <li>
-            <a href = "#answered" aria-controls = "answered" role = "tab" data-toggle = "tab">Recently Updated</a>
-        </li>
-        <li>
-            <a href = "#week" aria-controls = "week" role = "tab" data-toggle = "tab">Past Week</a>
-        </li>
-        <li>
-            <a href = "#month" aria-controls = "month" role = "tab" data-toggle = "tab">Past Month</a>
-        </li>
-    </ul>
+    <?php echo $_smarty_tpl->getSubTemplate ('questions_tabs_partials/menu.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
 
-    <!-- TAB CONTENT -->
+
     <div class = "tab-content" style = "margin-top: 1em;">
-        <div id = "latest" role = "tabpanel" class = "tab-pane active">
-            <div class = "row">
-                <?php if (empty($_smarty_tpl->tpl_vars['questions']->value)) {?>
-                    <div class="col-sm-12" style="text-align: center"><strong>No questions to load!</strong></div>
-                <?php }?>
-
-                <?php if (!empty($_smarty_tpl->tpl_vars['questions']->value)) {?>
-                <?php  $_smarty_tpl->tpl_vars['chunk_questions'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['chunk_questions']->_loop = false;
- $_from = array_chunk($_smarty_tpl->tpl_vars['questions']->value,2); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['chunk_questions']->key => $_smarty_tpl->tpl_vars['chunk_questions']->value) {
-$_smarty_tpl->tpl_vars['chunk_questions']->_loop = true;
+        <?php  $_smarty_tpl->tpl_vars['questions'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['questions']->_loop = false;
+ $_smarty_tpl->tpl_vars['key'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['questionsArray']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['questions']->key => $_smarty_tpl->tpl_vars['questions']->value) {
+$_smarty_tpl->tpl_vars['questions']->_loop = true;
+ $_smarty_tpl->tpl_vars['key']->value = $_smarty_tpl->tpl_vars['questions']->key;
 ?>
-                    <?php  $_smarty_tpl->tpl_vars['question'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['question']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['chunk_questions']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['question']->key => $_smarty_tpl->tpl_vars['question']->value) {
-$_smarty_tpl->tpl_vars['question']->_loop = true;
-?>
-                        <div class = "col-sm-6">
-                            <?php echo $_smarty_tpl->getSubTemplate ('questions/partials/question_info.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
+            <?php if ($_smarty_tpl->tpl_vars['key']->value==0) {?>
+                <?php $_smarty_tpl->tpl_vars['panelActive'] = new Smarty_variable("active", null, 0);?>
+            <?php } else { ?>
+                <?php $_smarty_tpl->tpl_vars['panelActive'] = new Smarty_variable('', null, 0);?>
+            <?php }?>
 
-                        </div>
-                    <?php } ?>
-                    <div class="clearfix"></div>
-                    <div style="margin-bottom:15px;"></div>
-                <?php } ?>
-                <div class = "load-more col-sm-12 space-top text-center">
-                    <button type = "button" class = "btn btn-lg btn-primary col-sm-6 col-sm-offset-3 col-xs-12">Load More...</button>
-                </div>
-                <?php }?>
-            </div>
-        </div>
+            <?php echo $_smarty_tpl->getSubTemplate ('questions_tabs_partials/question_list.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array('tabName'=>$_smarty_tpl->tpl_vars['tabs']->value[$_smarty_tpl->tpl_vars['key']->value][0],'questions'=>$_smarty_tpl->tpl_vars['questions']->value), 0);?>
+
+        <?php } ?>
     </div>
 </div>
+
+<script type = "text/javascript">
+    $(document).ready(function () {
+        $(".load-more").on('click', function () {
+            var next_page = $(this).data('next-page');
+            var tab = $(this).data('tab');
+
+            $.get($(this).data('url') + '?tab=' + tab + '&page=' + next_page, function (data) {
+                addNewQuestions($.parseJSON(data));
+            });
+            $(this).data('next-page', parseInt(next_page) + 1);
+        });
+    });
+
+    function addNewQuestions(objects) {
+        var chunks = arrayChunk(objects, 2);
+
+        $.each(chunks, function (j, chunk) {
+            var lastItem = $('div.active[role="tabpanel"] .question-line:last');
+            var newLine = lastItem.clone(true);
+            $.each(chunk, function (i, object) {
+                var newObject = newLine.find('.question-col:eq(' + i + ')');
+                newObject.find('.vote-count').html(object.votes);
+                updateTitleAndLink(newObject.find('.question-title'), object);
+                updateTitleAndLink(newObject.find('.question-body'), object);
+                updateSolvedStatus(newObject.find('.question-solved-status'), object.solved);
+                updateDate(newObject.find('.question-updated-at'), object);
+                updateNumberAnswers(newObject.find('.question-answers'), object.number_answers);
+            });
+
+            lastItem.after(newLine);
+        });
+    }
+
+    function updateTitleAndLink(questionTitle, object) {
+        questionTitle.attr('href', questionTitle.data('base-question-url') + object.id);
+        questionTitle.html(object.title);
+    }
+
+    function updateBodyAndLink(questionTitle, object) {
+        questionTitle.attr('href', questionTitle.data('base-question-url') + object.id);
+        questionTitle.html(object.body);
+    }
+
+    function updateSolvedStatus(solvedObject, solved) {
+        solvedObject.removeClass('text-success text-danger').addClass(solved ? 'text-success' : 'text-danger');
+        solvedObject.find('span').html(solved ? 'Solved' : 'Not Solved');
+    }
+
+    function updateNumberAnswers(questionAnswers, number) {
+        var answer = number + ' answer';
+        if (number != 1) answer += 's';
+        questionAnswers.html(answer);
+    }
+
+    function updateDate(questionDate, object) {
+        if (object.updated_at === null || object.updated_at == '')
+            questionDate.html(object.created_at);
+        else
+            questionDate.html(object.updated_at);
+    }
+
+    function arrayChunk(array, size) {
+        //declare vars
+        var output = [];
+        var i = 0; //the loop counter
+        var n = 0; //the index of array chunks
+
+        for (var item in array) {
+
+            //if i is > size, iterate n and reset i to 0
+            if (i >= size) {
+                i = 0;
+                n++;
+            }
+
+            //set a value for the array key if it's not already set
+            if (!output[n] || output[n] == 'undefined') {
+                output[n] = [];
+            }
+
+            output[n][i] = array[item];
+
+            i++;
+
+        }
+
+        return output;
+
+    }
+    ;
+</script>
 
 
 <?php echo $_smarty_tpl->getSubTemplate ('common/footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, null, array(), 0);?>
