@@ -369,6 +369,13 @@ BEGIN
 	SELECT SUM(votable_rating(questions.id, 'q')) INTO vquestionsCount FROM questions WHERE questions.user_id = puser_id;
 	SELECT SUM(votable_rating(answers.id, 'a')) INTO vanswersCount FROM answers WHERE answers.user_id = puser_id;
 	
+	IF vquestionsCount is null THEN
+		vquestionsCount := 0;
+	END IF;
+	IF vanswersCount is null THEN
+		vanswersCount := 0;
+	END IF;
+	
 	return vquestionsCount + vanswersCount;
 END
 $func$  LANGUAGE plpgsql;

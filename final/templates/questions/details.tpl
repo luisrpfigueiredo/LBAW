@@ -1,0 +1,1 @@
+VIEWING QUESTION DETAILS: {$question}

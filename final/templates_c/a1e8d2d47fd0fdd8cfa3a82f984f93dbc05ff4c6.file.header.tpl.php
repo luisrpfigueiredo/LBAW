@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.15, created on 2016-05-13 14:36:56
-         compiled from "/home/vagrant/feup/LBAW/proto/templates/common/header.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:167300552557352f2ac8ffd5-79516472%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.15, created on 2016-05-17 20:32:57
+         compiled from "/home/vagrant/feup/LBAW/final/templates/common/header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:1602264556573666792fc8f7-94024636%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '729e065d6df3909ba4af27218a5d2db2b9811dac' => 
+    'a1e8d2d47fd0fdd8cfa3a82f984f93dbc05ff4c6' => 
     array (
-      0 => '/home/vagrant/feup/LBAW/proto/templates/common/header.tpl',
-      1 => 1463112638,
+      0 => '/home/vagrant/feup/LBAW/final/templates/common/header.tpl',
+      1 => 1463517012,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '167300552557352f2ac8ffd5-79516472',
+  'nocache_hash' => '1602264556573666792fc8f7-94024636',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.15',
-  'unifunc' => 'content_57352f2acb3409_64965137',
+  'unifunc' => 'content_573666793308e1_64344639',
   'variables' => 
   array (
-    'LOGGED_IN' => 0,
     'BASE_URL' => 0,
+    'LOGGED_IN' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_57352f2acb3409_64965137')) {function content_57352f2acb3409_64965137($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_573666793308e1_64344639')) {function content_573666793308e1_64344639($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
     <title>LBAW - Tidder</title>
@@ -44,10 +44,20 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
     <?php echo HTML::style("styles/voting.css");?>
 
+    <?php echo HTML::style('styles/select2.min.css');?>
+
+    <?php echo HTML::style('styles/landing-page.css');?>
+
+    <?php echo HTML::style('styles/landing-page.css');?>
+
+    <?php echo HTML::style("styles/profile.css");?>
+
 
     <?php echo HTML::script('jquery-2.2.1.min.js');?>
 
     <?php echo HTML::script('bootstrap.min.js');?>
+
+    <?php echo HTML::script('select2.full.js');?>
 
 
 </head>
@@ -63,7 +73,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
                     <span class = "icon-bar"></span>
                     <span class = "icon-bar"></span>
                 </button>
-                <a class = "navbar-brand" href = "/" style = "padding: 2px 0">
+                <a class = "navbar-brand" href = "<?php echo $_smarty_tpl->tpl_vars['BASE_URL']->value;?>
+" style = "padding: 2px 0">
                     <img src = "<?php echo resource("logo.png");?>
 " height = "100%">
                 </a>
