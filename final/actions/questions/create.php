@@ -19,7 +19,7 @@ try {
     $conn->beginTransaction();
 
     $question_id = createQuestion($data);
-    createTags($question_id, $tags);
+    syncTags($question_id, $tags);
 
     $conn->commit();
 
