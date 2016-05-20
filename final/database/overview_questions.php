@@ -75,6 +75,7 @@ function lastMonth($page = 0)
         WHERE created_at > current_date - interval '31 days'
         LIMIT :limit 
         OFFSET :skip");
+    
     $stmt->execute(['limit' => $limit, 'skip' => $skip]);
     $rows = $stmt->fetchAll();
 
