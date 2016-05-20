@@ -1,4 +1,5 @@
 <?php
+
 class PagePermissions
 {
 
@@ -6,7 +7,8 @@ class PagePermissions
     protected static $aliasPermissions = [
         'auth'  => 'AuthUser',
         'guest' => 'GuestUser',
-
+        'admin' => 'AdminUser',
+        'mod'   => 'ModUser'
     ];
 
     protected $pagePermissions = [];

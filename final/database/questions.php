@@ -59,3 +59,26 @@ function editQuestion($data)
 
     return true;
 }
+
+function getQuestionsOfUser($user_id, $page = 0)
+{
+    global $conn;
+    $limit_question = 4;
+
+    $stmt = $conn->prepare("SELECT id, title, body, solved, updated_at, created_at,
+        (SELECT COUNT(*) FROM question_answers(id)) as number_answers,
+        votable_rating(id, 'q') as votes
+        FROM questions 
+        WHERE user_id = :user
+        LIMIT :limit
+        OFFSET :skip
+        ;");
+
+    $stmt->execute([
+        'user'  => $user_id,
+        'limit' => $limit_question,
+        'skip'  => $page * $limit_question
+    ]);
+
+    return $stmt->fetchAll();
+}
