@@ -1,18 +1,19 @@
 <?php
-include_once($BASE_DIR . 'database/manageUsers.php');
+include_once('../../config/init.php');
+include_once($BASE_DIR . 'database/admin/manageUsers.php');
 
-http_response_code(200);
-    echo "123";
-
-    $userID = $_POST['userID'];
+    $userID = intval($_POST['userID']);
     if($userID == null){
         $response['error'] = 'No ID supplied';
         echo json_encode($response);
     }
 
-    if (userIsBanned($_POST['data']))
-        unbanUser($userID);
-    else banUser([$userID, $_SESSION['user']['id'], '1987-04-29 13:25:05']);
 
-    $response['numberBans'] = getUserBanCount($userID);
+    if (userIsBanned($userID) == true) {
+        unbanUser($userID);
+    } else {
+        banUser([$userID, intval($_SESSION['user']['id']), '2050-04-29 13:25:05']);
+    }
+
+    $response['numberBans'] = getUserBanCount($userID)['bans'];
     echo json_encode($response);

@@ -60,17 +60,24 @@ function getUserBanCount($user_id){
 
 function userIsBanned($user_id){
 	global $conn;
-	$stmt = $conn->prepare("SElECT COUNT(*) AS number FROM bans WHERE user_id = ? AND expired_at > CURRENT_TIMESTAMP");
+	$stmt = $conn->prepare("SElECT COUNT(*) AS number FROM bans WHERE user_id = ? AND expired_at::date > CURRENT_TIMESTAMP::date");
 	$stmt->execute([$user_id]);
 
-	return $stmt->fetch()['number'] > 0 ? true : false;
+	$result = intval($stmt->fetch()['number']);
+
+
+	if(intval($result) > 0) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 
 function banUser($data){
 	global $conn;
 	$stmt = $conn->prepare("INSERT INTO bans(user_id, creator_id, expired_at) VALUES (?, ?, ?)");
-	$stmt->execute([$data]);
+	$stmt->execute($data);
 
 	return;
 }

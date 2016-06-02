@@ -1,26 +1,25 @@
 function banUnbanUser(userID){
-    console.log("hi baby: " + userID);
     $.ajax({
-        type: 'POST',
+        type: 'post',
         url: '../../api/admin/handleBan.php',
-        userID: userID,
+        data: {
+            'userID' : userID
+        },
         dataType: 'json',
         success: function(data){
-            console.log(" was called");
             if(data['error'] != null){
-                //shit happened
+                console.log(data['responseText']);
                 return;
             }
-            updateBannedNumber(data["numberBans"]);
+            updateBannedNumber(userID, data["numberBans"]);
         },
-        fail: function(data){
-            console.log("derp derp");
-            console.log(data);
+        error: function(data){
+            console.log(data['responseText']);
             return;
         }
     });
 }
 
-function updateBannedNumber(numberBans){
-    console.log("hello world: Number bans: " + numberBans);
+function updateBannedNumber(userID, numberBans){
+    $('#ban' + userID).html(numberBans);
 }

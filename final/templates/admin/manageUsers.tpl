@@ -4,7 +4,7 @@
     {include file='common/breadcrumb.tpl'}
     <div class="col-md-2"></div>
     <div class="col-md-3" text-center>
-        <a id="manageUsers" name="manageUsersButton" class="btn btn-primary" href="#">Manage Users</a>
+        <a id="manageUsers" name="manageUsersButton" class="btn btn-primary" href="{url('pages/admin/overview')}">Overview</a>
     </div>
     <div class="col-md-3" text-center>
         <a id="manageQuestions" name="manageQuestionsButton" class="btn btn-primary" href="#">Manage Questions</a>
@@ -26,8 +26,8 @@
             <tr id={$userID["id"]}>
                 <td>{$userPersonalInfos[$userID["id"]]["username"]}</td>
                 <td>{$userPersonalInfos[$userID["id"]]["type"]}</td>
-                <td>{$userWarningCounts[$userID["id"]]["warnings"]}</td>
-                <td>{$userBanCounts[$userID["id"]]["bans"]}</td>
+                <td id="warn{$userID['id']}">{$userWarningCounts[$userID["id"]]["warnings"]}</td>
+                <td id="ban{$userID['id']}">{$userBanCounts[$userID["id"]]["bans"]}</td>
                 <td>{$userPersonalInfos[$userID["id"]]["email"]}</td>
                 <td><button id="info".{$userID["id"]} class="btn-primary" onClick="" >More Info</button></td>
                 {if $userPersonalInfos[$userID["id"]]["type"] == "admin"}
@@ -35,7 +35,7 @@
                 {/if}
 
                 <td><button class="btn-primary" onClick="banUnbanUser({$userID["id"]})" >Ban/Unban</button></td>
-                <td><button id="warn".{$userID["id"]} class="btn-primary" onClick="" >Upgrade/Downgrade</button></td>
+                <td><button class="btn-primary" onClick="" >Upgrade/Downgrade</button></td>
 
             </tr>
         {/foreach}
