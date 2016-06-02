@@ -59,6 +59,6 @@ function getProfile($user_id)
                             FROM user_profile(:user)");
     $stmt->execute(['user' => $user_id]);
 
-    return $stmt->fetch();
+    return array_merge(['id' => $user_id], $stmt->fetch());
 }
 

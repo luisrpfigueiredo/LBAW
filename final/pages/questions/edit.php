@@ -4,7 +4,6 @@ include_once('../../config/init.php');
 include_once($BASE_DIR . 'database/questions.php');
 include_once($BASE_DIR . 'database/tags.php');
 
-// TODO OWNED PERMISSION
 PagePermissions::create('auth')->check();
 
 $questions = questionsFromIds($_GET['question']);
@@ -13,6 +12,11 @@ if (empty($questions)) {
     redirect();
 }
 $question = $questions[0];
+
+if (!ResourcePermission::isMine($question['user_id'])) {
+    $_SESSION['error_messages'][] = 'You don\'t have access to this resource';
+    redirect();
+}
 
 $tags = getTagsFromQuestion($question['id']);
 

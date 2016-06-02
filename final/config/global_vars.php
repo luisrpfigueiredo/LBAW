@@ -6,7 +6,10 @@ include_once($BASE_DIR . 'lib/permissions/PagePermissions.class.php');
 include_once($BASE_DIR . 'lib/permissions/Permission.class.php');
 include_once($BASE_DIR . 'lib/permissions/AuthUser.class.php');
 include_once($BASE_DIR . 'lib/permissions/GuestUser.class.php');
+include_once($BASE_DIR . 'lib/permissions/AdminUser.class.php');
+include_once($BASE_DIR . 'lib/permissions/ModUser.class.php');
 include_once($BASE_DIR . 'lib/permissions/PagePermissions.class.php');
+include_once($BASE_DIR . 'lib/permissions/ResourcePermission.class.php');
 
 include_once($BASE_DIR . 'lib/smarty/Smarty.class.php');
 
@@ -21,7 +24,7 @@ $smarty->assign('SUCCESS_MESSAGES', $_SESSION['success_messages']);
 $smarty->assign('FORM_VALUES', $_SESSION['form_values']);
 $smarty->assign('USERNAME', $_SESSION['username']);
 
-$_SESSION['logged_in'] = isset($_SESSION['logged_in'])?$_SESSION['logged_in']:false;
+$_SESSION['logged_in'] = isset($_SESSION['logged_in']) ? $_SESSION['logged_in'] : false;
 $smarty->assign('LOGGED_IN', $_SESSION['logged_in']);
 
 $FORM_VALUES = $_SESSION['form_values'];

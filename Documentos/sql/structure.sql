@@ -265,12 +265,15 @@ CREATE INDEX answers_question_search_idx ON answers USING gin(to_tsvector('engli
 
 CREATE OR REPLACE FUNCTION search_questions(psearch text)
 RETURNS TABLE (question_id INTEGER) AS $func$
-BEGIN
+BEGIN	
 	return QUERY
 		SELECT DISTINCT(questions.id)
-		FROM questions INNER JOIN answers ON questions.id = answers.question_id
+		FROM questions
 		WHERE to_tsvector(coalesce(questions.title,'') || ' ' || coalesce(questions.body,'')) @@ to_tsquery(psearch)
-			OR to_tsvector(answers.body) @@ to_tsquery(psearch);
+			OR questions.id IN (
+				SELECT DISTINCT(answers.question_id) FROM answers WHERE to_tsvector(coalesce(answers.body)) @@ to_tsquery(psearch)
+			)
+		;
 END
 $func$  LANGUAGE plpgsql;
 
