@@ -1,31 +1,73 @@
 {include file='common/header.tpl'}
 
-<?
-
-echo 'HELLO HELLO'
-
-?>
 
 <div class = "container">
     {include file='common/breadcrumb.tpl'}
-
-    <div class = "panel panel-default">
-        <div class = "panel-heading">
-            <h3 class = "panel-title">Ask Question</h3>
-        </div>
-        <div class = "panel-body">
-            <form class = "form-horizontal" method="post" action = "{$BASE_URL}actions/questions/create.php">
-
-                {include file='questions/partials/question_form.tpl'}
-
-                <div class = "form-group">
-                    <div class = "col-sm-3 col-sm-offset-3">
-                        <button class = "btn btn-primary" type = "submit">Create</button>
-                    </div>
-                </div>
-            </form>
-        </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-3" text-center>
+        <a id="manageUsers" name="manageUsersButton" class="btn btn-primary" href="#">Manage Users</a>
     </div>
+    <div class="col-md-3" text-center>
+        <a id="manageQuestions" name="manageQuestionsButton" class="btn btn-primary" href="#">Manage Questions</a>
+    </div>
+    <div class="col-md-3" text-center>
+        <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="#">Manage Answers</a>
+    </div>
+    <br><br><br>
+
+    <h2>Site Statistics</h2>
+    <table class="table table-bordered table-responsive table-compact">
+        <tbody>
+        <tr>
+            <td>Users</td>
+            <td>{$statistics['users']}</td>
+        </tr>
+        <tr>
+            <td style="background-color: lightgray">Total Mods</td>
+            <td style="background-color: lightgray">{$statistics['mods']}</td>
+        </tr>
+        <tr>
+            <td>Total Admins</td>
+            <td>{$statistics['admins']}</td>
+        </tr>
+        <tr>
+            <td style="background-color: lightgray">Total Questions</td>
+            <td style="background-color: lightgray">{$statistics['questions']}</td>
+        </tr>
+        <tr>
+            <td>Total Answers</td>
+            <td>{$statistics['answers']}</td>
+        </tr>
+        <tr>
+            <td style="background-color: lightgray">Total Posts</td>
+            <td style="background-color: lightgray">{$statistics['questions'] + $statistics['answers']}</td>
+        </tr>
+        <tr>
+            <td>Total Votes</td>
+            <td>{$statistics['votes']}</td>
+        </tr>
+        <tr>
+            <td style="background-color: lightgray">Total Follows</td>
+            <td style="background-color: lightgray">{$statistics['follows']}</td>
+        </tr>
+        <tr>
+            <td>Total Banned Users</td>
+            <td>{$statistics['bans']}</td>
+        </tr>
+        <tr>
+            <td style="background-color: lightgray">Total Warned Users</td>
+            <td style="background-color: lightgray">{$statistics['warnings']}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
 </div>
 
 {include file='common/footer.tpl'}
+
+
+
+
+
+
