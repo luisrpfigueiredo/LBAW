@@ -58,8 +58,27 @@ function getUserBanCount($user_id){
 	return $rows;
 }
 
-function banUser($user_id, $creator_id){
+function userIsBanned($user_id){
+	global $conn;
+	$stmt = $conn->prepare("SElECT COUNT(*) AS number FROM bans WHERE user_id = ? AND expired_at > CURRENT_TIMESTAMP");
+	$stmt->execute([$user_id]);
+
+	return $stmt->fetch()['number'] > 0 ? true : false;
+}
+
+
+function banUser($data){
+	global $conn;
+	$stmt = $conn->prepare("INSERT INTO bans(user_id, creator_id, expired_at) VALUES (?, ?, ?)");
+	$stmt->execute([$data]);
 
 	return;
 }
 
+function unbanUser($user_id){
+	global $conn;
+	$stmt = $conn->prepare("UPDATE bans SET expired_at=CURRENT_TIMESTAMP WHERE user_id = ? AND expired_at > CURRENT_TIMESTAMP");
+	$stmt->execute([$user_id]);
+
+	return;
+}

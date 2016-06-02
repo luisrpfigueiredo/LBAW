@@ -6,7 +6,7 @@ include_once($BASE_DIR . 'database/admin/manageUsers.php');
 
 //PagePermissions::create(['auth', 'admin'])->check();
 
-$searchIDs = getUsersIDs("abcde");
+$searchIDs = getUsersIDs("");
 
 $userPersonalInfos = [];
 $userWarningCounts = [];

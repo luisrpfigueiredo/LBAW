@@ -1,7 +1,6 @@
 {include file='common/header.tpl'}
 
-
-<div class = "container">
+<div class="container" xmlns:HTML="http://www.w3.org/1999/html">
     {include file='common/breadcrumb.tpl'}
     <div class="col-md-2"></div>
     <div class="col-md-3" text-center>
@@ -30,19 +29,25 @@
                 <td>{$userWarningCounts[$userID["id"]]["warnings"]}</td>
                 <td>{$userBanCounts[$userID["id"]]["bans"]}</td>
                 <td>{$userPersonalInfos[$userID["id"]]["email"]}</td>
-                <td><button class="btn-primary" onClick="" >Ban/Unban</button></td>
-                <td><button class="btn-primary" onClick="" >Upgrade/Downgrade</button></td>
-                <td><button class="btn-primary" onClick="" >More Info</button></td>
+                <td><button id="info".{$userID["id"]} class="btn-primary" onClick="" >More Info</button></td>
+                {if $userPersonalInfos[$userID["id"]]["type"] == "admin"}
+                    {continue}
+                {/if}
+
+                <td><button class="btn-primary" onClick="banUnbanUser({$userID["id"]})" >Ban/Unban</button></td>
+                <td><button id="warn".{$userID["id"]} class="btn-primary" onClick="" >Upgrade/Downgrade</button></td>
+
             </tr>
         {/foreach}
         </tbody>
     </table>
 
-
 </div>
 
-{include file='common/footer.tpl'}
 
+{HTML::script("admin/manageUsers.js")}
+
+{include file='common/footer.tpl'}
 
 
 
