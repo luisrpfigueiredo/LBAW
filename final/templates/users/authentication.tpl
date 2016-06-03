@@ -2,6 +2,8 @@
 
 <div class = "container">
 
+    {include file="common/breadcrumb.tpl"}
+
     <div class = "col-sm-8 col-sm-offset-2">
 
         <!-- TABS START -->
