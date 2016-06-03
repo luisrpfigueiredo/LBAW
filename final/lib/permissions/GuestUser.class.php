@@ -8,7 +8,7 @@ class GuestUser extends Permission
         if ($_SESSION['logged_in']) {
 
             $_SESSION['error_messages'][] = 'You are already logged In.';
-            back();
+            redirect();
 
         }
     }

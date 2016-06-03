@@ -15,7 +15,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href = "{url('pages/register')}" class = "btn btn-success btn-lg">
+                        <a href = "{url('pages/users/authentication')}" class = "btn btn-success btn-lg">
                             <span class = "network-name">Join Us</span>
                         </a>
                     </li>
