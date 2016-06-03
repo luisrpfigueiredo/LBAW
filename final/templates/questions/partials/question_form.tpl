@@ -25,9 +25,4 @@
     </div>
 </div>
 
-<script type = "text/javascript">
-    $(".tagable").select2({
-        tags: true,
-        placeholder: 'Type Tag',
-    });
-</script>
+{HTML::script('app/questionFormSelect2.js')}
