@@ -45,7 +45,7 @@
     </div>
 </div>
 
-{HTML::script('app/landingPage')}
+{HTML::script('app/landingPage.js')}
 
 
 {include file='common/footer.tpl'}

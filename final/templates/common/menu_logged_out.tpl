@@ -1,3 +1,3 @@
-<li class="cl-effect-21"><a href="{$BASE_URL}pages/dev.php">Questions</a></li>
-<li class="cl-effect-21"><a href="{$BASE_URL}pages/about.php">About Us</a></li>
-<li class="cl-effect-21 {if isset($tab) }active{/if}"><a href="{$BASE_URL}pages/users/authentication.php">Join us</a></li>
+<li class="cl-effect-21"><a href="{url('pages/questions/list')}">Questions</a></li>
+<li class="cl-effect-21"><a href="{url('pages/about')}">About Us</a></li>
+<li class="cl-effect-21 {if isset($tab) }active{/if}"><a href="{url('pages/users/authentication')}">Join us</a></li>
