@@ -1,5 +1,5 @@
 {include file='common/header.tpl'}
-{HTML::style("styles/admin/overview.css")}
+
 
 <div class = "container">
     {include file='common/breadcrumb.tpl'}
@@ -23,40 +23,40 @@
             <td>{$statistics['users']}</td>
         </tr>
         <tr>
-            <td class="grayrow">Total Mods</td>
-            <td class="grayrow">{$statistics['mods']}</td>
+            <td style="background-color: lightgray">Total Mods</td>
+            <td style="background-color: lightgray">{$statistics['mods']}</td>
         </tr>
         <tr>
             <td>Total Admins</td>
             <td>{$statistics['admins']}</td>
         </tr>
         <tr>
-            <td class="grayrow">Total Questions</td>
-            <td class="grayrow">{$statistics['questions']}</td>
+            <td style="background-color: lightgray">Total Questions</td>
+            <td style="background-color: lightgray">{$statistics['questions']}</td>
         </tr>
         <tr>
             <td>Total Answers</td>
             <td>{$statistics['answers']}</td>
         </tr>
         <tr>
-            <td class="grayrow">Total Posts</td>
-            <td class="grayrow">{$statistics['questions'] + $statistics['answers']}</td>
+            <td style="background-color: lightgray">Total Posts</td>
+            <td style="background-color: lightgray">{$statistics['questions'] + $statistics['answers']}</td>
         </tr>
         <tr>
             <td>Total Votes</td>
             <td>{$statistics['votes']}</td>
         </tr>
         <tr>
-            <td class="grayrow">Total Follows</td>
-            <td class="grayrow">{$statistics['follows']}</td>
+            <td style="background-color: lightgray">Total Follows</td>
+            <td style="background-color: lightgray">{$statistics['follows']}</td>
         </tr>
         <tr>
             <td>Total Banned Users</td>
             <td>{$statistics['bans']}</td>
         </tr>
         <tr>
-            <td class="grayrow">Total Warned Users</td>
-            <td class="grayrow">{$statistics['warnings']}</td>
+            <td style="background-color: lightgray">Total Warned Users</td>
+            <td style="background-color: lightgray">{$statistics['warnings']}</td>
         </tr>
         </tbody>
     </table>

@@ -16,7 +16,22 @@
     </div>
     <br><br><br>
 
-    <h2>Search Users</h2>
+    <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+        <ul class = "nav navbar-nav navbar-right">
+            <form class = "navbar-form navbar-left" role = "search" method = "post" action = "{$BASE_URL}pages/admin/manageUsers.php">
+                <div class = "form-group">
+                    <input type = "text" class = "form-control navbar-search" placeholder = "Search" name = "search_query">
+                </div>
+                <a>
+                    <button type = "submit" class = "search-submit">
+                        <span class = "glyphicon glyphicon-search"></span>
+                    </button>
+                </a>
+            </form>
+        </ul>
+    </div>
+
+    <h2>Search Users: {$query}</h2>
     <table class="table table-bordered table-responsive table-compact table-collapsing">
         <tbody>
         <th>Username</th>
@@ -24,6 +39,9 @@
         <th>Warnings</th>
         <th>Bans</th>
         <th>Email</th>
+        <th class="cell-borderless"></th>
+        <th class="cell-borderless"></th>
+        <th class="cell-borderless"></th>
         {foreach $usersIDs as $userID}
             <tr id={$userID["id"]}>
                 <td>{$userPersonalInfos[$userID["id"]]["username"]}</td>
@@ -31,15 +49,14 @@
                 <td id="warn{$userID['id']}">{$userWarningCounts[$userID["id"]]["warnings"]}</td>
                 <td id="ban{$userID['id']}">{$userBanCounts[$userID["id"]]["bans"]}</td>
                 <td>{$userPersonalInfos[$userID["id"]]["email"]}</td>
-                <td class="cell-borderless"><button id="info".{$userID["id"]} class="btn-primary" onClick="" >More Info</button></td>
-                {if $userPersonalInfos[$userID["id"]]["type"] == "admin"}
-                    {continue}
-                {/if}
-                {if $userPersonalInfos[$userID["id"]]["username"] == $USERNAME}
+                <td class="cell-borderless" ><button id="info{$userID["id"]}" class="btn-primary" onClick="" >More Info</button></td>
+                {if ($userPersonalInfos[$userID["id"]]["type"] == "admin") || ($userPersonalInfos[$userID["id"]]["username"] == $USERNAME)}
+                    <td class="cell-borderless"></td>
+                    <td class="cell-borderless"></td>
                     {continue}
                 {/if}
 
-                <td class="cell-borderless"><button class="btn-primary" onClick="loadModalInfo({$userID["id"]})" data-toggle="modal" data-target="#banInfo" >Ban/Unban</button></td>
+                <td class="cell-borderless"><button class="btn-primary" onClick="loadModalInfo({$userID['id']})" data-toggle="modal" data-target="#banInfo" >Ban/Unban</button></td>
                 <td class="cell-borderless"><button class="btn-primary" onClick="" >Upgrade/Downgrade</button></td>
 
             </tr>

@@ -71,12 +71,12 @@ function banUnbanUser(){
                 return;
             }
             updateBannedNumber(userID, data["numberBans"]);
-            $(this).modal('hide');
+            console.log("hiding");
+            $('#banInfo').modal('hide');
         },
         error: function(data){
             console.log(data['responseText']);
-            $(this).modal('hide');
-            return;
+            $('#banInfo').modal('hide');
         }
     });
 }

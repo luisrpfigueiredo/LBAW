@@ -8,7 +8,7 @@
     <link rel = "stylesheet" type = "text/css" href = "//fonts.googleapis.com/css?family=Open+Sans"/>
 
 
-    {HTML::style('styles/bootstrap.min.css')}
+    {HTML::style('styles/bootstrap.css')}
     {HTML::style('styles/bootstrap-changes.css')}
     {HTML::style('styles/global-styles.css')}
     {HTML::style("styles/searchResults.css")}

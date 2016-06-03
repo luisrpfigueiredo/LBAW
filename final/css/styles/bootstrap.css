@@ -249,15 +249,15 @@ th {
     border: 1px solid #000;
   }
   .table {
-    border-collapse: collapse !important;
+    border-collapse: collapse;
   }
   .table td,
   .table th {
-    background-color: #fff !important;
+    background-color: #fff;
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #ddd !important;
+    border: 1px solid #ddd;
   }
 }
 @font-face {

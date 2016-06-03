@@ -6,7 +6,13 @@ include_once($BASE_DIR . 'database/admin/manageUsers.php');
 
 //PagePermissions::create(['auth', 'admin'])->check();
 
-$searchIDs = getUsersIDs("");
+
+if (!isset($_POST['search_query']))
+    $query = "";
+else
+    $query = $_POST['search_query'];
+
+$searchIDs = getUsersIDs($query);
 
 $userPersonalInfos = [];
 $userWarningCounts = [];
@@ -18,6 +24,7 @@ foreach($searchIDs as $user_id){
     $userBanCounts[$user_id["id"]] = getUserBanCount($user_id["id"]);
 }
 
+$smarty->assign('query', $query);
 $smarty->assign('usersIDs', $searchIDs);
 $smarty->assign('userPersonalInfos', $userPersonalInfos);
 $smarty->assign('userWarningCounts', $userWarningCounts);
