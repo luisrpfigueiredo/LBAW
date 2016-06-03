@@ -7,7 +7,7 @@ class AdminUser extends Permission
     {
         if (auth_user('type') != 'admin') {
             $_SESSION['error_messages'][] = 'You are already logged In.';
-            back();
+            redirect();
         }
     }
 }

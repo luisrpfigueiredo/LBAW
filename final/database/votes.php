@@ -33,7 +33,7 @@ function getVotesFromVotable($data)
     return $stmt->fetchAll();
 }
 
-function VerifyVote($data)
+function verifyVote($data)
 {
     global $conn;
     $stmt = $conn->prepare("SELECT * 
@@ -49,16 +49,31 @@ function VerifyVote($data)
     }
 }
 
-function VotableNumber($data)
+function votableNumber($data)
 {
     global $conn;
     $stmt = $conn->prepare("SELECT SUM(value) 
                             FROM votes
-                            WHERE (votable_id = ? AND votable_type = ?)"));
+                            WHERE (votable_id = ? AND votable_type = ?)");
     $stmt->execute(array($data['votable_id'], $data['votable_type']));
     return $stmt->fetchAll();
 }
 
-?>
+function changeVote($data)
+{
+    global $conn;
+    $stmt = $conn->prepare("UPDATE votes SET value=? WHERE (user_id = ? AND votable_id = ? AND votable_type = ?)");
+    $stmt->execute(array($data['value'], $data['user_id'], $data['votable_id'], $data['votable_type']));
+}
 
+function getVotes($user_id)
+{
+    global $conn;
+    $stmt = $conn->prepare("SELECT SUM(value) 
+                            FROM votes
+                            WHERE user_id = ?");
+    $stmt->execute(array($user_id));
+
+    return $stmt->fetchAll();
+}
 
