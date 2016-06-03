@@ -15,7 +15,6 @@ function loadModalInfo(userID) {
         },
         error: function(data){
             console.log(data['responseText']);
-            return;
         }
     })
 }
@@ -50,9 +49,6 @@ function banUnbanUser(){
         isBanned = "no";
 
     var userID = parseInt($("#modalUserID").html());
-    console.log(userID);
-    console.log(userID instanceof String);
-
     var notes = $("#banNotes").val();
 
 
@@ -71,12 +67,10 @@ function banUnbanUser(){
                 return;
             }
             updateBannedNumber(userID, data["numberBans"]);
-            console.log("hiding");
             $('#banInfo').modal('hide');
         },
         error: function(data){
             console.log(data['responseText']);
-            $('#banInfo').modal('hide');
         }
     });
 }
