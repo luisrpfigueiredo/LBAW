@@ -6,6 +6,7 @@ $userID = intval($_POST['userID']);
 if($userID == null){
     $response['error'] = 'No ID supplied';
     echo json_encode($response);
+    exit();
 }
 
 $username = getUsernameFromUserID($userID);

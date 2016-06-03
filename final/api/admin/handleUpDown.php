@@ -7,6 +7,7 @@ $userID = intval($_POST['userID']);
 if($userID == null){
     $response['error'] = 'No ID supplied';
     echo json_encode($response);
+    exit();
 }
 
 $oldType = getUserType($userID);
@@ -14,6 +15,7 @@ $oldType = getUserType($userID);
 if($oldType !== 'mod' && $oldType !== 'user'){
     $response['error'] = 'Wrong permission level';
     echo json_encode($response);
+    exit();
 }
 
 $newType = "";

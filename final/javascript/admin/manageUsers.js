@@ -8,7 +8,7 @@ function loadBanModal(userID) {
         dataType: 'json',
         success: function(data){
             if(data['error'] != null){
-                console.log(data['responseText']);
+                console.log(data['error']);
                 return;
             }
             updateBanModal(userID, data['isBanned'], data["notes"]);
@@ -68,7 +68,7 @@ function banUnbanUser(){
         dataType: 'json',
         success: function(data){
             if(data['error'] != null){
-                console.log(data['responseText']);
+                console.log(data['error']);
                 return;
             }
             updateBannedNumber(userID, data["numberBans"]);
@@ -100,7 +100,7 @@ function upgradeDowngradeUser() {
         dataType: 'json',
         success: function (data) {
             if (data['error'] != null) {
-                console.log(data['responseText']);
+                console.log(data['error']);
                 return;
             }
             updatePermissionLevel(userID, data['userType']);
@@ -127,7 +127,7 @@ function loadMoreInfoModal(userID) {
         dataType: 'json',
         success: function(data){
             if(data['error'] != null){
-                console.log(data['responseText']);
+                console.log(data['error']);
                 return;
             }
             updateMoreInfoModal(data);
