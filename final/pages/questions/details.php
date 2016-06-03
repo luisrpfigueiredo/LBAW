@@ -1,7 +1,21 @@
 <?php
 
 include_once('../../config/init.php');
-$question = $_GET['question'];
+include_once($BASE_DIR . 'database/users.php');
+include_once($BASE_DIR . 'database/questions.php');
+include_once($BASE_DIR . 'database/votes.php');
 
-$smarty->assign('question', $question);
+PagePermissions::create('auth')->check();
+
+$user_id = auth_user('id');
+
+if (isset($_GET['user'])) {
+    $user_id = $_GET['user'];
+}
+
+//$profile = getProfile($user_id);
+$questions = getQuestionsFromIds(array($_GET['question']));
+$question = $questions[0];
+
+$smarty->assign('question', $question;
 $smarty->display('questions/details.tpl');

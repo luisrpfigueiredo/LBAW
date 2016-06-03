@@ -1,1 +1,1 @@
-VIEWING QUESTION DETAILS: {$question}
+VIEWING QUESTION DETAILS: {$question['id']}
