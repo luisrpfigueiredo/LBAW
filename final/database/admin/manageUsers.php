@@ -12,9 +12,10 @@ function getUsersIDs($searchString){
 
 function searchByName($username){
 	global $conn;
+	$limit = 20;
 	$username = '%'.$username.'%';
-	$stmt = $conn->prepare("SELECT id FROM users WHERE username LIKE ?");
-	$stmt->execute([$username]);
+	$stmt = $conn->prepare("SELECT id FROM users WHERE username LIKE :username LIMIT :limit ");
+	$stmt->execute(['username' => $username, 'limit' => $limit]);
 	$rows = $stmt->fetchAll();
 
 	return $rows;
@@ -73,7 +74,6 @@ function userIsBanned($user_id){
 	}
 }
 
-
 function banUser($data){
 	global $conn;
 	$stmt = $conn->prepare("INSERT INTO bans(user_id, creator_id, expired_at) VALUES (?, ?, ?)");
@@ -88,4 +88,12 @@ function unbanUser($user_id){
 	$stmt->execute([$user_id]);
 
 	return;
+}
+
+function getBanNotesByUserID($user_id){
+	global $conn;
+	$stmt = $conn->prepare("SElECT notes AS notes FROM bans WHERE user_id = ? AND expired_at::date > CURRENT_TIMESTAMP::date");
+	$stmt->execute([$user_id]);
+
+	return $stmt->fetch()['notes'];
 }

@@ -1,0 +1,6 @@
+.table-collapsing {
+    border-collapse: collapse;
+}
+.cell-borderless {
+    border: none;
+}
