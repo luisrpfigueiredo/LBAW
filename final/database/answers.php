@@ -2,9 +2,10 @@
 
 function createAnswer($data)
 {
- $conn->lastInsertId('questions_id_seq');
-
     global $conn;
+
+    $conn->lastInsertId('questions_id_seq');
+
 
     $stmt = $conn->prepare("INSERT INTO answers (user_id, question_id, body) VALUES(?,?,?)");
     $stmt->execute(array($data['user_id'],$data['question_id'],$data['body']));

@@ -4,7 +4,7 @@ include_once('../../config/init.php');
 include_once($BASE_DIR . 'database/admin/manageUsers.php');
 
 
-//PagePermissions::create(['auth', 'admin'])->check();
+PagePermissions::create(['admin'])->check();
 
 
 if (!isset($_POST['search_query']))

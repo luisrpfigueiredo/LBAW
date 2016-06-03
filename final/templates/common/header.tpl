@@ -20,7 +20,9 @@
 
     {HTML::script('jquery-2.2.1.min.js')}
     {HTML::script('bootstrap.min.js')}
+    {HTML::script('bootstrap-confirmation.js')}
     {HTML::script('select2.full.js')}
+
 
 </head>
 <body>

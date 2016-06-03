@@ -46,18 +46,26 @@
             <tr id={$userID["id"]}>
                 <td>{$userPersonalInfos[$userID["id"]]["username"]}</td>
                 <td>{$userPersonalInfos[$userID["id"]]["type"]}</td>
-                <td id="warn{$userID['id']}">{$userWarningCounts[$userID["id"]]["warnings"]}</td>
-                <td id="ban{$userID['id']}">{$userBanCounts[$userID["id"]]["bans"]}</td>
+                <td>{$userWarningCounts[$userID["id"]]["warnings"]}</td>
+                <td>{$userBanCounts[$userID["id"]]["bans"]}</td>
                 <td>{$userPersonalInfos[$userID["id"]]["email"]}</td>
-                <td class="cell-borderless" ><button id="info{$userID["id"]}" class="btn-primary" onClick="" >More Info</button></td>
+
+                <td class="cell-borderless" >
+                    <button class="btn-primary" onClick="loadMoreInfoModal({$userID['id']})" data-toggle="modal" data-target="#moreInfo" >More Info</button>
+                </td>
+
                 {if ($userPersonalInfos[$userID["id"]]["type"] == "admin") || ($userPersonalInfos[$userID["id"]]["username"] == $USERNAME)}
                     <td class="cell-borderless"></td>
                     <td class="cell-borderless"></td>
                     {continue}
                 {/if}
 
-                <td class="cell-borderless"><button class="btn-primary" onClick="loadModalInfo({$userID['id']})" data-toggle="modal" data-target="#banInfo" >Ban/Unban</button></td>
-                <td class="cell-borderless"><button class="btn-primary" onClick="" >Upgrade/Downgrade</button></td>
+                <td class="cell-borderless">
+                    <button class="btn-primary" onClick="loadBanModal({$userID['id']})" data-toggle="modal" data-target="#banInfo" >Ban/Unban</button>
+                </td>
+                <td class="cell-borderless">
+                    <button class="btn-primary" onClick="loadUpDownModal({$userID['id']})" data-toggle="modal" data-target="#confirmUpDown">Upgrade/Downgrade</button>
+                </td>
 
             </tr>
         {/foreach}
@@ -67,32 +75,85 @@
 </div>
 
 
+<div class="modal fade" id="moreInfo" role="dialog" tabindex="-1" aria-labelledby="moreInfo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" >More Info</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label id="moreInfoUsername" class="col-sm-12 control-label "></label>
+                    </div>
+                    <div class="form-group">
+                        <label id="moreInfoIsBannedUntil" class="col-sm-12 control-label"></label>
+                    </div>
+                    <div class="form-group">
+                        <label id="moreInfoNumberQuestions" class="col-sm-12 control-label"></label>
+                    </div>
+                    <div class="form-group">
+                        <label id="moreInfoNumberAnswers" class="col-sm-12 control-label"></label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span id="moreInfoUserID" class="hide"></span>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="banInfo" role="dialog" tabindex="-1" aria-labelledby="banInfo" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="modalTitle">Ban Info</h4>
+                <h4 class="modal-title">Ban Info</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form">
-                    <span id="modalUserID" class="hide"></span>
+                    <span id="banUserID" class="hide"></span>
                     <div class="form-group">
-                        <label id="isBanned" class="col-sm-5 control-label"></label>
+                        <label id="isBanned" class="col-sm-12 control-label"></label>
                     </div>
                     <div class="form-group">
-                        <label for="banNotes" class="col-sm-2 control-label">Notes</label>
-                        <div class="col-sm-10">
-                            <input id="banNotes" type="text" class="form-control">
+                        <label for="banNotes" class="col-sm-12 control-label">Notes</label>
+                        <div class="col-sm-12">
+                            <textarea id="banNotes" class="form-control modal-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group" id="banExpirationDiv">
+                        <label for="banExpirationDate" class="col-sm-12 control-label">Ban Expiration Date</label>
+                        <div class="col-sm-12">
+                            <input id="banExpirationDate" type="datetime-local">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="submitDecision" type="button" class="btn btn-primary" onclick="banUnbanUser()"></button>
+                <button id="submitDecision" type="button" class="btn btn-primary pull-left" onclick="banUnbanUser()"></button>
+                <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
             </div>
+        </div>
     </div>
 </div>
+
+<div class="modal fade" id="confirmUpDown" role="dialog" tabindex="-1" aria-labelledby="confirmUpDown" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm Permission Change</h4>
+            </div>
+            <div class="modal-footer">
+                <span id="confirmUpDownUserID" class="hide"></span>
+                <button type="button" class="btn btn-primary" onclick="upgradeDowngradeUser()">Confirm</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {HTML::script("admin/manageUsers.js")}
 
