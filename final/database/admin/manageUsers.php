@@ -76,16 +76,16 @@ function userIsBanned($user_id){
 
 function banUser($data){
 	global $conn;
-	$stmt = $conn->prepare("INSERT INTO bans(user_id, creator_id, expired_at) VALUES (?, ?, ?)");
+	$stmt = $conn->prepare("INSERT INTO bans(user_id, creator_id, notes, expired_at) VALUES (?, ?, ?, ?)");
 	$stmt->execute($data);
 
 	return;
 }
 
-function unbanUser($user_id){
+function unbanUser($userID, $notes){
 	global $conn;
-	$stmt = $conn->prepare("UPDATE bans SET expired_at=CURRENT_TIMESTAMP WHERE user_id = ? AND expired_at > CURRENT_TIMESTAMP");
-	$stmt->execute([$user_id]);
+	$stmt = $conn->prepare("UPDATE bans SET expired_at=CURRENT_TIMESTAMP, notes=:notes WHERE user_id = :userID AND expired_at > CURRENT_TIMESTAMP");
+	$stmt->execute(['notes' => $notes, 'userID' => $userID]);
 
 	return;
 }

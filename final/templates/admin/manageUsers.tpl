@@ -35,6 +35,9 @@
                 {if $userPersonalInfos[$userID["id"]]["type"] == "admin"}
                     {continue}
                 {/if}
+                {if $userPersonalInfos[$userID["id"]]["username"] == $USERNAME}
+                    {continue}
+                {/if}
 
                 <td class="cell-borderless"><button class="btn-primary" onClick="loadModalInfo({$userID["id"]})" data-toggle="modal" data-target="#banInfo" >Ban/Unban</button></td>
                 <td class="cell-borderless"><button class="btn-primary" onClick="" >Upgrade/Downgrade</button></td>
@@ -47,20 +50,29 @@
 </div>
 
 
-<div class="modal fade" id="banInfo" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="banInfo" role="dialog" tabindex="-1" aria-labelledby="banInfo" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="modalTitle">Ban Info</h4>
             </div>
             <div class="modal-body">
-                <span id="modalUserID" class="hide"></span>
-                <span id="isBanned"></span>
-                <textarea id="banNotes"></textarea>
+                <form class="form-horizontal" role="form">
+                    <span id="modalUserID" class="hide"></span>
+                    <div class="form-group">
+                        <label id="isBanned" class="col-sm-5 control-label"></label>
+                    </div>
+                    <div class="form-group">
+                        <label for="banNotes" class="col-sm-2 control-label">Notes</label>
+                        <div class="col-sm-10">
+                            <input id="banNotes" type="text" class="form-control">
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button id="submitDecision" type="button" class="btn btn-primary" onclick="banUnbanUser()"></button>
             </div>
     </div>
 </div>
