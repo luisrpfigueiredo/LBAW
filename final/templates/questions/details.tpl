@@ -6,7 +6,7 @@
     {include file="questions/partials/question_info.tpl"}
 
     {foreach $answers as $answer}
-    {include file="answers/partials/answer_info.tpl"}
+        {include file="answers/partials/answer_info.tpl"}
 	{/foreach}
 
 </div>

@@ -10,6 +10,7 @@ $question = $questions[0];
 $smarty->assign('question', $question);
 
 $answers = answersFromQuestion(intval( $_GET['question']));
+
 $smarty->assign('answers', $answers);
 
 $smarty->display('questions/details.tpl');

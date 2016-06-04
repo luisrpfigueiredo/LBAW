@@ -9,7 +9,6 @@
     </div>
 
     <div class = "statistics col-sm-12 text-center">
-        {/if}
         <span>
             <i class = "glyphicon glyphicon-time"></i>
             <span class = "answer-updated-at">
