@@ -2,9 +2,10 @@
 
 function createVote($data)
 {
- $conn->lastInsertId('questions_id_seq');
-
     global $conn;
+
+    $conn->lastInsertId('questions_id_seq');
+
 
     $stmt = $conn->prepare("INSERT INTO votes (user_id, votable_id, votable_type,value) VALUES(?, ?, ?,?)");
     $stmt->execute(array($data['user_id'],$data['votable_id'],$data['votable_type'],$data['value']));

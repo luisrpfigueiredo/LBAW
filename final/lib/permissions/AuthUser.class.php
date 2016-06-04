@@ -8,8 +8,7 @@ class AuthUser extends Permission
         if (!$_SESSION['logged_in']) {
 
             $_SESSION['error_messages'][] = 'You need to Login to access this page.';
-            back();
-
+            redirect();
         }
     }
 }
