@@ -2,18 +2,18 @@
 include_once('../../config/init.php');
 include_once($BASE_DIR . 'database/questions.php');
 include_once($BASE_DIR . 'database/votes.php');
+include_once($BASE_DIR . 'database/answers.php');
 
-$user = auth_user();
-$loggedIn = false;
-if($user) {
-    $loggedIn = true;
-}
-
-$questions = questionsFromIds(array($_GET['question']));
+$questions = questionsFromIds([intval($_GET['question'])]);
 $question = $questions[0];
-$user = $_GET['user'];
 
-$smarty->assign('user', $user);
-$smarty->assign('logged', $loggedIn);
 $smarty->assign('question', $question);
+
+$answers = answersFromQuestion(intval( $_GET['question']));
+
+$smarty->assign('answers', $answers);
+
 $smarty->display('questions/details.tpl');
+
+
+
