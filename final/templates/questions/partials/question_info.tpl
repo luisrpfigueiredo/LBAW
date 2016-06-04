@@ -3,6 +3,8 @@
     <div class = "col-sm-2">
         {if $LOGGED_IN}
             {include file="questions/partials/vote_panel.tpl"}
+        {else}
+            {include file="questions/partials/show_count.tpl"}
         {/if}
     </div>
     <div class = "col-sm-10">

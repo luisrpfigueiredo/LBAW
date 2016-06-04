@@ -11,7 +11,9 @@ if($user) {
 
 $questions = questionsFromIds(array($_GET['question']));
 $question = $questions[0];
+$user = $_GET['user'];
 
+$smarty->assign('user', $user);
 $smarty->assign('logged', $loggedIn);
 $smarty->assign('question', $question);
 $smarty->display('questions/details.tpl');
