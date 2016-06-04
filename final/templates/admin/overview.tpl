@@ -51,11 +51,11 @@
             <td style="background-color: lightgray">{$statistics['follows']}</td>
         </tr>
         <tr>
-            <td>Total Banned Users</td>
+            <td>Total Bans</td>
             <td>{$statistics['bans']}</td>
         </tr>
         <tr>
-            <td style="background-color: lightgray">Total Warned Users</td>
+            <td style="background-color: lightgray">Total Warnings</td>
             <td style="background-color: lightgray">{$statistics['warnings']}</td>
         </tr>
         </tbody>
