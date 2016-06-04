@@ -22,3 +22,18 @@ function editAnswer($data)
     return true;
 }
 
+function answersFromQuestion($q_id)
+{
+    global $conn;
+
+    $stmt = $conn->prepare("SELECT user_id,body,created_at,updated_at
+   							FROM answers
+   							WHERE question_id=?");
+   $stmt->execute([$q_id]);
+   $rows = $stmt->fetchAll();
+
+    return $rows;
+}
+
+
+

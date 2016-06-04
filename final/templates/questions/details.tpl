@@ -5,10 +5,10 @@
 
     {include file="questions/partials/question_info.tpl"}
 
-    <!--- COMMENTS HERE -->
+    {foreach $answers as $answer}
+    {include file="answers/partials/answer_info.tpl"}
+	{/foreach}
 
-
-    <!-- END COMMENTWS  -->
 </div>
 
 {include file='common/footer.tpl'}
