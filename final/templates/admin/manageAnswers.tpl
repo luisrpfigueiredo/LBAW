@@ -5,18 +5,18 @@
 <div class="container">
     {include file='common/breadcrumb.tpl'}
     <div class="col-md-2"></div>
-    <div class="col-md-3" text-center>
-        <a id="overview" name="overviewButton" class="btn btn-primary" href="{url('pages/admin/overview')}">Overview</a>
+    <div class="col-md-3">
+        <a id="overview" class="btn btn-primary" href="{url('pages/admin/overview')}">Overview</a>
     </div>
-    <div class="col-md-3" text-center>
-        <a id="manageUsers" name="manageUsersButton" class="btn btn-primary" href="{url('pages/admin/manageUsers')}">Manage Users</a>
+    <div class="col-md-3">
+        <a id="manageUsers" class="btn btn-primary" href="{url('pages/admin/manageUsers')}">Manage Users</a>
     </div>
-    <div class="col-md-3" text-center>
-        <a id="manageAnswers" name="manageQuestionsButton" class="btn btn-primary" href="{url('pages/admin/manageQuestions')}">Manage Questions</a>
+    <div class="col-md-3">
+        <a id="manageAnswers" class="btn btn-primary" href="{url('pages/admin/manageQuestions')}">Manage Questions</a>
     </div>
     <br><br><br>
 
-    <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+    <div class = "collapse navbar-collapse">
         <ul class = "nav navbar-nav navbar-right">
             <form class = "navbar-form navbar-left" role = "search" method = "post" action = "{$BASE_URL}pages/admin/manageAnswers.php">
                 <div class = "form-group">
