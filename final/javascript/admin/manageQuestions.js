@@ -3,7 +3,6 @@ function loadDeleteModal(questionID){
 }
 
 function loadWarnModal(username) {
-    var username = username;
     $.ajax({
         type: 'post',
         url: '../../api/mod/getWarnedInfo.php',
@@ -16,7 +15,7 @@ function loadWarnModal(username) {
                 console.log(data['error']);
                 return;
             }
-            $('#warnUserID').html(data['ID']);
+            $('#warnUserID').html(data['id']);
         },
         error: function(data){
             console.log(data['responseText']);
@@ -29,6 +28,8 @@ function warnUser(){
     var userID = parseInt($('#warnUserID').html());
     var notes = $("#warnNotes").val();
 
+    if(notes == null)
+        notes = "No notes provided";
     $.ajax({
         type: 'post',
         url: '../../api/mod/handleWarning.php',
@@ -43,6 +44,7 @@ function warnUser(){
                 return;
             }
             $('#warnInfo').modal('hide');
+            appendSuccessMessage();
         },
         error: function(data){
             console.log(data['responseText']);

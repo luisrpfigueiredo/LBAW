@@ -1,5 +1,6 @@
 {include file='common/header.tpl'}
 {HTML::style("styles/admin/manageUsers.css")}
+{HTML::style("styles/admin/warnModal.css")}
 
 
 <div class="container" xmlns:HTML="http://www.w3.org/1999/html">
