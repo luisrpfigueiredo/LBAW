@@ -1,4 +1,4 @@
-<script src="voting.js"></script>
+<script src="../../javascript/votes/voting.js"></script>
 <blockquote class="vote-up-down text-right">
     <div class="vote chev">
         <div class="increment up">

@@ -2,76 +2,76 @@ function voting(){
 
   $(".increment").click(function(){
     if($(this).hasClass("up")) {
-      var tipo = $( ".increment up :nth-child(1)" ).html;
-      var id = $( ".increment up :nth-child(2)" ).html;
-      var resultado = $( ".increment up :nth-child(3)" ).html;
+      var tipo = $( ".up :nth-child(1)" ).html;
+      var id = $( ".up :nth-child(2)" ).html;
+      var resultado = $( ".up :nth-child(3)" ).html;
       if(resultado == true) {
         if(tipo === 'q'){
-          jQuery.ajax({
+          $.ajax({
           type: "POST",
           url: '../../api/votes/CallVoteFunctions.php',
           dataType: 'json',
-          data: {functionname: 'changeVote',arguments: [true , id, 'q']}
+          data: {functionname: 'changeVote',arguments: [id, 'q', true]}
           });
         } else {
-          jQuery.ajax({
+          $.ajax({
           type: "POST",
           url: '../../api/votes/CallVoteFunctions.php',
           dataType: 'json',
-          data: {functionname: 'changeVote',arguments: [true , id, 'a']}
+          data: {functionname: 'changeVote',arguments: [id, 'a', true]}
           });
         }
       } else {
         if(tipo === 'q'){
-          jQuery.ajax({
+          $.ajax({
           type: "POST",
           url: '../../api/votes/CallVoteFunctions.php',
           dataType: 'json',
-          data: {functionname: 'newVote',arguments: [id, 'q', true]},
+          data: {functionname: 'newVote',arguments: [id, 'q', true]}
           });
         } else {
-          jQuery.ajax({
+          $.ajax({
           type: "POST",
           url: '../../api/votes/CallVoteFunctions.php',
           dataType: 'json',
-          data: {functionname: 'newVote',arguments: [id, 'a', true]},
+          data: {functionname: 'newVote',arguments: [id, 'a', true]}
           });
         }     
       }     
     } else {
-      var tipo = $( "~ .increment down :nth-child(1)" ).html;
-      var id = $( ".increment down :nth-child(2)" ).html;
-      var resultado = $( ".increment down :nth-child(3)" ).html;
+      var tipo = $( ".down :nth-child(1)" ).html;
+      var id = $( ".down :nth-child(2)" ).html;
+      var resultado = $( ".down :nth-child(3)" ).html;
       if(resultado == true) {
         if(tipo === 'q'){
-          jQuery.ajax({
+          $.ajax({
           type: "POST",
           url: '../../api/votes/CallVoteFunctions.php',
           dataType: 'json',
-          data: {functionname: 'changeVote',arguments: [false ,id, 'q']}
+          data: {functionname: 'changeVote',arguments: [id, 'q', false]}
           });
         } else {
-          jQuery.ajax({
+          $.ajax({
           type: "POST",
           url: '../../api/votes/CallVoteFunctions.php',
           dataType: 'json',
-          data: {functionname: 'changeVote',arguments: [false ,id, 'a']}
+          data: {functionname: 'changeVote',arguments: [id, 'a', false]}
           });
         }
       } else {
         if(tipo === 'q'){
-          jQuery.ajax({
+          $.ajax({
           type: "POST",
           url: '../../api/votes/CallVoteFunctions.php',
           dataType: 'json',
-          data: {functionname: 'newVote',arguments: [id, 'q', false]},
+          data: {functionname: 'newVote',arguments: [id, 'q', false]}
           });
         } else {
-          jQuery.ajax({
+          $.ajax({
           type: "POST",
           url: '../../api/votes/CallVoteFunctions.php',
           dataType: 'json',
-          data: {functionname: 'newVote',arguments: [id, 'a', false]},
+          data: {functionname: 'newVote',arguments: [id, 'a', false]}
           });
         }     
       }     

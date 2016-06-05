@@ -1,5 +1,6 @@
-<div class = "col-sm-11 container-white answer-info-container pull-right">
+{HTML::style('styles/questionDetails.css')}
 
+<div class = "col-sm-11 container-white answer-info-container  pull-right">
 	<div class = "col-sm-2">
         {if $LOGGED_IN}
             {$votable_type='a'}
