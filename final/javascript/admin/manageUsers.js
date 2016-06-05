@@ -72,6 +72,7 @@ function banUnbanUser(){
                 return;
             }
             updateBannedNumber(userID, data["numberBans"]);
+            appendSuccessMessage();
             $('#banInfo').modal('hide');
         },
         error: function(data){
@@ -104,6 +105,7 @@ function upgradeDowngradeUser() {
                 return;
             }
             updatePermissionLevel(userID, data['userType']);
+            appendSuccessMessage();
             $('#confirmUpDown').modal('hide');
 
         },
@@ -171,6 +173,7 @@ function warnUser(){
                 return;
             }
             updateWarningCount(userID, data["numberWarnings"]);
+            appendSuccessMessage();
             $('#warnInfo').modal('hide');
         },
         error: function(data){

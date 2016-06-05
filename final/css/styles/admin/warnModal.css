@@ -1,0 +1,11 @@
+.form-horizontal .control-label{
+    /* text-align:right; */
+    text-align:left;
+}
+
+.modal-textarea {
+    overflow: scroll;
+    resize: vertical;
+    width: 90%;
+
+}
