@@ -7,7 +7,7 @@
 </div>
 
 <div class = "form-group ">
-    <input type="hidden" name = "question_id">
+    <input type="hidden" name = "question_id" value="{$question['id']}">
 </div>
 
 

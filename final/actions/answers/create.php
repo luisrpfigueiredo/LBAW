@@ -7,7 +7,6 @@ include_once($BASE_DIR . 'database/answers.php');
 PagePermissions::create('auth')->check();
 
 validateInput();
-
 $data = [
     'user_id' => auth_user('id'),
     'question_id'   => intval($_POST['question_id']),
@@ -16,7 +15,7 @@ $data = [
 
 
 try {
-    
+
     $conn->beginTransaction();
     $question_id = createAnswer($data);
     $conn->commit();

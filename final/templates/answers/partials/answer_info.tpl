@@ -36,5 +36,14 @@
                     {$answer['created_at']}
                 {/if}</span>
         </span>
+        <!--{if  (intval($answer['user_id']) == intval($session_id))}
+            <form class = "form-horizontal" method="post" action = "{$BASE_URL}actions/answers/edit.php">
+                <div class = "col-sm-3 col-sm-offset-3 ">
+                    <button class = "btn btn-primary " type = "submit">Edit</button>
+                </div>
+            </form>
+
+        {/if}-->
+
     </div>
 </div>
