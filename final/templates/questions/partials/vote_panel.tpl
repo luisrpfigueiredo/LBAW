@@ -3,7 +3,7 @@
     <div class="vote chev">
         <div class="increment up">
             <span class="hidden">
-                {$votableType}
+                {$votable_type}
             </span>
             <span class="hidden">
                 {if $votable_type === 'q'}
@@ -22,7 +22,7 @@
         </div>
         <div class="increment down">
             <span class="hidden">
-                {$votableType}
+                {$votable_type}
             </span>
             <span class="hidden">
                 {if $votable_type === 'q'}
@@ -41,7 +41,7 @@
             
         </div>
 
-        <div class="count vote-count">
+        <div class="count vote-count" id="value">
         	{if $votable_type === 'q'}
                 {$question['votes']}
             {else}

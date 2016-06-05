@@ -3,14 +3,14 @@
 function createAnswer($data)
 {
     global $conn;
-
-    $conn->lastInsertId('questions_id_seq');
-
+    echo ($data['user_id']);
+    echo ($data['question_id']);
+    echo ($data['body']);
 
     $stmt = $conn->prepare("INSERT INTO answers (user_id, question_id, body) VALUES(?,?,?)");
     $stmt->execute(array($data['user_id'],$data['question_id'],$data['body']));
 
-    return (int)$conn->lastInsertId('questions_id_seq');
+    return true;
 }
 
 function editAnswer($data)
@@ -33,6 +33,30 @@ function answersFromQuestion($q_id)
    							WHERE question_id=?");
    $stmt->execute([$q_id]);
    $rows = $stmt->fetchAll();
+
+    return $rows;
+}
+
+function answersFromIds($ids = [])
+{
+    global $conn;
+
+    if (!is_array($ids)) {
+        $ids = [$ids];
+    }
+
+    if (empty($ids)) {
+        return [];
+    }
+
+    $points = query_build_for_num_args($ids);
+
+    $stmt = $conn->prepare("SELECT id,user_id, question_id, body, updated_at, created_at,
+        (SELECT username FROM users WHERE users.id = answers.user_id) as username
+        FROM answers
+        WHERE id IN ($points);");
+    $stmt->execute($ids);
+    $rows = $stmt->fetchAll();
 
     return $rows;
 }
