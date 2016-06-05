@@ -66,6 +66,12 @@
   background: #C15044;
   height: 50%;
 }
+.increment.up.active {
+  opacity: 1;
+}
+.increment.down.active {
+  opacity: 1;
+}
 .increment:hover {
   opacity: 1;
 }

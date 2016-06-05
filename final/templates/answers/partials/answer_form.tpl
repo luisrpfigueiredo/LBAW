@@ -9,10 +9,3 @@
 <div class = "form-group ">
     <input type="hidden" name = "question_id">
 </div>
-
-
-
-
-
-
-{HTML::script('app/answerFormSelect2.js')}
