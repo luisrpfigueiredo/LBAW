@@ -16,7 +16,7 @@
             </a>
         </h3>
         <p class = "question-description">
-            <a href = "{questionUrl($question['id'])}" class = "question-body" class = "question-title" data-base-question-url="{questionUrl('')}">
+            <a href = "{questionUrl($question['id'])}" class = "question-body" data-base-question-url="{questionUrl('')}">
                 {$question['body']}
             </a>
         </p>
@@ -25,7 +25,7 @@
     <div class = "statistics col-sm-12 text-center">
         <span>
             <i class = "glyphicon glyphicon-user"></i>
-             <a href = "{profileUrl($question['username'])}" class = "question-body" class = "question-title" data-base-question-url="{profileUrl('')}">
+             <a href = "{profileUrl($question['user_id'])}" class = "question-user" data-url="{profileUrl('')}">
                 {$question['username']}
             </a>
         </span>

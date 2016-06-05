@@ -42,12 +42,15 @@ function isLoginCorrect($username, $password)
 }
 
 
-function getUsernameFromUserID($userID) {
+function getUsernameFromUserID($userID)
+{
     global $conn;
     $stmt = $conn->prepare("SELECT username AS username FROM users WHERE id = :userID");
     $stmt->execute(['userID' => $userID]);
+
     return $stmt->fetch()['username'];
 }
+
 function getUserFromUsername($username)
 {
     global $conn;
@@ -63,11 +66,21 @@ function getProfile($user_id)
 {
     global $conn;
 
-   $stmt = $conn->prepare("SELECT *
+    $stmt = $conn->prepare("SELECT *
                             FROM user_profile(:user)");
-    
+
     $stmt->execute(['user' => $user_id]);
 
     return array_merge(['id' => $user_id], $stmt->fetch());
 }
 
+function changePassword($password)
+{
+    global $conn;
+    $user_id = auth_user('id');
+
+    $stmt = $conn->prepare("UPDATE users SET password=:password WHERE id=:user");
+    $stmt->execute(['user' => $user_id, 'password' => password_hash($password, PASSWORD_BCRYPT)]);
+
+    return true;
+}

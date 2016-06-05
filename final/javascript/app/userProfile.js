@@ -8,6 +8,17 @@ $(document).ready(function () {
         )
         ;
     });
+
+    $("#follow").on('click', function () {
+        $.get($(this).data('url'), function (data) {
+            data = JSON.parse(data);
+
+            if (data.following)
+                $("#follow").html("Unfollow");
+            else
+                $("#follow").html("Follow");
+        });
+    });
 });
 
 function addNewQuestions(objects) {
@@ -16,7 +27,8 @@ function addNewQuestions(objects) {
 
         newObject.find('.vote-count').html(object.votes);
         updateTitleAndLink(newObject.find('.question-title'), object);
-        updateTitleAndLink(newObject.find('.question-body'), object);
+        updateBodyAndLink(newObject.find('.question-body'), object);
+        updateUsername(newObject.find('.question-user'), object);
         updateSolvedStatus(newObject.find('.question-solved-status'), object.solved);
         updateDate(newObject.find('.question-updated-at'), object);
         updateNumberAnswers(newObject.find('.question-answers'), object.number_answers);
@@ -28,6 +40,11 @@ function addNewQuestions(objects) {
 function updateTitleAndLink(questionTitle, object) {
     questionTitle.attr('href', questionTitle.data('base-question-url') + object.id);
     questionTitle.html(object.title);
+}
+
+function updateUsername(userObject, object) {
+    userObject.attr('href', userObject.data('url') + object.user_id);
+    userObject.html(object.username);
 }
 
 function updateBodyAndLink(questionTitle, object) {
