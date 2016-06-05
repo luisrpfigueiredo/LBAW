@@ -18,8 +18,7 @@
     <div class = "statistics col-sm-12 text-center">
         <span>
             <i class = "glyphicon glyphicon-user"></i>
-
-            <a href = "{profileUrl($answerUsernames[$answer['id']])}" class = "question-body" class = "question-title" data-base-question-url = "{profileUrl('')}">
+            <a href = "{profileUrl($answerUsernames[$answer['id']])}" class = "question-body question-title" data-base-question-url="{profileUrl('')}">
                 {$answerUsernames[$answer['id']]}
             </a>
         </span>
