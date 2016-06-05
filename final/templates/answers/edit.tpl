@@ -4,13 +4,13 @@
 
     <div class = "panel panel-default">
         <div class = "panel-heading">
-            <h3 class = "panel-title">Ask Question</h3>
+            <h3 class = "panel-title">Edit Question</h3>
         </div>
         <div class = "panel-body">
-            <form class = "form-horizontal" method = "post" action = "{$BASE_URL}actions/questions/edit.php">
+            <form class = "form-horizontal" method = "post" action = "{$BASE_URL}actions/asnwers/edit.php">
 
-                <input type = "hidden" name = "question_id" value = "{$question['id']}">
-                {include file='questions/partials/question_form.tpl'}
+                <input type = "hidden" name = "answer_id" value = "{$answer['id']}">
+                {include file='amswers/partials/answer_form.tpl'}
 
                 <div class = "form-group">
                     <div class = "col-sm-3 col-sm-offset-3">

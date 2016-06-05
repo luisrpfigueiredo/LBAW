@@ -2,8 +2,10 @@
 
     <div class = "col-sm-2">
         {if $LOGGED_IN}
+            {$votable_type = 'q'}
             {include file="questions/partials/vote_panel.tpl"}
         {else}
+            {$votable_type = 'q'}
             {include file="questions/partials/show_count.tpl"}
         {/if}
     </div>
@@ -21,6 +23,11 @@
     </div>
 
     <div class = "statistics col-sm-12 text-center">
+        <span>
+            <i class = "glyphicon glyphicon-user"></i>
+             <a href = "{profileUrl($question_username)}" class = "question-body" class = "question-title" data-base-question-url="{profileUrl('')}">
+                {$question_username}
+            </a>
         {if $question['solved']}
             <span class = "text-success question-solved-status">
                 <i class = "glyphicon glyphicon-check"></i>

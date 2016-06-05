@@ -4,7 +4,7 @@
 
     <div class = "panel panel-default">
         <div class = "panel-heading">
-            <h3 class = "panel-title">Ask Question</h3>
+            <h3 class = "panel-title">Edit Question</h3>
         </div>
         <div class = "panel-body">
             <form class = "form-horizontal" method = "post" action = "{$BASE_URL}actions/questions/edit.php">

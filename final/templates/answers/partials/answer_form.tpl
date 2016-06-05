@@ -1,9 +1,19 @@
 <div class = "form-group">
-    <label for = "username" class = "col-sm-3 control-label">Description</label>
-    <div class = "col-sm-8">
-        <textarea class = "form-control" rows = "5" placeholder = "Description" name = "body">{old('body', $answer['body'])}</textarea>
+    <span class = "col-sm-3 control-label">Description</span>
+    </div>
+
+<div class = "form-group">
+
+    <div class = "col-sm-11">
+        <textarea id="answerBody" class = "form-control" rows = "5"  name = "body"></textarea>
     </div>
 </div>
+
+<div class = "form-group">
+    <input type="hidden" name = "question_id">
+</div>
+
+
 
 
 

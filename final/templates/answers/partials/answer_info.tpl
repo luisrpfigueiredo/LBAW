@@ -1,4 +1,14 @@
-<div class = "col-sm-12 container-white answer-info-container">
+<div class = "col-sm-11 container-white answer-info-container pull-right">
+
+	<div class = "col-sm-2">
+        {if $LOGGED_IN}
+            {$votable_type='a'}
+            {include file="questions/partials/vote_panel.tpl"}
+        {else}
+            {$votable_type='a'}
+            {include file="questions/partials/show_count.tpl"}
+        {/if}
+    </div>
 
     <div class = "col-sm-10">
         <p class = "answer-description">
@@ -9,6 +19,13 @@
     </div>
 
     <div class = "statistics col-sm-12 text-center">
+        <span>
+            <i class = "glyphicon glyphicon-user"></i>
+
+            <a href = "{profileUrl($answer_username[$answer['id']])}" class = "question-body" class = "question-title" data-base-question-url="{profileUrl('')}">
+                {$answer_username[$answer['id']]}
+            </a>
+        </span>
         <span>
             <i class = "glyphicon glyphicon-time"></i>
             <span class = "answer-updated-at">
