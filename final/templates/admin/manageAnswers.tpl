@@ -49,7 +49,7 @@
             <div class="modal-footer">
                 <form action="{$BASE_URL}actions/admin/deleteAnswer.php" method="post">
                     <input type="hidden" name="answerID" id="confirmDeleteAnswerID">
-                    <button type="submit" class="btn btn-primary"">Confirm</button>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </form>
             </div>

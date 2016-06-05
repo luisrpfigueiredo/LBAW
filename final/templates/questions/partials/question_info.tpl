@@ -11,12 +11,12 @@
     </div>
     <div class = "col-sm-10">
         <h3>
-            <a href = "{questionUrl($question['id'])}" class = "question-title" data-base-question-url="{questionUrl('')}">
+            <a href = "{questionUrl($question['id'])}" class="question-title" data-base-question-url="{questionUrl('')}">
                 {$question['title']}
             </a>
         </h3>
         <p class = "question-description">
-            <a href = "{questionUrl($question['id'])}" class = "question-body" data-base-question-url="{questionUrl('')}">
+            <a href="{questionUrl($question['id'])}" class="question-body" data-base-question-url="{questionUrl('')}">
                 {$question['body']}
             </a>
         </p>
