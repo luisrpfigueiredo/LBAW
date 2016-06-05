@@ -32,7 +32,8 @@ function questionsFromIds($ids = [])
 
     $stmt = $conn->prepare("SELECT id,user_id, title, body, solved, updated_at, created_at,
         (SELECT COUNT(*) FROM question_answers(id)) as number_answers,
-        votable_rating(id, 'q') as votes
+        votable_rating(id, 'q') as votes,
+        (SELECT username FROM users WHERE users.id = questions.user_id) as username
         FROM questions 
         WHERE id IN ($points);");
     $stmt->execute($ids);

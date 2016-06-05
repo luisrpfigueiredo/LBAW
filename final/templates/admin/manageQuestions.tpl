@@ -57,6 +57,31 @@
     </div>
 </div>
 
+<div class="modal fade" id="warnInfo" role="dialog" tabindex="-1" aria-labelledby="warnInfo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Warning Info</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <span id="warnUserID" class="hide"></span>
+                    <div class="form-group">
+                        <label for="warnNotes" class="col-sm-12 control-label">Notes</label>
+                        <div class="col-sm-12">
+                            <textarea id="warnNotes" class="form-control modal-textarea"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" onclick="warnUser()">Warn User</button>
+                <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 {HTML::script("admin/manageQuestions.js")}
 {include file='common/footer.tpl'}
