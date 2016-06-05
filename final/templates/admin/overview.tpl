@@ -8,7 +8,7 @@
         <a id="manageUsers" name="manageUsersButton" class="btn btn-primary" href="{url('pages/admin/manageUsers')}">Manage Users</a>
     </div>
     <div class="col-md-3" text-center>
-        <a id="manageQuestions" name="manageQuestionsButton" class="btn btn-primary" href="#">Manage Questions</a>
+        <a id="manageQuestions" name="manageQuestionsButton" class="btn btn-primary" href="{url('pages/admin/manageQuestions')}">Manage Questions</a>
     </div>
     <div class="col-md-3" text-center>
         <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="#">Manage Answers</a>

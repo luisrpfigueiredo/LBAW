@@ -42,5 +42,6 @@ include_once($BASE_DIR . 'database/admin/manageUsers.php');
         banUser([$userID, intval($_SESSION['user']['id']), $notes, $expirationDate]);
     }
 
-    $response['numberBans'] = getUserBanCount($userID)['bans'];
+    $response['numberBans'] = getUserBanCount($userID);
+
     echo json_encode($response);
