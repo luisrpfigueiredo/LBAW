@@ -13,7 +13,7 @@
         <a id="manageQuestions" name="manageQuestionsButton" class="btn btn-primary" href="{url('pages/admin/manageQuestions')}">Manage Questions</a>
     </div>
     <div class="col-md-3" text-center>
-        <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="#">Manage Answers</a>
+        <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="{url('pages/admin/manageAnswers')}">Manage Answers</a>
     </div>
     <br><br><br>
 

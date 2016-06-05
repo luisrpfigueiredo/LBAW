@@ -12,13 +12,13 @@
         <a id="manageUsers" name="manageUsersButton" class="btn btn-primary" href="{url('pages/admin/manageUsers')}">Manage Users</a>
     </div>
     <div class="col-md-3" text-center>
-        <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="{url('pages/admin/manageAnswers')}">Manage Answers</a>
+        <a id="manageAnswers" name="manageQuestionsButton" class="btn btn-primary" href="{url('pages/admin/manageQuestions')}">Manage Questions</a>
     </div>
     <br><br><br>
 
     <div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
         <ul class = "nav navbar-nav navbar-right">
-            <form class = "navbar-form navbar-left" role = "search" method = "post" action = "{$BASE_URL}pages/admin/manageQuestions.php">
+            <form class = "navbar-form navbar-left" role = "search" method = "post" action = "{$BASE_URL}pages/admin/manageAnswers.php">
                 <div class = "form-group">
                     <input type = "text" class = "form-control navbar-search" placeholder = "Search" name = "search_query">
                 </div>
@@ -30,25 +30,25 @@
             </form>
         </ul>
     </div>
-    <div class = "question-space">
-        {if count($questions) eq 0}
+    <div class = "answer-space">
+        {if count($answers) eq 0}
             No questions for your search query.
         {/if}
-        {foreach $questions as $question}
-            {include file='admin/questionInfoAdmin.tpl'}
+        {foreach $answers as $answer}
+            {include file='admin/answerInfoAdmin.tpl'}
         {/foreach}
     </div>
 </div>
 
-<div class="modal fade" id="deleteQuestion" role="dialog" tabindex="-1" aria-labelledby="deleteQuestion" aria-hidden="true">
+<div class="modal fade" id="deleteAnswer" role="dialog" tabindex="-1" aria-labelledby="deleteAnswer" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Confirm Deletion</h4>
             </div>
             <div class="modal-footer">
-                <form action="{$BASE_URL}actions/admin/deleteQuestion.php" method="post">
-                    <input type="hidden" name="questionID" id="confirmDeleteQuestionID">
+                <form action="{$BASE_URL}actions/admin/deleteAnswer.php" method="post">
+                    <input type="hidden" name="answerID" id="confirmDeleteAnswerID">
                     <button type="submit" class="btn btn-primary"">Confirm</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </form>
@@ -83,7 +83,7 @@
 </div>
 
 
-{HTML::script("admin/manageQuestions.js")}
+{HTML::script("admin/manageAnswers.js")}
 {include file='common/footer.tpl'}
 
 
