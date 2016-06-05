@@ -9,16 +9,16 @@
         </div>
         <div class = "panel-body">
             <p>
-                This project is intended for the specification, development and promotion of an information system available through the Web to manage questions and their respective answers in a collaborative environment.
+                This project is intended for the specification, development and promotion of an information system, available through the Web, to help manage questions and their respective answers in a collaborative environment.
             </p>
             <p>
-                Users can hereby share their knowledge , thus creating up one self-help community.
+                Users can hereby share their knowledge , thus creating a self-help community.
             </p>
             <p>
-                The system must first enable registration and user authentication , as well as a user -registration . The system should also provide information loading facilities of user questions , charging answers to questions from users , per-user research facilities (eg list all the questions and answers made ​​by a user ) and features of evaluation questions and answers ( assign a rating to the question and responses by votes) .
+                The system must first allow for user registration and user authentication. The system should also allow for this knowledge to be visualized in an intuitive way (eg search questions and answers by their name and tags ), as well as have features of knowledge evaluation, such as assigning a rating to a question or answer .
             </p>
             <p>
-                There must be registered common- use profiles that may consult the information and register your questions , as well as add answers to existing questions . Can additionally add your vote ( positive or negative) the questions to which they have access. There should also be management profiles that have all access privileges. Administrators have operating privileges , information entry privileges on the system and modification of non-administrator user profiles ( remove the user , banning temporarily promote administrator).
+                There must be registered, common-use profiles assigned to each authenticated user in order to allow users to consult and create their own questions , as well as add answers, under their own name, to existing questions, as well as add a vote ( positive or negative) as described above. There should also be management profiles that have permission to warn users for inappropriate behaviour. Administrators have operating privileges , information entry privileges on the system and modification of non-administrator user profiles.
             </p>
         </div>
     </div>

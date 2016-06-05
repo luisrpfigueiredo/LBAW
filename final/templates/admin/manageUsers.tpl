@@ -6,14 +6,14 @@
 <div class="container" xmlns:HTML="http://www.w3.org/1999/html">
     {include file='common/breadcrumb.tpl'}
     <div class="col-md-2"></div>
-    <div class="col-md-3" text-center>
-        <a id="overview" name="overviewButton" class="btn btn-primary" href="{url('pages/admin/overview')}">Overview</a>
+    <div class="col-md-3" >
+        <a id="overview" class="btn btn-primary" href="{url('pages/admin/overview')}">Overview</a>
     </div>
-    <div class="col-md-3" text-center>
-        <a id="manageQuestions" name="manageQuestionsButton" class="btn btn-primary" href="{url('pages/admin/manageQuestions')}">Manage Questions</a>
+    <div class="col-md-3" >
+        <a id="manageQuestions" class="btn btn-primary" href="{url('pages/admin/manageQuestions')}">Manage Questions</a>
     </div>
-    <div class="col-md-3" text-center>
-        <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="{url('pages/admin/manageAnswers')}">Manage Answers</a>
+    <div class="col-md-3" >
+        <a id="manageAnswers"class="btn btn-primary" href="{url('pages/admin/manageAnswers')}">Manage Answers</a>
     </div>
     <br><br><br>
 
@@ -87,7 +87,7 @@
                 <h4 class="modal-title" >More Info</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal">
                     <div class="form-group">
                         <label id="moreInfoUsername" class="col-sm-12 control-label "></label>
                     </div>
@@ -117,7 +117,7 @@
                 <h4 class="modal-title">Ban Info</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal">
                     <span id="banUserID" class="hide"></span>
                     <div class="form-group">
                         <label id="isBanned" class="col-sm-12 control-label"></label>
@@ -151,7 +151,7 @@
                 <h4 class="modal-title">Warning Info</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal">
                     <span id="warnUserID" class="hide"></span>
                     <div class="form-group">
                         <label for="warnNotes" class="col-sm-12 control-label">Notes</label>

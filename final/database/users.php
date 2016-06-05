@@ -84,3 +84,18 @@ function changePassword($password)
 
     return true;
 }
+
+function userIsBanned($user_id){
+    global $conn;
+    $stmt = $conn->prepare("SElECT COUNT(*) AS number FROM bans WHERE user_id = ? AND expired_at::date > CURRENT_TIMESTAMP::date");
+    $stmt->execute([$user_id]);
+
+    $result = intval($stmt->fetch()['number']);
+
+
+    if(intval($result) > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
