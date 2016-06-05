@@ -4,7 +4,7 @@
     <title>LBAW - Tidder</title>
 
     <meta charset = "UTF-8">
-    <link rel = "shortcut icon" type = "image/png" href = "<?= resource('favicon.png') ?>"/>
+    <link rel = "shortcut icon" type = "image/png" href = "{resource('favicon.png')}"/>
     <link rel = "stylesheet" type = "text/css" href = "//fonts.googleapis.com/css?family=Open+Sans"/>
 
 
@@ -18,6 +18,7 @@
     {HTML::style('styles/landing-page.css')}
     {HTML::style("styles/profile.css")}
 
+    {HTML::script('appendSuccessMessage.js')}
     {HTML::script('jquery-2.2.1.min.js')}
     {HTML::script('bootstrap.min.js')}
     {HTML::script('bootstrap-confirmation.js')}
@@ -38,7 +39,7 @@
                     <span class = "icon-bar"></span>
                 </button>
                 <a class = "navbar-brand" href = "{$BASE_URL}" style = "padding: 2px 0">
-                    <img src = "{resource("logo.png")}" height = "100%">
+                    <img src = "{resource("logo.png")}" alt="logo" height = "45">
                 </a>
             </div>
 
@@ -57,11 +58,9 @@
                             <input type = "text" class = "form-control navbar-search" placeholder = "Search" name = "search_query">
                         </div>
 
-                        <a>
-                            <button type = "submit" class = "search-submit">
-                                <span class = "glyphicon glyphicon-search"></span>
-                            </button>
-                        </a>
+                        <button type = "submit" class = "search-submit">
+                            <a><span class = "glyphicon glyphicon-search"></span></a>
+                        </button>
                     </form>
                 </ul>
             </div><!-- /.navbar-collapse -->

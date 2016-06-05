@@ -37,5 +37,29 @@ function answersFromQuestion($q_id)
     return $rows;
 }
 
+function answersFromIds($ids = [])
+{
+    global $conn;
+
+    if (!is_array($ids)) {
+        $ids = [$ids];
+    }
+
+    if (empty($ids)) {
+        return [];
+    }
+
+    $points = query_build_for_num_args($ids);
+
+    $stmt = $conn->prepare("SELECT id,user_id, question_id, body, updated_at, created_at,
+        (SELECT username FROM users WHERE users.id = answers.user_id) as username
+        FROM answers
+        WHERE id IN ($points);");
+    $stmt->execute($ids);
+    $rows = $stmt->fetchAll();
+
+    return $rows;
+}
+
 
 

@@ -46,22 +46,13 @@ function getUserPersonalInfo($user_id) {
 
 }
 
-function getUserWarningCount($user_id){
-	global $conn;
-	$stmt = $conn->prepare("SELECT COUNT(*) AS warnings FROM warnings WHERE user_id = ?");
-	$stmt->execute([$user_id]);
-	$rows = $stmt->fetch();
-
-	return $rows;
-}
-
 function getUserBanCount($user_id){
 	global $conn;
 	$stmt = $conn->prepare("SELECT COUNT(*) AS bans FROM bans WHERE user_id = ?");
 	$stmt->execute([$user_id]);
 	$rows = $stmt->fetch();
 
-	return $rows;
+	return $rows['bans'];
 }
 
 function userIsBanned($user_id){

@@ -1,22 +1,22 @@
 <div class = "col-sm-12 container-white question-info-container">
 
     <div class = "col-sm-2">
+        {$votable_type = 'q'}
         {if $LOGGED_IN}
-            {$votable_type = 'q'}
             {include file="questions/partials/vote_panel.tpl"}
         {else}
-            {$votable_type = 'q'}
+
             {include file="questions/partials/show_count.tpl"}
         {/if}
     </div>
     <div class = "col-sm-10">
         <h3>
-            <a href = "{questionUrl($question['id'])}" class = "question-title" data-base-question-url="{questionUrl('')}">
+            <a href = "{questionUrl($question['id'])}" class="question-title" data-base-question-url="{questionUrl('')}">
                 {$question['title']}
             </a>
         </h3>
         <p class = "question-description">
-            <a href = "{questionUrl($question['id'])}" class = "question-body" class = "question-title" data-base-question-url="{questionUrl('')}">
+            <a href="{questionUrl($question['id'])}" class="question-body" data-base-question-url="{questionUrl('')}">
                 {$question['body']}
             </a>
         </p>
@@ -25,9 +25,10 @@
     <div class = "statistics col-sm-12 text-center">
         <span>
             <i class = "glyphicon glyphicon-user"></i>
-             <a href = "{profileUrl($question_username)}" class = "question-body" class = "question-title" data-base-question-url="{profileUrl('')}">
-                {$question_username}
+             <a href = "{profileUrl($question['user_id'])}" class = "question-user" data-url="{profileUrl('')}">
+                {$question['username']}
             </a>
+        </span>
         {if $question['solved']}
             <span class = "text-success question-solved-status">
                 <i class = "glyphicon glyphicon-check"></i>
@@ -46,7 +47,8 @@
                     {$question['updated_at']}
                 {else}
                     {$question['created_at']}
-                {/if}</span>
+                {/if}
+            </span>
         </span>
         <span>
             <i class = "glyphicon glyphicon-comment"></i>

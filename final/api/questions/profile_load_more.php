@@ -4,7 +4,7 @@ include_once($BASE_DIR . 'database/questions.php');
 
 PagePermissions::create('auth')->check();
 
-if (!isset($_GET['user_id']) || !is_numeric($_GET['page'])) {
+if (!isset($_GET['user_id']) || !is_numeric($_GET['user_id'])) {
     echo "Invalid Params";
     exit();
 }

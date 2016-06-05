@@ -47,7 +47,12 @@
                             </div>
 
                             <div class = "user-details-line col-sm-12 text-center">
-                                <button type = "button" class = "btn btn-primary" data-toggle = "modal" data-target = "#exampleModal" data-whatever = "@mdo">Edit profile</button>
+                                {if $isMyProfile}
+                                    <button type = "button" class = "btn btn-primary" data-toggle = "modal" data-target = "#exampleModal" data-whatever = "@mdo">Change Password</button>
+                                {else}
+                                     <button id="follow" type = "button" class = "btn btn-primary"
+                                             data-url="{url('api/users/follow', ['user_id' => $user['id']])}">{if $following}Unfollow{else}Follow{/if}</button>
+                                {/if}
                             </div>
                         </div>
                     </div>
@@ -93,32 +98,24 @@
                 <div class = "modal-header">
                     <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
                         <span aria-hidden = "true">&times;</span></button>
-                    <h4 class = "modal-title" id = "exampleModalLabel">Settings</h4>
+                    <h4 class = "modal-title" id = "exampleModalLabel">Change Password</h4>
                 </div>
-                <div class = "modal-body">
-                    <form>
-                        <div class = "form-group">
-                            <label for = "recipient-name" class = "control-label">New Username:</label>
-                            <input type = "text" class = "form-control" id = "recipient-name">
-                        </div>
-                        <div class = "form-group">
-                            <label for = "message-text" class = "control-label">New email:</label>
-                            <input type = "text" class = "form-control" id = "recipient-name">
-                        </div>
-                        <div class = "form-group">
-                            <label for = "message-text" class = "control-label">New password:</label>
-                            <input type = "text" class = "form-control" id = "recipient-name">
-                        </div>
-                        <div class = "form-group">
-                            <label for = "message-text" class = "control-label">Confirm password:</label>
-                            <input type = "text" class = "form-control" id = "recipient-name">
-                        </div>
-                    </form>
-                </div>
-                <div class = "modal-footer">
-                    <button type = "button" class = "btn btn-default" data-dismiss = "modal">Close</button>
-                    <button type = "button" class = "btn btn-primary">Edit</button>
-                </div>
+                <form action="{url('actions/users/changePassword')}" method="post">
+                    <div class = "modal-body">
+                            <div class = "form-group">
+                                <label for = "message-text" class = "control-label">New password:</label>
+                                <input type = "password" name="password" class = "form-control" id = "recipient-name">
+                            </div>
+                            <div class = "form-group">
+                                <label for = "message-text" class = "control-label">Confirm password:</label>
+                                <input type = "password" name="verify_password" class = "form-control" id = "recipient-name">
+                            </div>
+                    </div>
+                    <div class = "modal-footer">
+                        <button type = "button" class = "btn btn-default" data-dismiss = "modal">Close</button>
+                        <button type = "submit" class = "btn btn-primary">Change</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

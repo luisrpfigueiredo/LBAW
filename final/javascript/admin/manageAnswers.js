@@ -1,5 +1,12 @@
-function loadDeleteModal(questionID){
-    $('#confirmDeleteQuestionID').val(questionID);
+/**
+ * Created by Luís on 05/06/2016.
+ */
+$(document).ready(function(){
+    setCorrectSize();
+});
+
+function loadDeleteModal(answerID){
+    $('#confirmDeleteAnswerID').val(answerID);
 }
 
 function loadWarnModal(username) {
@@ -50,4 +57,10 @@ function warnUser(){
             console.log(data['responseText']);
         }
     });
+}
+
+function setCorrectSize(){
+    console.log("Called");
+    $('.sizeSelector').removeClass("col-sm-11").addClass("col-sm-12");
+    $('.sizeSelector').removeClass("pull-right");
 }

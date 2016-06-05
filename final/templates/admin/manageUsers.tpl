@@ -1,5 +1,6 @@
 {include file='common/header.tpl'}
 {HTML::style("styles/admin/manageUsers.css")}
+{HTML::style("styles/admin/warnModal.css")}
 
 
 <div class="container" xmlns:HTML="http://www.w3.org/1999/html">
@@ -12,7 +13,7 @@
         <a id="manageQuestions" name="manageQuestionsButton" class="btn btn-primary" href="{url('pages/admin/manageQuestions')}">Manage Questions</a>
     </div>
     <div class="col-md-3" text-center>
-        <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="#">Manage Answers</a>
+        <a id="manageAnswers" name="manageAnswersButton" class="btn btn-primary" href="{url('pages/admin/manageAnswers')}">Manage Answers</a>
     </div>
     <br><br><br>
 
@@ -46,8 +47,8 @@
             <tr id={$userID["id"]}>
                 <td>{$userPersonalInfos[$userID["id"]]["username"]}</td>
                 <td>{$userPersonalInfos[$userID["id"]]["type"]}</td>
-                <td>{$userWarningCounts[$userID["id"]]["warnings"]}</td>
-                <td>{$userBanCounts[$userID["id"]]["bans"]}</td>
+                <td>{$userWarningCounts[$userID["id"]]}</td>
+                <td>{$userBanCounts[$userID["id"]]}</td>
                 <td>{$userPersonalInfos[$userID["id"]]["email"]}</td>
 
                 <td class="cell-borderless" >
@@ -57,11 +58,15 @@
                 {if ($userPersonalInfos[$userID["id"]]["type"] == "admin") || ($userPersonalInfos[$userID["id"]]["username"] == $USERNAME)}
                     <td class="cell-borderless"></td>
                     <td class="cell-borderless"></td>
+                    <td class="cell-borderless"></td>
                     {continue}
                 {/if}
 
                 <td class="cell-borderless">
                     <button class="btn-primary" onClick="loadBanModal({$userID['id']})" data-toggle="modal" data-target="#banInfo" >Ban/Unban</button>
+                </td>
+                <td class="cell-borderless">
+                    <button class="btn-primary" onClick="loadWarnModal({$userID['id']})" data-toggle="modal" data-target="#warnInfo" >Warn User</button>
                 </td>
                 <td class="cell-borderless">
                     <button class="btn-primary" onClick="loadUpDownModal({$userID['id']})" data-toggle="modal" data-target="#confirmUpDown">Upgrade/Downgrade</button>
@@ -138,6 +143,33 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="warnInfo" role="dialog" tabindex="-1" aria-labelledby="warnInfo" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Warning Info</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <span id="warnUserID" class="hide"></span>
+                    <div class="form-group">
+                        <label for="warnNotes" class="col-sm-12 control-label">Notes</label>
+                        <div class="col-sm-12">
+                            <textarea id="warnNotes" class="form-control modal-textarea"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary pull-left" onclick="warnUser()">Warn User</button>
+                <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="modal fade" id="confirmUpDown" role="dialog" tabindex="-1" aria-labelledby="confirmUpDown" aria-hidden="true">
     <div class="modal-dialog" role="document">
