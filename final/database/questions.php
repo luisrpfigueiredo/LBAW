@@ -67,11 +67,12 @@ function getQuestionsOfUser($user_id, $page = 0)
     global $conn;
     $limit_question = 4;
 
-    $stmt = $conn->prepare("SELECT id, title, body, solved, updated_at, created_at,
-        (SELECT COUNT(*) FROM question_answers(id)) as number_answers,
-        votable_rating(id, 'q') as votes
-        FROM questions 
+    $stmt = $conn->prepare("SELECT questions.id, title, body, solved, updated_at, questions.created_at, username, user_id, 
+        (SELECT COUNT(*) FROM question_answers(questions.id)) as number_answers,
+        votable_rating(questions.id, 'q') as votes
+        FROM questions, users
         WHERE user_id = :user
+          AND users.id = questions.user_id
         LIMIT :limit
         OFFSET :skip
         ;");

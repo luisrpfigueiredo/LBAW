@@ -28,7 +28,7 @@ function lastUpdated($page = 0)
     $limit = 4;
     $skip = $limit * $page;
 
-    $stmt = $conn->prepare("SELECT questions.id, title, body, solved, updated_at, questions.created_at, username as question_username, user_id,
+    $stmt = $conn->prepare("SELECT questions.id, title, body, solved, updated_at, questions.created_at, username, user_id,
         (SELECT COUNT(*) FROM question_answers(questions.id)) as number_answers,
         votable_rating(questions.id, 'q') as votes
         FROM questions, users

@@ -8,6 +8,17 @@ $(document).ready(function () {
         )
         ;
     });
+
+    $("#follow").on('click', function () {
+        $.get($(this).data('url'), function (data) {
+            data = JSON.parse(data);
+
+            if (data.following)
+                $("#follow").html("Unfollow");
+            else
+                $("#follow").html("Follow");
+        });
+    });
 });
 
 function addNewQuestions(objects) {
