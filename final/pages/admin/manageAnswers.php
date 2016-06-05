@@ -19,6 +19,9 @@ $cookie_value = $query;
 setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
 $answers = answerSearchAdmin($query);
+foreach($answers as $answer){
+    $answerUsernames[$answer['id']] = getUsernameFromUserID($answer['user_id']);
+}
 
 $smarty->assign('query', $query);
 $smarty->assign('answers', $answers);

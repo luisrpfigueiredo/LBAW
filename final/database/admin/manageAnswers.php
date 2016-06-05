@@ -2,6 +2,8 @@
 
 include_once('../../config/init.php');
 include_once($BASE_DIR . 'database/answers.php');
+include_once($BASE_DIR . 'database/users.php');
+
 
 
 function answerSearchAdmin($query)
