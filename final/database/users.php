@@ -41,6 +41,16 @@ function isLoginCorrect($username, $password)
     }
 }
 
+function getUserFromId($user_id)
+{
+    global $conn;
+    $stmt = $conn->prepare("SELECT * 
+                            FROM users
+                            WHERE user_id = ?)");
+    $stmt->execute(array($user_id));
+    return $stmt->fetch();
+}
+
 function getUserFromUsername($username)
 {
     global $conn;
