@@ -1,9 +1,11 @@
-<div class = "col-sm-12 container-white answer-info-container">
+<div class = "col-sm-11 container-white answer-info-container pull-right">
 
 	<div class = "col-sm-2">
         {if $LOGGED_IN}
+            {$votable_type='a'}
             {include file="questions/partials/vote_panel.tpl"}
         {else}
+            {$votable_type='a'}
             {include file="questions/partials/show_count.tpl"}
         {/if}
     </div>
