@@ -41,13 +41,13 @@ function isLoginCorrect($username, $password)
     }
 }
 
+
 function getUsernameFromUserID($userID) {
     global $conn;
     $stmt = $conn->prepare("SELECT username AS username FROM users WHERE id = :userID");
     $stmt->execute(['userID' => $userID]);
     return $stmt->fetch()['username'];
 }
-
 function getUserFromUsername($username)
 {
     global $conn;
