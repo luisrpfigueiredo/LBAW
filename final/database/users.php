@@ -62,8 +62,10 @@ function getUserFromUsername($username)
 function getProfile($user_id)
 {
     global $conn;
+
    $stmt = $conn->prepare("SELECT *
                             FROM user_profile(:user)");
+    
     $stmt->execute(['user' => $user_id]);
 
     return array_merge(['id' => $user_id], $stmt->fetch());
