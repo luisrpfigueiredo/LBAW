@@ -29,11 +29,19 @@ function changeVote($data)
     return;
 }
 
-function getRating($data)
+function getRatingQuestion($votable_id)
 {
     global $conn;
-    $stmt = $conn->prepare("SELECT votable_rating(?, ?) as result FROM votes");
-    $stmt->execute(array($data['votable_id'], $data['votable_type']));
+    $stmt = $conn->prepare("SELECT votable_rating(?, 'q') as result FROM questions");
+    $stmt->execute($votable_id);
+    return $stmt->fetch();
+}
+
+function getRatingAnswer($votable_id)
+{
+    global $conn;
+    $stmt = $conn->prepare("SELECT votable_rating(?, 'a') as result FROM answers");
+    $stmt->execute($votable_id);
     return $stmt->fetch();
 }
 

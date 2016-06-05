@@ -30,8 +30,11 @@ if( !isset($aResult['error']) ) {
             case 'newVote':
                 $data = array($user_id, $votable_id, $votable_type, $value);
                 $aResult['result'] = newVote($data);
-                $aResult['result'] = getRating(array($votable_id, $votable_type));
-                echo '<script type="text/javascript">alert("Data has been submitted to ' . $aResult['result'] . '");</script>';
+                if($votable_type === 'q'){
+                    $aResult['result'] = getRatingQuestion($votable_id);
+                } else {
+                    $aResult['result'] = getRatingAnswer($votable_id);
+                }
                 break;
             case 'verifyVote':
                 $data = array($user_id, $votable_id, $votable_type);
@@ -40,7 +43,11 @@ if( !isset($aResult['error']) ) {
             case 'changeVote':
                 $data = array($value, $user_id, $votable_id, $votable_type);
                 $aResult['result'] = changeVote($data);
-                $aResult['result'] = getRating(array($votable_id, $votable_type));
+                if($votable_type === 'q'){
+                    $aResult['result'] = getRatingQuestion($votable_id);
+                } else {
+                    $aResult['result'] = getRatingAnswer($votable_id);
+                }
                 break;
             default:
                 $aResult['error'] = 'Not found function '.$_POST['functionname'].'!';
