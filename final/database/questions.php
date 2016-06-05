@@ -71,7 +71,7 @@ function getQuestionsOfUser($user_id, $page = 0)
         (SELECT COUNT(*) FROM question_answers(questions.id)) as number_answers,
         votable_rating(questions.id, 'q') as votes
         FROM questions, users
-        WHERE user_id = :user
+        WHERE questions.user_id = :user
           AND users.id = questions.user_id
         LIMIT :limit
         OFFSET :skip
