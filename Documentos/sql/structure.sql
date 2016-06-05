@@ -277,6 +277,16 @@ BEGIN
 END
 $func$  LANGUAGE plpgsql;
 
+CREATE OR REPLACE FUNCTION search_answers(psearch text)
+RETURNS TABLE (answer_id INTEGER) AS $func$
+BEGIN	
+	return QUERY
+		SELECT DISTINCT(answers.id) 
+		FROM answers 
+		WHERE to_tsvector(coalesce(answers.body)) @@ to_tsquery(psearch);
+END
+$func$  LANGUAGE plpgsql;
+
 CREATE INDEX users_username ON users USING hash(username);
 CREATE INDEX users_email ON users USING hash(email);
 
