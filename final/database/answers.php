@@ -3,14 +3,14 @@
 function createAnswer($data)
 {
     global $conn;
-
-    $conn->lastInsertId('questions_id_seq');
-
+    echo ($data['user_id']);
+    echo ($data['question_id']);
+    echo ($data['body']);
 
     $stmt = $conn->prepare("INSERT INTO answers (user_id, question_id, body) VALUES(?,?,?)");
     $stmt->execute(array($data['user_id'],$data['question_id'],$data['body']));
 
-    return (int)$conn->lastInsertId('questions_id_seq');
+    return true;
 }
 
 function editAnswer($data)

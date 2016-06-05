@@ -15,11 +15,11 @@ $answers = answersFromQuestion(intval( $_GET['question']));
 foreach ($answers as $answer)
 {
    $answer_username[$answer['id']] = getUsernameFromUserID($answer['user_id']);
-   $resultadoA[$answer['id']] = verifyVote($_SESSION['user']['id'],$answer['id'],'a');
+   $resultadoA[$answer['id']] = verifyVote(array($_SESSION['user']['id'],$answer['id'],'a'));
 
 }
 
-$resultadoQ = verifyVote($_SESSION['user']['id'],$question['id'],'q');
+$resultadoQ = verifyVote(array($_SESSION['user']['id'],$question['id'],'q'));
 
 $smarty->assign('answers', $answers);
 $smarty->assign('question', $question);

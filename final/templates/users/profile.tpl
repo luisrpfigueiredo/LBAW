@@ -61,17 +61,23 @@
                     <h3 class = "panel-title">My Questions</h3>
                 </div>
                 <div class = "panel-body profile-questions-panel">
-
+                    {if !empty($questions)}
                     <div class = "question-space">
+
                         {foreach $questions as $question}
                             {include file='questions/partials/question_info.tpl'}
                         {/foreach}
+
                     </div>
 
 
                     <div class = "load-more col-sm-12 space-top text-center" data-user="{$user['id']}" data-url="{url('api/questions/profile_load_more')}" data-user-id="{$user['id']}">
                         <button type = "button" class = "btn btn-lg btn-primary col-sm-6 col-sm-offset-3 col-xs-12">Load More...</button>
                     </div>
+                    {else}<div class="text-center">
+                        No Questions Found!
+                    </div>
+                    {/if}
                 </div>
             </div>
 
