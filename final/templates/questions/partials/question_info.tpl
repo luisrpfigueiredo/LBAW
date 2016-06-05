@@ -21,6 +21,11 @@
     </div>
 
     <div class = "statistics col-sm-12 text-center">
+        <span>
+            <i class = "glyphicon glyphicon-user"></i>
+             <a href = "{profileUrl($question_username)}" class = "question-body" class = "question-title" data-base-question-url="{profileUrl('')}">
+                {$question_username}
+            </a>
         {if $question['solved']}
             <span class = "text-success question-solved-status">
                 <i class = "glyphicon glyphicon-check"></i>

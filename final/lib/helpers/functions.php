@@ -42,6 +42,16 @@ function questionUrl($question_id)
     return url('pages/questions/details', ['question' => $question_id]);
 }
 
+function answerUrl($answer_id)
+{
+    return url('pages/questions/details', ['answer' => $answer_id]);
+}
+
+function profileUrl($user_id)
+{
+    return url('pages/users/profile', ['user' => $user_id]);
+}
+
 function old($name, $default = '')
 {
     global $FORM_VALUES;
