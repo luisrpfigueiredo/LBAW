@@ -6,21 +6,46 @@ function newVote($data)
     $stmt->execute(array($data['user_id'], $data['votable_id'], $data['votable_type'], $data['value']));
     return;
 }
-function verifyVote($data)
+
+function question_is_voted($question_id)
 {
     global $conn;
     $stmt = $conn->prepare("SELECT * 
                             FROM votes 
-                            WHERE (user_id = ? AND votable_id = ? AND votable_type = ?)");
-    $stmt->execute(array($data['user_id'], $data['votable_id'], $data['votable_type']));
-    $votes = $stmt->fetchAll();
+                            WHERE (user_id = :user AND votable_id = :question AND votable_type = 'q')");
+    $stmt->execute(['user' => auth_user('id'), 'question' => $question_id]);
+    $votes = $stmt->fetch();
 
-    if (sizeof($votes) != 1) {
-        return false; // Não existe
-    } else {
-        return true; // Existe
-    }
+    if($votes === false)
+        return 0;
+
+    return $votes['value'];
 }
+
+function answer_is_voted($answer_id)
+{
+    global $conn;
+    $stmt = $conn->prepare("SELECT * 
+                            FROM votes 
+                            WHERE (user_id = :user AND votable_id = :question AND votable_type = 'a')");
+    $stmt->execute(['user' => auth_user('id'), 'question' => $answer_id]);
+    $votes = $stmt->fetch();
+
+    if($votes === false)
+        return 0;
+
+    return $votes['value'];
+}
+
+function answers_are_voted($answers)
+{
+    foreach($answers as &$answer) {
+        $answer['voted'] = answer_is_voted($answer['id']);
+    }
+
+    return $answers;
+}
+
 function changeVote($data)
 {
     global $conn;
