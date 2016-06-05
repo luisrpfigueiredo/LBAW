@@ -15,20 +15,23 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 try {
-
-    if (isLoginCorrect($username, $password)) {
-        $_SESSION['username'] = $username;
-        $_SESSION['success_messages'][] = 'Login successful.';
-        $_SESSION['logged_in'] = true;
-        $_SESSION['user'] = getUserFromUsername($username);
-
-        redirect();
-    } else {
-        echo "else";
+    if (!isLoginCorrect($username, $password)) {
         $_SESSION['error_messages'][] = 'Error validating credentials.';
         header("Location: $BASE_URL" . 'pages/users/authentication.php');
         exit;
     }
+    $user = getUserFromUsername($username);
+    if(userIsBanned(intval($user['id']))) {
+        $_SESSION['error_messages'][] = 'Your account has been banned. Please contact support for further information.';
+        header("Location: $BASE_URL" . 'pages/users/authentication.php');
+        exit;
+    }
+    $_SESSION['username'] = $username;
+    $_SESSION['success_messages'][] = 'Login successful.';
+    $_SESSION['logged_in'] = true;
+    $_SESSION['user'] = $user;
+
+    redirect();
 } catch (PDOexception $e) {
 
     $_SESSION['error_messages'][] = 'Login failed.';
