@@ -54,5 +54,34 @@
             <i class = "glyphicon glyphicon-comment"></i>
             <span class = "question-answers">{$question['number_answers']} answer{if $question['number_answers'] != 1 }s{/if}</span>
         </span>
+        <!--{if  (intval($question['user_id']) == intval($session_id))}
+            <div class = "col-sm-3 col-sm-offset-3 ">
+                <button type = "button" class = "btn btn-primary" data-toggle = "modal" data-target = "#exampleModal" data-whatever = "@mdo">Edit</button>
+            </div>
+        {/if}-->
     </div>
+</div>
+
+<div class = "modal fade" id = "exampleModal" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel">
+    <div class = "modal-dialog" role = "document">
+        <div class = "modal-content">
+            <div class = "modal-header">
+                <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
+                    <span aria-hidden = "true">&times;</span></button>
+                <h4 class = "modal-title" id = "exampleModalLabel">Edit Answer</h4>
+            </div>
+            <form action="{url('actions/answers/edit')}" method="post">
+                <div class = "modal-body">
+                    <div class = "form-group">
+                        <textarea input type = "text" name="password" class = "form-control" id = "recipient-name" rows="6">{$question['body']} </textarea>
+                    </div>
+                </div>
+                <div class = "modal-footer">
+                    <button type = "button" class = "btn btn-default" data-dismiss = "modal">Close</button>
+                    <button type = "submit" class = "btn btn-primary">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </div>

@@ -14,12 +14,12 @@ foreach ($answers as $answer)
 {
     $answerUsernames[$answer['id']] = getUsernameFromUserID($answer['user_id']);
    $resultadoA[$answer['id']] = verifyVote(array($_SESSION['user']['id'],$answer['id'],'a'));
-
-
+   
 }
 
 $resultadoQ = verifyVote(array($_SESSION['user']['id'],$question['id'],'q'));
 
+$smarty->assign('session_id',$_SESSION['user']['id']);
 $smarty->assign('answers', $answers);
 $smarty->assign('question', $question);
 
