@@ -2,6 +2,7 @@
 
 include_once('../../config/init.php');
 include_once($BASE_DIR . 'database/admin/manageUsers.php');
+include_once($BASE_DIR . 'database/mod/manageUsers.php');
 
 
 PagePermissions::create(['admin'])->check();

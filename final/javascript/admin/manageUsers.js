@@ -147,3 +147,38 @@ function updateMoreInfoModal(data) {
     $('#moreInfoNumberQuestions').html("Number of questions: " + data['numberQuestions']);
     $('#moreInfoNumberAnswers').html("Number of answers: " + data['numberAnswers']);
 }
+
+
+function loadWarnModal(userID) {
+    $('#warnUserID').html(userID);
+}
+
+function warnUser(){
+    var userID = parseInt($('#warnUserID').html());
+    var notes = $("#warnNotes").val();
+
+    $.ajax({
+        type: 'post',
+        url: '../../api/mod/handleWarning.php',
+        data: {
+            'userID' : userID,
+            'notes' : notes
+        },
+        dataType: 'json',
+        success: function(data){
+            if(data['error'] != null){
+                console.log(data['error']);
+                return;
+            }
+            updateWarningCount(userID, data["numberWarnings"]);
+            $('#warnInfo').modal('hide');
+        },
+        error: function(data){
+            console.log(data['responseText']);
+        }
+    });
+}
+
+function updateWarningCount(userID, numberWarnings) {
+    $('#' + userID + ' :nth-child(3)').html(numberWarnings);
+}
