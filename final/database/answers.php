@@ -27,7 +27,8 @@ function answersFromQuestion($q_id)
 {
     global $conn;
 
-    $stmt = $conn->prepare("SELECT id, user_id,body,created_at,updated_at
+    $stmt = $conn->prepare("SELECT id, user_id,body,created_at,updated_at,votable_rating(id, 'a') as votes
+
    							FROM answers
    							WHERE question_id=?");
    $stmt->execute([$q_id]);

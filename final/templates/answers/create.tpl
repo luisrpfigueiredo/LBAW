@@ -9,8 +9,8 @@
                 {include file='answers/partials/answer_form.tpl'}
 
                 <div class = "form-group">
-                    <div class = "col-sm-3 col-sm-offset-3">
-                        <button class = "btn btn-primary" type = "submit">Answer</button>
+                    <div class = "col-sm-3 col-sm-offset-3 pull-right">
+                        <button class = "btn btn-primary " type = "submit">Answer</button>
                     </div>
                 </div>
             </form>
