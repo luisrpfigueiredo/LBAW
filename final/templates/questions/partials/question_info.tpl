@@ -16,7 +16,7 @@
             </a>
         </h3>
         <p class = "question-description">
-            <a href = "{questionUrl($question['id'])}" class = "question-body" class = "question-title" data-base-question-url="{questionUrl('')}">
+            <a href = "{questionUrl($question['id'])}" class = "question-body" data-base-question-url="{questionUrl('')}">
                 {$question['body']}
             </a>
         </p>
