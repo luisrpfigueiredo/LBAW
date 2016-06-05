@@ -64,7 +64,7 @@
                 <h4 class="modal-title">Warning Info</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal">
                     <span id="warnUserID" class="hide"></span>
                     <div class="form-group">
                         <label for="warnNotes" class="col-sm-12 control-label">Notes</label>

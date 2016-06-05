@@ -13,7 +13,7 @@
 
     <div class = "col-sm-10">
         <p class = "answer-description">
-            <a href = "{answerUrl($answer['id'])}" class = "answer-body" class = "answer-title" data-base-answer-url="{answerUrl('')}">
+            <a href = "{answerUrl($answer['id'])}" class = "answer-body answer-title" data-base-answer-url="{answerUrl('')}">
                 {$answer['body']}
             </a>
         </p>
@@ -23,7 +23,7 @@
         <span>
             <i class = "glyphicon glyphicon-user"></i>
 
-            <a href = "{profileUrl($answerUsernames[$answer['id']])}" class = "question-body" class = "question-title" data-base-question-url="{profileUrl('')}">
+            <a href = "{profileUrl($answerUsernames[$answer['id']])}" class = "question-body question-title" data-base-question-url="{profileUrl('')}">
                 {$answerUsernames[$answer['id']]}
             </a>
         </span>
