@@ -2,8 +2,10 @@
 
     <div class = "col-sm-2">
         {if $LOGGED_IN}
+            {$votable_type = 'q'}
             {include file="questions/partials/vote_panel.tpl"}
         {else}
+            {$votable_type = 'q'}
             {include file="questions/partials/show_count.tpl"}
         {/if}
     </div>
