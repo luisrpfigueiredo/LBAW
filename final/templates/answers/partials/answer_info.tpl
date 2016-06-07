@@ -1,6 +1,6 @@
 {HTML::style('styles/details.css')}
 
-<div class = "col-sm-11 container-white answer-info-container  pull-right sizeSelector">
+<div class = "col-sm-12 container-white answer-info-container  pull-right sizeSelector">
 	<div class = "col-sm-2">
         {$votable_type='a'}
         {if $LOGGED_IN}
@@ -21,14 +21,14 @@
 
     <div class = "statistics col-sm-12 text-center">
         <span>
-            <i class = "glyphicon glyphicon-user"></i>
+            <i class = "glyphicon glyphicon-user" alt=""></i>
 
             <a href = "{profileUrl($answerUsernames[$answer['id']])}" class = "question-body question-title" data-base-question-url="{profileUrl('')}">
                 {$answerUsernames[$answer['id']]}
             </a>
         </span>
         <span>
-            <i class = "glyphicon glyphicon-time"></i>
+            <i class = "glyphicon glyphicon-time" alt=""></i>
             <span class = "answer-updated-at">
                 {if $answer['updated_at']}
                     {$answer['updated_at']}

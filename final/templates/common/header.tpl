@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <title>LBAW - Tidder</title>
 
     <meta charset = "UTF-8">
 
-    <link rel = "shortcut icon" type = "image/png" href = "{resource('favicon.png')}"/>
+    <link rel = "shortcut icon" type = "image/png" href = "{resource('favicon.png')}" alt="logo-image"/>
     <link rel = "stylesheet" type = "text/css" href = "//fonts.googleapis.com/css?family=Open+Sans"/>
 
 

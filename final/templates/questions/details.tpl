@@ -7,7 +7,7 @@
         {include file="questions/partials/question_info.tpl"}
     </div>
 
-    <div class="answer_space ">
+    <div class="answer_space  col-sm-10 ">
 
         {foreach $answers as $answer}
             {include file="answers/partials/answer_info.tpl"}

@@ -24,24 +24,24 @@
 
     <div class = "statistics col-sm-12 text-center">
         <span>
-            <i class = "glyphicon glyphicon-user"></i>
+            <i class = "glyphicon glyphicon-user" alt=""></i>
              <a href = "{profileUrl($question['user_id'])}" class = "question-user" data-url="{profileUrl('')}">
                 {$question['username']}
             </a>
         </span>
         {if $question['solved']}
             <span class = "text-success question-solved-status">
-                <i class = "glyphicon glyphicon-check"></i>
+                <i class = "glyphicon glyphicon-check" alt=""></i>
                 <span>Solved</span>
             </span>
         {else}
             <span class = "text-danger question-solved-status">
-                <i class = "glyphicon glyphicon-check"></i>
+                <i class = "glyphicon glyphicon-check" alt=""></i>
                 <span>Not Solved</span>
             </span>
         {/if}
         <span>
-            <i class = "glyphicon glyphicon-time"></i>
+            <i class = "glyphicon glyphicon-time" alt=""></i>
             <span class = "question-updated-at">
                 {if $question['updated_at']}
                     {$question['updated_at']}
@@ -51,14 +51,14 @@
             </span>
         </span>
         <span>
-            <i class = "glyphicon glyphicon-comment"></i>
+            <i class = "glyphicon glyphicon-comment" alt=""></i>
             <span class = "question-answers">{$question['number_answers']} answer{if $question['number_answers'] != 1 }s{/if}</span>
         </span>
-        <!--{if  (intval($question['user_id']) == intval($session_id))}
+        {if  (intval($question['user_id']) == intval($session_id))}
             <div class = "col-sm-3 col-sm-offset-3 ">
                 <button type = "button" class = "btn btn-primary" data-toggle = "modal" data-target = "#exampleModal" data-whatever = "@mdo">Edit</button>
             </div>
-        {/if}-->
+        {/if}
     </div>
 </div>
 

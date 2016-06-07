@@ -1,6 +1,6 @@
 {include file='common/header.tpl'}
 
-<div class = "intro-header">
+<div class = "intro-header" alt ="feup-background">
     <div class = "row" style = "margin: 0 auto">
         <div class = "col-lg-12">
             <div class = "overlay"></div>
