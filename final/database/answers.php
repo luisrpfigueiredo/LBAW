@@ -27,10 +27,10 @@ function answersFromQuestion($q_id)
 {
     global $conn;
 
-    $stmt = $conn->prepare("SELECT id, user_id,body,created_at,updated_at,votable_rating(id, 'a') as votes
-
-   							FROM answers
-   							WHERE question_id=?");
+    $stmt = $conn->prepare("SELECT answers.id, user_id,body,answers.created_at,updated_at,votable_rating(answers.id, 'a') as votes, username
+   							FROM answers, users
+   							WHERE question_id=?
+   							AND user_id = users.id");
    $stmt->execute([$q_id]);
    $rows = $stmt->fetchAll();
 
