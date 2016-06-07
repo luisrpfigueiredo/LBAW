@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    window.setInterval(function(){
-        $('body').find('.count.vote-count').each(function(index) {
+    window.setInterval(function () {
+        $('body').find('.count.vote-count').each(function (index) {
             var current = $(this);
             var url = current.data('url');
             var parent = current.parent();
@@ -14,7 +14,8 @@ $(document).ready(function () {
         });
     }, 1000);
 
-    $(".increment.up").on('click', function () {
+    $(".increment.up").on('click', function (e) {
+        e.stopPropagation();
         console.log("voting up");
         var parent = $(this).parent();
         var voteType = parent.data('type');
@@ -27,7 +28,8 @@ $(document).ready(function () {
         });
     });
 
-    $(".increment.down").on('click', function () {
+    $(".increment.down").on('click', function (e) {
+        e.stopPropagation();
         console.log("voting down");
         var parent = $(this).parent();
         var voteType = parent.data('type');
@@ -44,12 +46,12 @@ $(document).ready(function () {
 function setVotingStatus(object, result) {
     object.find('.increment').removeClass('active');
 
-    if(result == 1) {
-        $('.increment.up', object).addClass('active');
+    if (result == 1) {
+        object.find('.increment.up').addClass('active');
     }
 
-    if(result == -1) {
-        $('.increment.down', object).addClass('active');
+    if (result == -1) {
+        object.find('.increment.down').addClass('active');
     }
 }
 

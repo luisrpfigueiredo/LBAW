@@ -32,9 +32,24 @@ function addNewQuestions(objects) {
         updateSolvedStatus(newObject.find('.question-solved-status'), object.solved);
         updateDate(newObject.find('.question-updated-at'), object);
         updateNumberAnswers(newObject.find('.question-answers'), object.number_answers);
+        updateVotes(newObject.find('.vote.chev'), object);
 
         $('.question-space').append(newObject);
     });
+}
+
+function updateVotes(votes, object) {
+    votes.data('id', object.id);
+
+    votes.find('.increment').removeClass('active');
+
+    if(object.voted == 1) {
+        $('.increment.up', votes).addClass('active');
+    }
+
+    if(object.voted == -1) {
+        $('.increment.down', votes).addClass('active');
+    }
 }
 
 function updateTitleAndLink(questionTitle, object) {

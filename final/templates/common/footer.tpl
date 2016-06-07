@@ -14,6 +14,8 @@
 {/foreach}
 <br class = "clearfix">
 
-{HTML::script('votes/myVoting.js')}
+{if $LOGGED_IN}
+    {HTML::script('votes/myVoting.js')}
+{/if}
 </body>
 </html>

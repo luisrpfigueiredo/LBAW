@@ -53,11 +53,6 @@
             <i class = "glyphicon glyphicon-comment"></i>
             <span class = "question-answers">{$question['number_answers']} answer{if $question['number_answers'] != 1 }s{/if}</span>
         </span>
-        <!--{if  (intval($question['user_id']) == intval($session_id))}
-            <div class = "col-sm-3 col-sm-offset-3 ">
-                <button type = "button" class = "btn btn-primary" data-toggle = "modal" data-target = "#exampleModal" data-whatever = "@mdo">Edit</button>
-            </div>
-        {/if}-->
     </div>
 </div>
 
