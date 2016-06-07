@@ -21,7 +21,7 @@
         </p>
         <div class = "options pull-right{if !$question['isMine']} hidden{/if}" style = "margin-bottom:5px;">
             <button class = "btn btn-primary btn-xs edit-question" data-url = "{editQuestionUrl('')}">Edit</button>
-            <button id="{$question['id']}" class = "btn btn-success btn-xs trigger-question-solved{if $question['solved']} hidden{/if}"
+            <button class = "btn btn-success btn-xs trigger-question-solved{if $question['solved']} hidden{/if}"
             data-url="{questionSolvedUrl('')}">Mark as solved</button>
         </div>
     </div>

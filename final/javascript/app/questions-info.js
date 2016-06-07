@@ -1,5 +1,5 @@
-$(document).ready(function (){
-    $("body").on('click', '.trigger-question-solved', function() {
+$(document).ready(function () {
+    $("body").on('click', '.trigger-question-solved', function () {
         var url = $(this).data('url');
         var parent = $(this).closest('.question-info-container');
         var id = parent.data('id');
@@ -7,11 +7,19 @@ $(document).ready(function (){
 
         $.get(url + id, function (data) {
             data = $.parseJSON(data);
-            if(data.status) {
+            if (data.status) {
                 parent.find('.question-solved-status').removeClass('text-danger').addClass('text-success');
                 parent.find('.question-solved-status').find('span').html('Solved');
                 current.addClass('hidden');
             }
         });
+    });
+
+    $("body").on('click', '.edit-question', function () {
+        var url = $(this).data('url');
+        var parent = $(this).closest('.question-info-container');
+        var id = parent.data('id');
+
+        window.location.href = url + id;
     });
 });
