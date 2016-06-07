@@ -94,11 +94,11 @@ function answers_are_voted($answers)
     return $answers;
 }
 
-function getRating($data)
+function getRating($id, $type)
 {
     global $conn;
     $stmt = $conn->prepare("SELECT votable_rating(?, ?) as result FROM votes");
-    $stmt->execute(array($data['votable_id'], $data['votable_type']));
+    $stmt->execute([$id, $type]);
 
     return $stmt->fetch();
 }
