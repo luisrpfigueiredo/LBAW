@@ -41,9 +41,36 @@ function questionsFromIds($ids = [])
     $stmt->execute($ids);
     $rows = $stmt->fetchAll();
 
-    $rows = questions_are_voted($rows);
+    $rows = addQuestionsComputedFields($rows);
 
     return $rows;
+}
+
+function addQuestionsComputedFields($questions)
+{
+    foreach ($questions as &$question) {
+        $question['voted'] = question_is_voted($question['id']);
+        $question['isMine'] = question_is_mine($question);
+    }
+
+    return $questions;
+}
+
+function questionMarkSolved($id)
+{
+    global $conn;
+
+    $stmt = $conn->prepare("UPDATE questions SET solved=true WHERE id=:id");
+    $stmt->execute(['id' => $id]);
+}
+
+function question_is_mine($question)
+{
+    if (!$_SESSION['logged_in']) {
+        return false;
+    }
+
+    return $question['user_id'] == auth_user('id');
 }
 
 function createQuestion($data)
@@ -87,5 +114,9 @@ function getQuestionsOfUser($user_id, $page = 0)
         'skip'  => $page * $limit_question
     ]);
 
-    return $stmt->fetchAll();
+    $rows = $stmt->fetchAll();
+
+    $rows = addQuestionsComputedFields($rows);
+
+    return $rows;
 }

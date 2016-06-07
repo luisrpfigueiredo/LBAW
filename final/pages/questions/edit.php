@@ -27,4 +27,5 @@ foreach ($tags as $tag) {
 
 $smarty->assign('question', $question);
 $smarty->assign('question_tags', $tags_format);
+
 $smarty->display('questions/edit.tpl');

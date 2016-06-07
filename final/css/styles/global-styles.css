@@ -30,6 +30,8 @@ body {
 
 p.question-description {
     color: #848991;
+    -ms-word-break:break-all;
+    word-break:break-all;
 }
 
 div.statistics {

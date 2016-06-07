@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    window.setInterval(function () {
+    /*window.setInterval(function () {
         $('body').find('.count.vote-count').each(function (index) {
             var current = $(this);
             var url = current.data('url');
@@ -12,7 +12,7 @@ $(document).ready(function () {
                 current.html(data.rating);
             });
         });
-    }, 1000);
+    }, 1000);*/
 
     $(".increment.up").on('click', function (e) {
         e.stopPropagation();

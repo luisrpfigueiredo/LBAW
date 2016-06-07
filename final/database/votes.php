@@ -45,15 +45,6 @@ function votable_is_voted($type, $votable_id)
     }
 }
 
-function questions_are_voted($questions)
-{
-    foreach ($questions as &$question) {
-        $question['voted'] = question_is_voted($question['id']);
-    }
-
-    return $questions;
-}
-
 function question_is_voted($question_id)
 {
     global $conn;
@@ -92,15 +83,6 @@ function answer_is_voted($answer_id)
     }
 
     return -1;
-}
-
-function answers_are_voted($answers)
-{
-    foreach ($answers as &$answer) {
-        $answer['voted'] = answer_is_voted($answer['id']);
-    }
-
-    return $answers;
 }
 
 function getRating($id, $type)

@@ -4,22 +4,22 @@ include_once('votes.php');
 function createAnswer($data)
 {
     global $conn;
-    echo ($data['user_id']);
-    echo ($data['question_id']);
-    echo ($data['body']);
+    echo($data['user_id']);
+    echo($data['question_id']);
+    echo($data['body']);
 
     $stmt = $conn->prepare("INSERT INTO answers (user_id, question_id, body) VALUES(?,?,?)");
-    $stmt->execute(array($data['user_id'],$data['question_id'],$data['body']));
+    $stmt->execute(array($data['user_id'], $data['question_id'], $data['body']));
 
     return intval($data['question_id']);
 }
 
 function editAnswer($data)
 {
-     global $conn;
+    global $conn;
 
     $stmt = $conn->prepare("UPDATE answers SET  body = ? WHERE id=?");
-    $stmt->execute(array($data['body'],$data['id']));
+    $stmt->execute(array($data['body'], $data['id']));
 
     return intval($data['question_id']);
 }
@@ -32,12 +32,31 @@ function answersFromQuestion($q_id)
    							FROM answers, users
    							WHERE question_id=?
    							AND user_id = users.id");
-   $stmt->execute([$q_id]);
-   $rows = $stmt->fetchAll();
+    $stmt->execute([$q_id]);
+    $rows = $stmt->fetchAll();
 
-    $rows = answers_are_voted($rows);
+    $rows = addAnswersComputedFields($rows);
 
     return $rows;
+}
+
+function addAnswersComputedFields($answers)
+{
+    foreach ($answers as &$answer) {
+        $answer['voted'] = answer_is_voted($answer['id']);
+        $answer['isMine'] = answer_is_mine($answer);
+    }
+
+    return $answers;
+}
+
+function answer_is_mine($answer)
+{
+    if (!$_SESSION['logged_in']) {
+        return false;
+    }
+
+    return $answer['user_id'] == auth_user('id');
 }
 
 function answersFromIds($ids = [])

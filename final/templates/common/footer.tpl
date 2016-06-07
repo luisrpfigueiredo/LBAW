@@ -15,6 +15,7 @@
 <br class = "clearfix">
 
 {if $LOGGED_IN}
+    {HTML::script('app/questions-info.js')}
     {HTML::script('votes/myVoting.js')}
 {/if}
 </body>
