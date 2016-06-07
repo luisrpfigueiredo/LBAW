@@ -1,18 +1,39 @@
-$(document).ready(function() {
-    $(".increment.up").on('click', function() {
-        var voteType = $(this).parent().data('type');
-        var voteId = $(this).parent().data('id');
+$(document).ready(function () {
+    $(".increment.up").on('click', function () {
+        console.log("voting up");
+        var parent = $(this).parent();
+        var voteType = parent.data('type');
+        var voteId = parent.data('id');
+        var url = parent.data('url');
 
-        $.get($(this).data('url') + '?query={$query}&page=' + next_page, function (data) {
-            
+        $.get(url + '?type=' + voteType + '&id=' + voteId + '&value=1', function (data) {
+            data = JSON.parse(data);
+            setVotingStatus(parent, data.result);
         });
-        $(this).addClass('active');
     });
 
-    $(".increment.down").on('click', function() {
-        var voteType = $(this).parent().data('type');
-        var voteId = $(this).parent().data('id');
+    $(".increment.down").on('click', function () {
+        console.log("voting down");
+        var parent = $(this).parent();
+        var voteType = parent.data('type');
+        var voteId = parent.data('id');
+        var url = parent.data('url');
 
-        $(this).addClass('active');
+        $.get(url + '?type=' + voteType + '&id=' + voteId + '&value=-1', function (data) {
+            data = JSON.parse(data);
+            setVotingStatus(parent, data.result);
+        });
     });
 });
+
+function setVotingStatus(object, result) {
+    object.find('.increment').removeClass('active');
+
+    if(result == 1) {
+        $('.increment.up', object).addClass('active');
+    }
+
+    if(result == -1) {
+        $('.increment.down', object).addClass('active');
+    }
+}
