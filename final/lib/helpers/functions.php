@@ -47,6 +47,11 @@ function editQuestionUrl($question_id)
     return url('pages/questions/edit', ['question' => $question_id]);
 }
 
+function editAnswerUrl($answer_id)
+{
+    return url('pages/answers/edit', ['answer' => $answer_id]);
+}
+
 function questionSolvedUrl($question_id)
 {
     return url('api/questions/solved', ['question' => $question_id]);

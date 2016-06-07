@@ -16,7 +16,7 @@
         </h3>
         <p class = "question-description">
             <a href = "{questionUrl($question['id'])}" class = "question-body" data-base-question-url = "{questionUrl('')}">
-                {$question['body']}
+                {nl2br($question['body'])}
             </a>
         </p>
         <div class = "options pull-right{if !$question['isMine']} hidden{/if}" style = "margin-bottom:5px;">

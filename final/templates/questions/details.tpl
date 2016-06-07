@@ -19,4 +19,6 @@
 
 </div>
 
+{HTML::script('app/answers.js')}
+
 {include file='common/footer.tpl'}

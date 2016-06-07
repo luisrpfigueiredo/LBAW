@@ -1,4 +1,4 @@
-<div class = "col-sm-11 container-white answer-info-container  pull-right sizeSelector">
+<div class = "col-sm-11 container-white answer-info-container  pull-right sizeSelector" data-id="{$answer['id']}">
     <div class = "col-sm-2">
         {$votable_type='a'}
         {if $LOGGED_IN}
@@ -11,8 +11,12 @@
 
     <div class = "col-sm-10">
         <p class = "answer-description">
-            {$answer['body']}
+            {nl2br($answer['body'])}
         </p>
+
+        <div class = "options pull-right{if !$answer['isMine']} hidden{/if}">
+            <button class = "btn btn-primary btn-xs edit-answer" data-url = "{editAnswerUrl('')}">Edit</button>
+        </div>
     </div>
 
     <div class = "statistics col-sm-12 text-center">
@@ -31,14 +35,6 @@
                     {$answer['created_at']}
                 {/if}</span>
         </span>
-        <!--{if  (intval($answer['user_id']) == intval($session_id))}
-            <form class = "form-horizontal" method="post" action = "{$BASE_URL}actions/answers/edit.php">
-                <div class = "col-sm-3 col-sm-offset-3 ">
-                    <button class = "btn btn-primary " type = "submit">Edit</button>
-                </div>
-            </form>
-
-        {/if}-->
 
     </div>
 </div>

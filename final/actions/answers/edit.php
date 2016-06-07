@@ -1,26 +1,23 @@
 <?php
 include_once('../../config/init.php');
-include_once($BASE_DIR . 'database/questions.php');
-include_once($BASE_DIR . 'database/tags.php');
+include_once($BASE_DIR . 'database/answers.php');
 
 // TODO OWNED PERMISSION
 PagePermissions::create('auth')->check();
 
-validateInput();
-$question_id = $_POST['question_id'];
-$data = [
+$answer_id = $_POST['answer_id'];
+$body = $_POST['body'];
+$answers = answersFromIds([$answer_id]);
+$answer = $answers[0];
 
-    'body'        => $_POST['body']
-];
+if (!answer_is_mine($answer)) {
+    $_SESSION['error_messages'][] = 'No permissions!';
+    redirect();
+}
+
 try {
-    $conn->beginTransaction();
-
-    editAnswer($data);
-
-    $conn->commit();
-
-
-    redirect('pages/questions/details.php?question=' . $question_id);
+    editAnswer($answer_id, $body);
+    redirect('pages/questions/details.php?question=' . $answer['question_id']);
 
 } catch (PDOexception $e) {
     dd($e->getMessage());
