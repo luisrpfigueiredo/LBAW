@@ -8,24 +8,14 @@ include_once($BASE_DIR . 'database/users.php');
 $questions = questionsFromIds([intval($_GET['question'])]);
 $question = $questions[0];
 
+//0 , 1 or -1
+$question['voted'] = question_is_voted($question['id']);
+
 $answers = answersFromQuestion(intval( $_GET['question']));
-
-foreach ($answers as $answer)
-{
-    $answerUsernames[$answer['id']] = getUsernameFromUserID($answer['user_id']);
-   $resultadoA[$answer['id']] = verifyVote(array($_SESSION['user']['id'],$answer['id'],'a'));
-   
-}
-
-$resultadoQ = verifyVote(array($_SESSION['user']['id'],$question['id'],'q'));
+$answers = answers_are_voted($answers);
 
 $smarty->assign('session_id',$_SESSION['user']['id']);
 $smarty->assign('answers', $answers);
 $smarty->assign('question', $question);
-
-$smarty->assign('resultadoA', $resultadoA);
-$smarty->assign('resultadoQ', $resultadoQ);
-
-$smarty->assign('answerUsernames', $answerUsernames);
 
 $smarty->display('questions/details.tpl');

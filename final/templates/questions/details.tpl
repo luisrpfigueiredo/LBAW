@@ -18,7 +18,7 @@
 
 
 </div>
-
+{HTML::script('votes/myVoting.js')}
 
 
 {include file='common/footer.tpl'}
