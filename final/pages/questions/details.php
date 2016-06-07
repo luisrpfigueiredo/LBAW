@@ -8,11 +8,7 @@ include_once($BASE_DIR . 'database/users.php');
 $questions = questionsFromIds([intval($_GET['question'])]);
 $question = $questions[0];
 
-//0 , 1 or -1
-$question['voted'] = question_is_voted($question['id']);
-
 $answers = answersFromQuestion(intval( $_GET['question']));
-$answers = answers_are_voted($answers);
 
 $smarty->assign('session_id',$_SESSION['user']['id']);
 $smarty->assign('answers', $answers);

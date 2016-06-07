@@ -13,5 +13,7 @@
     </div>
 {/foreach}
 <br class = "clearfix">
+
+{HTML::script('votes/myVoting.js')}
 </body>
 </html>

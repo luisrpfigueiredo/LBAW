@@ -1,4 +1,5 @@
 <?php
+include_once('votes.php');
 
 function lastCreated($page = 0)
 {
@@ -18,6 +19,8 @@ function lastCreated($page = 0)
     $stmt->execute(['limit' => $limit, 'skip' => $skip]);
     $rows = $stmt->fetchAll();
 
+    $rows = questions_are_voted($rows);
+    
     return $rows;
 }
 
@@ -40,6 +43,8 @@ function lastUpdated($page = 0)
     $stmt->execute(['limit' => $limit, 'skip' => $skip]);
     $rows = $stmt->fetchAll();
 
+    $rows = questions_are_voted($rows);
+
     return $rows;
 }
 
@@ -60,6 +65,8 @@ function lastWeek($page = 0)
         OFFSET :skip");
     $stmt->execute(['limit' => $limit, 'skip' => $skip]);
     $rows = $stmt->fetchAll();
+
+    $rows = questions_are_voted($rows);
 
     return $rows;
 }
@@ -82,6 +89,8 @@ function lastMonth($page = 0)
     
     $stmt->execute(['limit' => $limit, 'skip' => $skip]);
     $rows = $stmt->fetchAll();
+
+    $rows = questions_are_voted($rows);
 
     return $rows;
 }

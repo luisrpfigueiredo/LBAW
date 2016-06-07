@@ -1,4 +1,5 @@
 <?php
+include_once('votes.php');
 
 function createAnswer($data)
 {
@@ -33,6 +34,8 @@ function answersFromQuestion($q_id)
    							AND user_id = users.id");
    $stmt->execute([$q_id]);
    $rows = $stmt->fetchAll();
+
+    $rows = answers_are_voted($rows);
 
     return $rows;
 }

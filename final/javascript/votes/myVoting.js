@@ -9,7 +9,6 @@ $(document).ready(function () {
 
             $.get(url + '?type=' + voteType + '&id=' + voteId, function (data) {
                 data = JSON.parse(data);
-                console.log(data);
                 current.html(data.rating);
             });
         });
