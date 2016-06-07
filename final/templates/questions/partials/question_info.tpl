@@ -56,18 +56,18 @@
     </div>
 </div>
 
-<div class = "modal fade" id = "exampleModal" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel">
+<div class = "modal fade exampleModal" tabindex = "-1" role = "dialog">
     <div class = "modal-dialog" role = "document">
         <div class = "modal-content">
             <div class = "modal-header">
                 <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
                     <span aria-hidden = "true">&times;</span></button>
-                <h4 class = "modal-title" id = "exampleModalLabel">Edit Answer</h4>
+                <h4 class = "modal-title exampleModalLabel">Edit Answer</h4>
             </div>
             <form action="{url('actions/answers/edit')}" method="post">
                 <div class = "modal-body">
                     <div class = "form-group">
-                        <textarea input type = "text" name="password" class = "form-control" id = "recipient-name" rows="6">{$question['body']} </textarea>
+                        <textarea name="password" class = "form-control recipient-name" rows="6">{$question['body']}</textarea>
                     </div>
                 </div>
                 <div class = "modal-footer">
