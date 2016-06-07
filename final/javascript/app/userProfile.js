@@ -25,6 +25,7 @@ function addNewQuestions(objects) {
     $.each(objects, function (i, object) {
         var newObject = $('.question-info-container:last-child').clone(true);
 
+        newObject.attr('data-id', object.id);
         newObject.find('.vote-count').html(object.votes);
         updateTitleAndLink(newObject.find('.question-title'), object);
         updateBodyAndLink(newObject.find('.question-body'), object);

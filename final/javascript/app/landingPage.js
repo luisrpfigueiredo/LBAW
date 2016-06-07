@@ -18,6 +18,8 @@ function addNewQuestions(objects) {
         var newLine = lastItem.clone(true);
         $.each(chunk, function (i, object) {
             var newObject = newLine.find('.question-col:eq(' + i + ')');
+
+            newObject.find('.question-info-container').attr('data-id', object.id);
             newObject.find('.vote-count').html(object.votes);
             updateTitleAndLink(newObject.find('.question-title'), object);
             updateBodyAndLink(newObject.find('.question-body'), object);
@@ -33,7 +35,7 @@ function addNewQuestions(objects) {
 }
 
 function updateVotes(votes, object) {
-    votes.data('id', object.id);
+    votes.attr('data-id', object.id);
 
     votes.find('.increment').removeClass('active');
 
